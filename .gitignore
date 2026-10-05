@@ -5,7 +5,7 @@
 .vscode/
 
 # todo: 可能使用的测试素材
-assert/test/
+assets/test/
 # # 移除测试素材内的垃圾内容
 # *.pdf
 # *.zip

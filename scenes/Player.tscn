@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://022fi7cav8ro"]
 
-[ext_resource type="Texture2D" uid="uid://dgdprqk4vaikd" path="res://assert/icon.svg" id="1_p0vlq"]
+[ext_resource type="Texture2D" uid="uid://dgdprqk4vaikd" path="res://assets/icon.svg" id="1_p0vlq"]
 [ext_resource type="Script" uid="uid://dd0e6tgl84g0" path="res://scripts/Player.cs" id="1_v6fml"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0gvmv"]
