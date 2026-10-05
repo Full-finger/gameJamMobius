@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://dw13jweir71ce"]
+
+[ext_resource type="Script" uid="uid://cp22xkhipcic2" path="res://scenes/PauseMenu.cs" id="1_n87rw"]
+
+[sub_resource type="Theme" id="Theme_uahpa"]
+default_font_size = 48
+Label/font_sizes/font_size = 48
+
+[sub_resource type="Theme" id="Theme_n87rw"]
+default_font_size = 42
+
+[node name="PauseMenu" type="CanvasLayer" unique_id=1057490932 node_paths=PackedStringArray("restartButton", "menuButton")]
+script = ExtResource("1_n87rw")
+restartButton = NodePath("Control/VBoxContainer/RestartButton")
+menuButton = NodePath("Control/VBoxContainer/ReturnMainButton")
+
+[node name="Control" type="Control" parent="." unique_id=1870549707]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control" unique_id=82572329]
+layout_mode = 1
+offset_right = 400.0
+offset_bottom = 1080.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control" unique_id=1069650336]
+propagate_maximum_size = false
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -3.0
+offset_top = -53.0
+offset_right = 402.0
+offset_bottom = 181.0
+grow_vertical = 2
+
+[node name="RestartButton" type="Button" parent="Control/VBoxContainer" unique_id=554842898]
+layout_mode = 2
+theme = SubResource("Theme_uahpa")
+text = "RESTART"
+
+[node name="ReturnMainButton" type="Button" parent="Control/VBoxContainer" unique_id=1589921213]
+layout_mode = 2
+theme = SubResource("Theme_n87rw")
+text = "RETURN TO MENU"

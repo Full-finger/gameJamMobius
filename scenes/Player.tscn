@@ -1,21 +1,315 @@
 [gd_scene format=3 uid="uid://022fi7cav8ro"]
 
-[ext_resource type="Texture2D" uid="uid://dgdprqk4vaikd" path="res://assert/icon.svg" id="1_p0vlq"]
 [ext_resource type="Script" uid="uid://dd0e6tgl84g0" path="res://scripts/Player.cs" id="1_v6fml"]
+[ext_resource type="Texture2D" uid="uid://plmdnywvr2e6" path="res://assets/sprite/PlayerSprite/young/idle/the old man-idel_00.png" id="2_agngo"]
+[ext_resource type="Texture2D" uid="uid://b00ymq7rtxpc6" path="res://assets/sprite/PlayerSprite/young/idle/the old man-idel_01.png" id="3_qrixf"]
+[ext_resource type="Texture2D" uid="uid://cv02qikwekn8w" path="res://assets/sprite/PlayerSprite/young/idle/the old man-idel_02.png" id="4_qmt83"]
+[ext_resource type="Texture2D" uid="uid://dxv6mwkljnesw" path="res://assets/sprite/PlayerSprite/young/idle/the old man-idel_03.png" id="5_m4as6"]
+[ext_resource type="Texture2D" uid="uid://byjsaojg6yv08" path="res://assets/sprite/PlayerSprite/young/idle/the old man-idel_04.png" id="6_b1r6t"]
+[ext_resource type="Texture2D" uid="uid://do6fnut7ulc0h" path="res://assets/sprite/PlayerSprite/young/idle/the old man-idel_05.png" id="7_c0asu"]
+[ext_resource type="Texture2D" uid="uid://ddeubgjbu3nk6" path="res://assets/sprite/PlayerSprite/young/idle/the old man-idel_06.png" id="8_fq1a3"]
+[ext_resource type="Texture2D" uid="uid://8nfs777dnrgc" path="res://assets/sprite/PlayerSprite/young/idle/the old man-idel_07.png" id="9_gu4mg"]
+[ext_resource type="Texture2D" uid="uid://e4qq46o1gvxh" path="res://assets/sprite/PlayerSprite/young/idle/the old man-idel_08.png" id="10_tk6la"]
+[ext_resource type="Texture2D" uid="uid://clw0xkup6cj3r" path="res://assets/sprite/PlayerSprite/young/idle/the old man-idel_09.png" id="11_yrxk4"]
+[ext_resource type="Texture2D" uid="uid://h1ihvcvgcat1" path="res://assets/sprite/PlayerSprite/young/idle/the old man-idel_10.png" id="12_eg1p0"]
+[ext_resource type="Texture2D" uid="uid://2735wpsu0qxi" path="res://assets/sprite/PlayerSprite/young/idle/the old man-idel_11.png" id="13_x2u8p"]
+[ext_resource type="Texture2D" uid="uid://dq0aba7fxjsgv" path="res://assets/sprite/PlayerSprite/young/idle/the old man-idel_12.png" id="14_qv10x"]
+[ext_resource type="Texture2D" uid="uid://8kj3d8i7vxrr" path="res://assets/sprite/PlayerSprite/young/idle/the old man-idel_13.png" id="15_qdxpi"]
+[ext_resource type="Texture2D" uid="uid://dhadhqcb6jpq7" path="res://assets/sprite/PlayerSprite/young/idle/the old man-idel_14.png" id="16_7b437"]
+[ext_resource type="Texture2D" uid="uid://5vly585mrjv3" path="res://assets/sprite/PlayerSprite/young/idle/the old man-idel_15.png" id="17_8nyu3"]
+[ext_resource type="Texture2D" uid="uid://egk6i3mj1jor" path="res://assets/sprite/PlayerSprite/young/idle/the old man-idel_16.png" id="18_priom"]
+[ext_resource type="Texture2D" uid="uid://d212jx84kggv0" path="res://assets/sprite/PlayerSprite/young/idle/the old man-idel_17.png" id="19_lt3gi"]
+[ext_resource type="Texture2D" uid="uid://wneb04uinpb4" path="res://assets/sprite/PlayerSprite/young/idle/the old man-idel_18.png" id="20_akpgi"]
+[ext_resource type="Texture2D" uid="uid://dxnei0w77hf6j" path="res://assets/sprite/PlayerSprite/young/idle/the old man-idel_19.png" id="21_kumhx"]
+[ext_resource type="Texture2D" uid="uid://cnpcmshw71hgm" path="res://assets/sprite/PlayerSprite/young/idle/the old man-idel_20.png" id="22_100hb"]
+[ext_resource type="Texture2D" uid="uid://brhiixb0v32xh" path="res://assets/sprite/PlayerSprite/young/idle/the old man-idel_21.png" id="23_7odld"]
+[ext_resource type="Texture2D" uid="uid://bugovi7n81ytu" path="res://assets/sprite/PlayerSprite/young/idle/the old man-idel_22.png" id="24_axtmv"]
+[ext_resource type="Texture2D" uid="uid://7igiumb7q330" path="res://assets/sprite/PlayerSprite/young/idle/the old man-idel_23.png" id="25_6x32p"]
+[ext_resource type="Texture2D" uid="uid://b1jmkj365jm42" path="res://assets/sprite/PlayerSprite/young/idle/the old man-idel_24.png" id="26_pusvq"]
+[ext_resource type="Texture2D" uid="uid://c3v3aapwu5at6" path="res://assets/sprite/PlayerSprite/young/idle/the old man-idel_25.png" id="27_qduiv"]
+[ext_resource type="Texture2D" uid="uid://c3ghtxiom8iyc" path="res://assets/sprite/PlayerSprite/young/idle/the old man-idel_26.png" id="28_7yj0e"]
+[ext_resource type="Texture2D" uid="uid://di7dw35t0aoeb" path="res://assets/sprite/PlayerSprite/young/idle/the old man-idel_27.png" id="29_c0jld"]
+[ext_resource type="Texture2D" uid="uid://bm8u4qot5td0i" path="res://assets/sprite/PlayerSprite/young/idle/the old man-idel_28.png" id="30_mdclj"]
+[ext_resource type="Texture2D" uid="uid://c716bf06a3k13" path="res://assets/sprite/PlayerSprite/young/idle/the old man-idel_29.png" id="31_ml80s"]
+[ext_resource type="Texture2D" uid="uid://cn8r04xrgqa5n" path="res://assets/sprite/PlayerSprite/young/idle/the old man-idel_30.png" id="32_vdgyb"]
+[ext_resource type="Texture2D" uid="uid://diks06otyqyif" path="res://assets/sprite/PlayerSprite/young/idle/the old man-idel_31.png" id="33_jvyme"]
+[ext_resource type="Texture2D" uid="uid://b345fcvpa6rw8" path="res://assets/sprite/PlayerSprite/young/jump/the old man-jump_00.png" id="34_1nh4m"]
+[ext_resource type="Texture2D" uid="uid://d1wfh81oao4b8" path="res://assets/sprite/PlayerSprite/young/jump/the old man-jump_01.png" id="35_2hk6f"]
+[ext_resource type="Texture2D" uid="uid://v076bfrrntmy" path="res://assets/sprite/PlayerSprite/young/jump/the old man-jump_02.png" id="36_xmxrx"]
+[ext_resource type="Texture2D" uid="uid://uyvna2mpr04n" path="res://assets/sprite/PlayerSprite/young/jump/the old man-jump_03.png" id="37_kvw7q"]
+[ext_resource type="Texture2D" uid="uid://blx02h1iok20p" path="res://assets/sprite/PlayerSprite/young/jump/the old man-jump_04.png" id="38_p0eor"]
+[ext_resource type="Texture2D" uid="uid://cmc2vgb6k68w8" path="res://assets/sprite/PlayerSprite/young/jump/the old man-jump_05.png" id="39_nrwhh"]
+[ext_resource type="Texture2D" uid="uid://cp1onagqbtbaq" path="res://assets/sprite/PlayerSprite/young/jump/the old man-jump_06.png" id="40_s7djh"]
+[ext_resource type="Texture2D" uid="uid://cmuipvua1iex3" path="res://assets/sprite/PlayerSprite/young/jump/the old man-jump_07.png" id="41_wx1s8"]
+[ext_resource type="Texture2D" uid="uid://crpk40ro08fxw" path="res://assets/sprite/PlayerSprite/young/jump/the old man-jump_08.png" id="42_im07a"]
+[ext_resource type="Texture2D" uid="uid://bhy3704ymwmye" path="res://assets/sprite/PlayerSprite/young/jump/the old man-jump_09.png" id="43_dsbg5"]
+[ext_resource type="Texture2D" uid="uid://d14k7wn7goige" path="res://assets/sprite/PlayerSprite/young/jump/the old man-jump_10.png" id="44_uobdy"]
+[ext_resource type="Texture2D" uid="uid://byhhsaidfsw88" path="res://assets/sprite/PlayerSprite/young/jump/the old man-jump_11.png" id="45_iv1vf"]
+[ext_resource type="Texture2D" uid="uid://dycapjcli23ow" path="res://assets/sprite/PlayerSprite/young/jump/the old man-jump_12.png" id="46_2viqe"]
+[ext_resource type="Texture2D" uid="uid://cvet1vp4iy2y8" path="res://assets/sprite/PlayerSprite/young/jump/the old man-jump_13.png" id="47_rjt17"]
+[ext_resource type="Texture2D" uid="uid://dgn14ons5l34" path="res://assets/sprite/PlayerSprite/young/jump/the old man-jump_14.png" id="48_27epi"]
+[ext_resource type="Texture2D" uid="uid://ctnib6h6llf6j" path="res://assets/sprite/PlayerSprite/young/jump/the old man-jump_15.png" id="49_84ti5"]
+[ext_resource type="Texture2D" uid="uid://bji11qrt3n13e" path="res://assets/sprite/PlayerSprite/young/jump/the old man-jump_16.png" id="50_afj6a"]
+[ext_resource type="Texture2D" uid="uid://cmq6gew3ve1wb" path="res://assets/sprite/PlayerSprite/young/jump/the old man-jump_17.png" id="51_cji5y"]
+[ext_resource type="Texture2D" uid="uid://c3vua2rvvrcv4" path="res://assets/sprite/PlayerSprite/young/jump/the old man-jump_18.png" id="52_blnfk"]
+[ext_resource type="Texture2D" uid="uid://bjuu5ahe87pei" path="res://assets/sprite/PlayerSprite/young/jump/the old man-jump_19.png" id="53_qabq5"]
+[ext_resource type="Texture2D" uid="uid://c0ouy52cdc4gn" path="res://assets/sprite/PlayerSprite/young/walk/the old man-walk_00.png" id="54_bqny8"]
+[ext_resource type="Texture2D" uid="uid://dq6lt4w6agmbq" path="res://assets/sprite/PlayerSprite/young/walk/the old man-walk_01.png" id="55_mgg3w"]
+[ext_resource type="Texture2D" uid="uid://cvvjwtt8hnmuw" path="res://assets/sprite/PlayerSprite/young/walk/the old man-walk_02.png" id="56_kpppk"]
+[ext_resource type="Texture2D" uid="uid://c8xaayt7n84j6" path="res://assets/sprite/PlayerSprite/young/walk/the old man-walk_03.png" id="57_sm57i"]
+[ext_resource type="Texture2D" uid="uid://d2a75owaw0bcm" path="res://assets/sprite/PlayerSprite/young/walk/the old man-walk_04.png" id="58_xdlf2"]
+[ext_resource type="Texture2D" uid="uid://b3ppibfeqhnct" path="res://assets/sprite/PlayerSprite/young/walk/the old man-walk_05.png" id="59_e2ifm"]
+[ext_resource type="Texture2D" uid="uid://6tqq64q5lao4" path="res://assets/sprite/PlayerSprite/young/walk/the old man-walk_06.png" id="60_1vqve"]
+[ext_resource type="Texture2D" uid="uid://dip1w4al4jejh" path="res://assets/sprite/PlayerSprite/young/walk/the old man-walk_07.png" id="61_xfjxt"]
+[ext_resource type="Texture2D" uid="uid://cgevb5yx5hq6b" path="res://assets/sprite/PlayerSprite/young/walk/the old man-walk_08.png" id="62_i5kac"]
+[ext_resource type="Texture2D" uid="uid://dm0sycclbqmjx" path="res://assets/sprite/PlayerSprite/young/walk/the old man-walk_09.png" id="63_qycqj"]
+[ext_resource type="Texture2D" uid="uid://c547hoesd8www" path="res://assets/sprite/PlayerSprite/young/walk/the old man-walk_10.png" id="64_24r77"]
+[ext_resource type="Texture2D" uid="uid://ovfvhvq0eht2" path="res://assets/sprite/PlayerSprite/young/walk/the old man-walk_11.png" id="65_07ay5"]
+[ext_resource type="Texture2D" uid="uid://dku76kr3sqtk2" path="res://assets/sprite/PlayerSprite/young/walk/the old man-walk_12.png" id="66_onyu1"]
+[ext_resource type="Texture2D" uid="uid://cydan5w8q1wow" path="res://assets/sprite/PlayerSprite/young/walk/the old man-walk_13.png" id="67_2cdbf"]
+[ext_resource type="Texture2D" uid="uid://66m8ouu7tq6k" path="res://assets/sprite/PlayerSprite/young/walk/the old man-walk_14.png" id="68_ksomn"]
+[ext_resource type="Texture2D" uid="uid://s4fyelyahvn" path="res://assets/sprite/PlayerSprite/young/walk/the old man-walk_15.png" id="69_we1n3"]
+[ext_resource type="Texture2D" uid="uid://cdx6wtu0pnqn6" path="res://assets/sprite/PlayerSprite/young/walk/the old man-walk_16.png" id="70_1lbfo"]
+[ext_resource type="Texture2D" uid="uid://nureo36n1qhh" path="res://assets/sprite/PlayerSprite/young/walk/the old man-walk_17.png" id="71_53r4w"]
+[ext_resource type="Texture2D" uid="uid://qlg008f0s4mr" path="res://assets/sprite/PlayerSprite/young/walk/the old man-walk_18.png" id="72_36yat"]
+[ext_resource type="Texture2D" uid="uid://dgja7hv7jotyl" path="res://assets/sprite/PlayerSprite/young/walk/the old man-walk_19.png" id="73_aybtq"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0gvmv"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_p0vlq")
+"texture": ExtResource("2_agngo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_qrixf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_qmt83")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_m4as6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_b1r6t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_c0asu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_fq1a3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_gu4mg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_tk6la")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_yrxk4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_eg1p0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_x2u8p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_qv10x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_qdxpi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_7b437")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_8nyu3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_priom")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_lt3gi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_akpgi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_kumhx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_100hb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_7odld")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_axtmv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_6x32p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_pusvq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_qduiv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_7yj0e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_c0jld")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_mdclj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_ml80s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_vdgyb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_jvyme")
 }],
 "loop": 1,
-"name": &"default",
-"speed": 5.0
+"name": &"idle",
+"speed": 40.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("34_1nh4m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_2hk6f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_xmxrx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_kvw7q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_p0eor")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_nrwhh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_s7djh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("41_wx1s8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("42_im07a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_dsbg5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44_uobdy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("45_iv1vf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("46_2viqe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("47_rjt17")
+}, {
+"duration": 1.0,
+"texture": ExtResource("48_27epi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("49_84ti5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("50_afj6a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("51_cji5y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("52_blnfk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("53_qabq5")
+}],
+"loop": 1,
+"name": &"jump",
+"speed": 24.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("54_bqny8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("55_mgg3w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("56_kpppk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("57_sm57i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("58_xdlf2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("59_e2ifm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("60_1vqve")
+}, {
+"duration": 1.0,
+"texture": ExtResource("61_xfjxt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("62_i5kac")
+}, {
+"duration": 1.0,
+"texture": ExtResource("63_qycqj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("64_24r77")
+}, {
+"duration": 1.0,
+"texture": ExtResource("65_07ay5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("66_onyu1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("67_2cdbf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("68_ksomn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("69_we1n3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("70_1lbfo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("71_53r4w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("72_36yat")
+}, {
+"duration": 1.0,
+"texture": ExtResource("73_aybtq")
+}],
+"loop": 1,
+"name": &"walk",
+"speed": 24.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ohrg4"]
-size = Vector2(130, 128)
+size = Vector2(91, 126)
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=1710452791]
 position = Vector2(1, 0)
@@ -23,8 +317,16 @@ collision_layer = 64
 script = ExtResource("1_v6fml")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1710177432]
+scale = Vector2(0.105, 0.105)
 sprite_frames = SubResource("SpriteFrames_0gvmv")
+animation = &"jump"
+autoplay = "idle"
+frame = 12
+frame_progress = 0.47210234
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1107252805]
-position = Vector2(0, -1)
+position = Vector2(-4, 62)
 shape = SubResource("RectangleShape2D_ohrg4")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1939810449]
+position_smoothing_enabled = true
