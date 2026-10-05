@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://7vuikm2c7aek"
-path="res://.godot/imported/MoBiUs.png-e5a2d1108ea783a5b9a0f0dd74949088.ctex"
+uid="uid://dgdprqk4vaikd"
+path="res://.godot/imported/icon.svg-1504a061cb2074e431638dd0c3b49b4c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://MoBiUs.png"
-dest_files=["res://.godot/imported/MoBiUs.png-e5a2d1108ea783a5b9a0f0dd74949088.ctex"]
+source_file="res://assert/icon.svg"
+dest_files=["res://.godot/imported/icon.svg-1504a061cb2074e431638dd0c3b49b4c.ctex"]
 
 [params]
 
@@ -38,3 +38,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
+svg/scale=1.0
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false
