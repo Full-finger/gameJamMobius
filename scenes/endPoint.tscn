@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://mxt78cvn5w35"]
 
 [ext_resource type="Script" uid="uid://qlmarmji4bqd" path="res://scripts/endPoint.cs" id="1_1ckhb"]
-[ext_resource type="Texture2D" uid="uid://7vuikm2c7aek" path="res://assert/MoBiUs.png" id="2_pmihl"]
+[ext_resource type="Texture2D" uid="uid://7vuikm2c7aek" path="res://assets/MoBiUs.png" id="2_pmihl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0gvmv"]
 size = Vector2(656.4103, 263.24786)

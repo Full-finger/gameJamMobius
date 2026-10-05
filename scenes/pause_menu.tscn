@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dw13jweir71ce"]
 
-[ext_resource type="Script" uid="uid://cp22xkhipcic2" path="res://scenes/PauseMenu.cs" id="1_n87rw"]
+[ext_resource type="Script" uid="uid://dtf5mhuu2tx67" path="res://scripts/PauseMenu.cs" id="1_n87rw"]
 
 [sub_resource type="Theme" id="Theme_uahpa"]
 default_font_size = 48
