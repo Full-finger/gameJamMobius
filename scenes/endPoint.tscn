@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://mxt78cvn5w35"]
+
+[ext_resource type="Script" uid="uid://qlmarmji4bqd" path="res://scripts/endPoint.cs" id="1_1ckhb"]
+[ext_resource type="Texture2D" uid="uid://7vuikm2c7aek" path="res://assert/MoBiUs.png" id="2_pmihl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0gvmv"]
+size = Vector2(656.4103, 263.24786)
+
+[node name="EndPoint" type="Area2D" unique_id=905016184]
+script = ExtResource("1_1ckhb")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1003789794]
+texture = ExtResource("2_pmihl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1697602288]
+position = Vector2(1.0000076, 14.999995)
+scale = Vector2(1.17, 1.17)
+shape = SubResource("RectangleShape2D_0gvmv")

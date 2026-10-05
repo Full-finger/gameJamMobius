@@ -3,9 +3,48 @@
 [ext_resource type="Texture2D" uid="uid://dgdprqk4vaikd" path="res://assert/icon.svg" id="1_w8frs"]
 [ext_resource type="PackedScene" uid="uid://022fi7cav8ro" path="res://scenes/Player.tscn" id="2_w7c3h"]
 [ext_resource type="PackedScene" uid="uid://cyfmxehji1crp" path="res://scenes/Light.tscn" id="3_w8frs"]
+[ext_resource type="PackedScene" uid="uid://mxt78cvn5w35" path="res://scenes/endPoint.tscn" id="4_mx8sn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ohrg4"]
 size = Vector2(529, 535)
+
+[sub_resource type="Animation" id="Animation_mx8sn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(668, 500)]
+}
+
+[sub_resource type="Animation" id="Animation_ppgk2"]
+resource_name = "new_animation"
+length = 3.0333333
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(668, 500), Vector2(882, 107)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2r41h"]
+_data = {
+&"RESET": SubResource("Animation_mx8sn"),
+&"new_animation": SubResource("Animation_ppgk2")
+}
 
 [sub_resource type="Environment" id="Environment_0gvmv"]
 background_mode = 3
@@ -23,7 +62,7 @@ texture = ExtResource("1_w8frs")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TerrainSample" unique_id=919321172]
 position = Vector2(-1.5, -3.5)
 shape = SubResource("RectangleShape2D_ohrg4")
-debug_color = Color(0, 0.5986048, 0.70989573, 0.41960785)
+debug_color = Color(1, 1, 1, 0)
 
 [node name="CharacterBody2D" parent="." unique_id=1710452791 instance=ExtResource("2_w7c3h")]
 position = Vector2(942, 426)
@@ -33,5 +72,14 @@ position = Vector2(668, 500)
 color = Color(0.9866782, 0.9866782, 0.9866782, 1)
 energy = 4.43
 
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="PointLight2D" unique_id=1822652394]
+libraries/ = SubResource("AnimationLibrary_2r41h")
+autoplay = &"new_animation"
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1882800937]
 environment = SubResource("Environment_0gvmv")
+
+[node name="Area2D" parent="." unique_id=905016184 instance=ExtResource("4_mx8sn")]
+position = Vector2(1449, 457)
+scale = Vector2(0.44, 0.44)
+collision_mask = 64
