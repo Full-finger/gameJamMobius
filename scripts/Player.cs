@@ -2,34 +2,54 @@ using Godot;
 
 public partial class Player : CharacterBody2D
 {
-    [Export] public float speed = 300f;
-    [Export] public float jumpHeight = 100f;
+	[Export] public float speed = 300f;
+	[Export] public float jumpHeight = 100f;
 
-    public override void _PhysicsProcess(double delta)
-    {
-        Vector2 velocity = Velocity;
-        Vector2 gravity = GetGravity();
+	public bool isInLight = false;
 
-        // 重力
-        if (!IsOnFloor())
-            velocity += gravity * (float)delta;
+	public override void _PhysicsProcess(double delta)
+	{
+		if (isInLight)
+		{
+			speed = Mathf.MoveToward(speed, 300f, 600f * (float)delta);
+			jumpHeight = Mathf.MoveToward(jumpHeight, 100f, 200f * (float)delta);
+		}
+		else
+		{
+			speed = Mathf.MoveToward(speed, 0f, 30f * (float)delta);
+			jumpHeight = Mathf.MoveToward(jumpHeight, 0f, 10f * (float)delta);
+		}
 
-        // 左右移动，同时按下则抵消
-        float direction = 0;
+		// 两项都耗尽，延后到本次物理处理结束后重开
+		if (speed == 0f && jumpHeight == 0f)
+		{
+			GetTree().CallDeferred(SceneTree.MethodName.ReloadCurrentScene);
+			return;
+		}
 
-        if (Input.IsActionPressed("move_left"))
-            direction -= 1;
+		Vector2 velocity = Velocity;
+		Vector2 gravity = GetGravity();
 
-        if (Input.IsActionPressed("move_right"))
-            direction += 1;
+		// 重力
+		if (!IsOnFloor())
+			velocity += gravity * (float)delta;
 
-        velocity.X = direction * speed;
+		// 左右移动
+		float direction = 0;
 
-        // 根据跳跃高度计算起跳速度
-        if (IsOnFloor() && Input.IsActionJustPressed("move_jump"))
-            velocity.Y = -Mathf.Sqrt(2f * gravity.Y * jumpHeight);
+		if (Input.IsActionPressed("move_left"))
+			direction -= 1;
 
-        Velocity = velocity;
-        MoveAndSlide();
-    }
+		if (Input.IsActionPressed("move_right"))
+			direction += 1;
+
+		velocity.X = direction * speed;
+
+		// 跳跃
+		if (IsOnFloor() && Input.IsActionJustPressed("move_jump"))
+			velocity.Y = -Mathf.Sqrt(2f * gravity.Y * jumpHeight);
+
+		Velocity = velocity;
+		MoveAndSlide();
+	}
 }

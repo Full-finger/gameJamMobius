@@ -1,23 +1,37 @@
 [gd_scene format=3 uid="uid://cfr8ot282ngno"]
 
-[ext_resource type="Texture2D" uid="uid://dgdprqk4vaikd" path="res://icon.svg" id="1_2q6dc"]
+[ext_resource type="Texture2D" uid="uid://dgdprqk4vaikd" path="res://assert/icon.svg" id="1_w8frs"]
 [ext_resource type="PackedScene" uid="uid://022fi7cav8ro" path="res://scenes/Player.tscn" id="2_w7c3h"]
+[ext_resource type="PackedScene" uid="uid://cyfmxehji1crp" path="res://scenes/Light.tscn" id="3_w8frs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ohrg4"]
 size = Vector2(529, 535)
 
+[sub_resource type="Environment" id="Environment_0gvmv"]
+background_mode = 3
+glow_enabled = true
+
 [node name="Level" type="Node2D" unique_id=654422132]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=2047963053]
+[node name="TerrainSample" type="StaticBody2D" parent="." unique_id=2047963053]
 position = Vector2(942, 796)
 
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=550694502]
+[node name="Sprite2D" type="Sprite2D" parent="TerrainSample" unique_id=550694502]
 scale = Vector2(4.14, 4.14)
-texture = ExtResource("1_2q6dc")
+texture = ExtResource("1_w8frs")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=919321172]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TerrainSample" unique_id=919321172]
 position = Vector2(-1.5, -3.5)
 shape = SubResource("RectangleShape2D_ohrg4")
+debug_color = Color(0, 0.5986048, 0.70989573, 0.41960785)
 
-[node name="CharacterBody2D" parent="StaticBody2D" unique_id=1710452791 instance=ExtResource("2_w7c3h")]
-position = Vector2(-22, -502)
+[node name="CharacterBody2D" parent="." unique_id=1710452791 instance=ExtResource("2_w7c3h")]
+position = Vector2(942, 426)
+
+[node name="PointLight2D" parent="." unique_id=1508022713 instance=ExtResource("3_w8frs")]
+position = Vector2(668, 500)
+color = Color(0.9866782, 0.9866782, 0.9866782, 1)
+energy = 4.43
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1882800937]
+environment = SubResource("Environment_0gvmv")
