@@ -3,8 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://dgdprqk4vaikd" path="res://assert/icon.svg" id="1_w8frs"]
 [ext_resource type="PackedScene" uid="uid://022fi7cav8ro" path="res://scenes/Player.tscn" id="2_w7c3h"]
 [ext_resource type="PackedScene" uid="uid://cyfmxehji1crp" path="res://scenes/Light.tscn" id="3_w8frs"]
-[ext_resource type="PackedScene" path="res://scenes/PauseMenu.tscn" id="4_pause"]
 [ext_resource type="PackedScene" uid="uid://mxt78cvn5w35" path="res://scenes/endPoint.tscn" id="4_mx8sn"]
+[ext_resource type="PackedScene" path="res://scenes/PauseMenu.tscn" id="4_pause"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ohrg4"]
 size = Vector2(529, 535)
@@ -80,7 +80,7 @@ autoplay = &"new_animation"
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1882800937]
 environment = SubResource("Environment_0gvmv")
 
-[node name="PauseMenu" parent="." instance=ExtResource("4_pause")]
+[node name="PauseMenu" parent="." unique_id=2074972533 instance=ExtResource("4_pause")]
 
 [node name="Area2D" parent="." unique_id=905016184 instance=ExtResource("4_mx8sn")]
 position = Vector2(1449, 457)

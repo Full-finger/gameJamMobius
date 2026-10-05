@@ -4,8 +4,13 @@ public partial class Player : CharacterBody2D
 {
 	[Export] public float speed = 300f;
 	[Export] public float jumpHeight = 100f;
+	[Export] public float coyoteTime = 0.1f;
+	[Export] public float jumpBufferTime = 0.1f;
 
 	public bool isInLight = false;
+
+	private float coyoteCounter;
+	private float jumpBufferCounter;
 
 	public override void _PhysicsProcess(double delta)
 	{
@@ -45,9 +50,25 @@ public partial class Player : CharacterBody2D
 
 		velocity.X = direction * speed;
 
-		// 跳跃
-		if (IsOnFloor() && Input.IsActionJustPressed("move_jump"))
+		// 计时器递减
+		coyoteCounter = Mathf.Max(0f, coyoteCounter - (float)delta);
+		jumpBufferCounter = Mathf.Max(0f, jumpBufferCounter - (float)delta);
+
+		// 在地面时刷新土狼时间
+		if (IsOnFloor())
+			coyoteCounter = coyoteTime;
+
+		// 按下跳跃时刷新缓冲
+		if (Input.IsActionJustPressed("move_jump"))
+			jumpBufferCounter = jumpBufferTime;
+
+		// 土狼窗口内且缓冲未过期则起跳
+		if (coyoteCounter > 0f && jumpBufferCounter > 0f)
+		{
 			velocity.Y = -Mathf.Sqrt(2f * gravity.Y * jumpHeight);
+			coyoteCounter = 0f;
+			jumpBufferCounter = 0f;
+		}
 
 		Velocity = velocity;
 		MoveAndSlide();
