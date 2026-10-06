@@ -13,6 +13,7 @@
 [ext_resource type="Script" uid="uid://dapdi83lytcbs" path="res://scripts/Leaves.cs" id="11_k7kcu"]
 [ext_resource type="Texture2D" uid="uid://beipot5sguxbf" path="res://assets/sprite/秋/平台/叶2.png" id="11_leaf2"]
 [ext_resource type="Texture2D" uid="uid://dp0phojnv34bq" path="res://assets/sprite/秋/平台/叶3.png" id="12_leaf3"]
+[ext_resource type="Texture2D" uid="uid://cqa2wv5ejdfxf" path="res://assets/sprite/particleTexture/a493778d-b111-4ab7-a8bf-51b007e2ca3c.png" id="13_10o3d"]
 [ext_resource type="Texture2D" uid="uid://bprr21aj8p66h" path="res://assets/sprite/秋/平台/叶4.png" id="13_leaf4"]
 [ext_resource type="Texture2D" uid="uid://isgtoqvspe05" path="res://assets/sprite/秋/平台/叶5.png" id="14_leaf5"]
 [ext_resource type="Texture2D" uid="uid://bt4hyhb6pq04l" path="res://assets/sprite/秋/平台/叶6.png" id="15_leaf6"]
@@ -38,6 +39,7 @@
 [ext_resource type="Script" uid="uid://rvf1ba2etfki" path="res://scenes/InLightCrown.cs" id="37_s05oq"]
 [ext_resource type="Script" uid="uid://nqdsdkvuvmq8" path="res://scripts/Collectible.cs" id="38_aio0i"]
 [ext_resource type="Texture2D" uid="uid://db2ojy5wgqoyk" path="res://assets/sprite/items/480bb6f0-8507-4f66-a9ab-affe3d544e90.png" id="39_10o3d"]
+[ext_resource type="AudioStream" uid="uid://csv67dbltjct2" path="res://assets/audios/bgm/bgm episode 03.mp3" id="41_s05oq"]
 [ext_resource type="Script" uid="uid://dypir2sutlvan" path="res://scripts/LevelBounds.cs" id="map_bounds_script"]
 
 [sub_resource type="Environment" id="env_autumn"]
@@ -82,6 +84,17 @@ size = Vector2(320, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0gvmv"]
 size = Vector2(320, 21)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0gvmv"]
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+initial_velocity_min = 80.0
+initial_velocity_max = 150.0
+angular_velocity_min = -180.00002
+angular_velocity_max = 179.99998
+gravity = Vector3(0, 180, 0)
+scale_min = 0.06
+scale_max = 0.12
 
 [sub_resource type="RectangleShape2D" id="leaf_step_4"]
 size = Vector2(320, 21)
@@ -458,10 +471,14 @@ polygon = PackedVector2Array(-20.5, -110, -36, -108.2, -117, -92, -227.3, -43, -
 [node name="Leaves" type="Node2D" parent="." unique_id=2046217800]
 position = Vector2(-19, 9)
 
-[node name="叶3" type="StaticBody2D" parent="Leaves" unique_id=1549857560]
+[node name="叶3" type="StaticBody2D" parent="Leaves" unique_id=1549857560 node_paths=PackedStringArray("leafVisual", "collision", "stepArea", "leafParticles")]
 position = Vector2(1724, 1062)
 collision_mask = 64
 script = ExtResource("11_k7kcu")
+leafVisual = NodePath("Sprite2D")
+collision = NodePath("CollisionShape2D")
+stepArea = NodePath("StepArea")
+leafParticles = NodePath("leafParticles")
 
 [node name="Sprite2D" type="Sprite2D" parent="Leaves/叶3" unique_id=1621124876]
 texture = ExtResource("12_leaf3")
@@ -481,10 +498,24 @@ collision_mask = 64
 position = Vector2(491, 4)
 shape = SubResource("RectangleShape2D_0gvmv")
 
-[node name="叶4" type="StaticBody2D" parent="Leaves" unique_id=406020382]
+[node name="leafParticles" type="GPUParticles2D" parent="Leaves/叶3" unique_id=795470190]
+scale = Vector2(3.515, 3.515)
+emitting = false
+amount = 6
+texture = ExtResource("13_10o3d")
+one_shot = true
+explosiveness = 1.0
+randomness = 0.51
+process_material = SubResource("ParticleProcessMaterial_0gvmv")
+
+[node name="叶4" type="StaticBody2D" parent="Leaves" unique_id=406020382 node_paths=PackedStringArray("leafVisual", "collision", "stepArea", "leafParticles")]
 position = Vector2(4893, 1701)
 collision_mask = 64
 script = ExtResource("11_k7kcu")
+leafVisual = NodePath("Sprite2D")
+collision = NodePath("CollisionShape2D")
+stepArea = NodePath("StepArea")
+leafParticles = NodePath("leafParticles")
 
 [node name="Sprite2D" type="Sprite2D" parent="Leaves/叶4" unique_id=934368285]
 texture = ExtResource("13_leaf4")
@@ -503,10 +534,24 @@ collision_mask = 64
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Leaves/叶4/StepArea" unique_id=276454157]
 shape = SubResource("leaf_step_4")
 
-[node name="叶2" type="StaticBody2D" parent="Leaves" unique_id=711798872]
+[node name="leafParticles" type="GPUParticles2D" parent="Leaves/叶4" unique_id=1880888649]
+scale = Vector2(3.515, 3.515)
+emitting = false
+amount = 6
+texture = ExtResource("13_10o3d")
+one_shot = true
+explosiveness = 1.0
+randomness = 0.51
+process_material = SubResource("ParticleProcessMaterial_0gvmv")
+
+[node name="叶2" type="StaticBody2D" parent="Leaves" unique_id=711798872 node_paths=PackedStringArray("leafVisual", "collision", "stepArea", "leafParticles")]
 position = Vector2(4369, 905)
 collision_mask = 64
 script = ExtResource("11_k7kcu")
+leafVisual = NodePath("Sprite2D")
+collision = NodePath("CollisionShape2D")
+stepArea = NodePath("StepArea")
+leafParticles = NodePath("leafParticles")
 
 [node name="Sprite2D" type="Sprite2D" parent="Leaves/叶2" unique_id=1192800737]
 texture = ExtResource("11_leaf2")
@@ -525,10 +570,24 @@ collision_mask = 64
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Leaves/叶2/StepArea" unique_id=2132746027]
 shape = SubResource("leaf_step_2")
 
-[node name="叶5" type="StaticBody2D" parent="Leaves" unique_id=622730850]
+[node name="leafParticles" type="GPUParticles2D" parent="Leaves/叶2" unique_id=734898792]
+scale = Vector2(3.515, 3.515)
+emitting = false
+amount = 6
+texture = ExtResource("13_10o3d")
+one_shot = true
+explosiveness = 1.0
+randomness = 0.51
+process_material = SubResource("ParticleProcessMaterial_0gvmv")
+
+[node name="叶5" type="StaticBody2D" parent="Leaves" unique_id=622730850 node_paths=PackedStringArray("leafVisual", "collision", "stepArea", "leafParticles")]
 position = Vector2(4900, 1000)
 collision_mask = 64
 script = ExtResource("11_k7kcu")
+leafVisual = NodePath("Sprite2D")
+collision = NodePath("CollisionShape2D")
+stepArea = NodePath("StepArea")
+leafParticles = NodePath("leafParticles")
 
 [node name="Sprite2D" type="Sprite2D" parent="Leaves/叶5" unique_id=521344609]
 texture = ExtResource("14_leaf5")
@@ -547,10 +606,24 @@ collision_mask = 64
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Leaves/叶5/StepArea" unique_id=1671829655]
 shape = SubResource("leaf_step_5")
 
-[node name="叶1" type="StaticBody2D" parent="Leaves" unique_id=316456479]
+[node name="leafParticles" type="GPUParticles2D" parent="Leaves/叶5" unique_id=1413680886]
+scale = Vector2(3.515, 3.515)
+emitting = false
+amount = 6
+texture = ExtResource("13_10o3d")
+one_shot = true
+explosiveness = 1.0
+randomness = 0.51
+process_material = SubResource("ParticleProcessMaterial_0gvmv")
+
+[node name="叶1" type="StaticBody2D" parent="Leaves" unique_id=316456479 node_paths=PackedStringArray("leafVisual", "collision", "stepArea", "leafParticles")]
 position = Vector2(5387, 658)
 collision_mask = 64
 script = ExtResource("11_k7kcu")
+leafVisual = NodePath("Sprite2D")
+collision = NodePath("CollisionShape2D")
+stepArea = NodePath("StepArea")
+leafParticles = NodePath("leafParticles")
 
 [node name="Sprite2D" type="Sprite2D" parent="Leaves/叶1" unique_id=2095040501]
 texture = ExtResource("10_leaf1")
@@ -569,10 +642,24 @@ collision_mask = 64
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Leaves/叶1/StepArea" unique_id=1836912317]
 shape = SubResource("leaf_step_1")
 
-[node name="叶9" type="StaticBody2D" parent="Leaves" unique_id=1415032202]
+[node name="leafParticles" type="GPUParticles2D" parent="Leaves/叶1" unique_id=579127477]
+scale = Vector2(3.515, 3.515)
+emitting = false
+amount = 6
+texture = ExtResource("13_10o3d")
+one_shot = true
+explosiveness = 1.0
+randomness = 0.51
+process_material = SubResource("ParticleProcessMaterial_0gvmv")
+
+[node name="叶9" type="StaticBody2D" parent="Leaves" unique_id=1415032202 node_paths=PackedStringArray("leafVisual", "collision", "stepArea", "leafParticles")]
 position = Vector2(12304, 898)
 collision_mask = 64
 script = ExtResource("11_k7kcu")
+leafVisual = NodePath("Sprite2D")
+collision = NodePath("CollisionShape2D")
+stepArea = NodePath("StepArea")
+leafParticles = NodePath("leafParticles")
 
 [node name="Sprite2D" type="Sprite2D" parent="Leaves/叶9" unique_id=1530679079]
 texture = ExtResource("10_leaf1")
@@ -591,10 +678,24 @@ collision_mask = 64
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Leaves/叶9/StepArea" unique_id=1775704727]
 shape = SubResource("leaf_step_1")
 
-[node name="叶7" type="StaticBody2D" parent="Leaves" unique_id=1580527624]
+[node name="leafParticles" type="GPUParticles2D" parent="Leaves/叶9" unique_id=1891091592]
+scale = Vector2(3.515, 3.515)
+emitting = false
+amount = 6
+texture = ExtResource("13_10o3d")
+one_shot = true
+explosiveness = 1.0
+randomness = 0.51
+process_material = SubResource("ParticleProcessMaterial_0gvmv")
+
+[node name="叶7" type="StaticBody2D" parent="Leaves" unique_id=1580527624 node_paths=PackedStringArray("leafVisual", "collision", "stepArea", "leafParticles")]
 position = Vector2(6894, -709)
 collision_mask = 64
 script = ExtResource("11_k7kcu")
+leafVisual = NodePath("Sprite2D")
+collision = NodePath("CollisionShape2D")
+stepArea = NodePath("StepArea")
+leafParticles = NodePath("leafParticles")
 
 [node name="Sprite2D" type="Sprite2D" parent="Leaves/叶7" unique_id=1292737329]
 texture = ExtResource("16_leaf7")
@@ -613,10 +714,24 @@ collision_mask = 64
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Leaves/叶7/StepArea" unique_id=1141657580]
 shape = SubResource("leaf_step_7")
 
-[node name="叶6" type="StaticBody2D" parent="Leaves" unique_id=579423141]
+[node name="leafParticles" type="GPUParticles2D" parent="Leaves/叶7" unique_id=640660337]
+scale = Vector2(3.515, 3.515)
+emitting = false
+amount = 6
+texture = ExtResource("13_10o3d")
+one_shot = true
+explosiveness = 1.0
+randomness = 0.51
+process_material = SubResource("ParticleProcessMaterial_0gvmv")
+
+[node name="叶6" type="StaticBody2D" parent="Leaves" unique_id=579423141 node_paths=PackedStringArray("leafVisual", "collision", "stepArea", "leafParticles")]
 position = Vector2(8628, 938)
 collision_mask = 64
 script = ExtResource("11_k7kcu")
+leafVisual = NodePath("Sprite2D")
+collision = NodePath("CollisionShape2D")
+stepArea = NodePath("StepArea")
+leafParticles = NodePath("leafParticles")
 
 [node name="Sprite2D" type="Sprite2D" parent="Leaves/叶6" unique_id=1574915570]
 texture = ExtResource("15_leaf6")
@@ -635,10 +750,24 @@ collision_mask = 64
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Leaves/叶6/StepArea" unique_id=2014168806]
 shape = SubResource("leaf_step_6")
 
-[node name="叶8" type="StaticBody2D" parent="Leaves" unique_id=1758962334]
+[node name="leafParticles" type="GPUParticles2D" parent="Leaves/叶6" unique_id=1967709694]
+scale = Vector2(3.515, 3.515)
+emitting = false
+amount = 6
+texture = ExtResource("13_10o3d")
+one_shot = true
+explosiveness = 1.0
+randomness = 0.51
+process_material = SubResource("ParticleProcessMaterial_0gvmv")
+
+[node name="叶8" type="StaticBody2D" parent="Leaves" unique_id=1758962334 node_paths=PackedStringArray("leafVisual", "collision", "stepArea", "leafParticles")]
 position = Vector2(9098, 769)
 collision_mask = 64
 script = ExtResource("11_k7kcu")
+leafVisual = NodePath("Sprite2D")
+collision = NodePath("CollisionShape2D")
+stepArea = NodePath("StepArea")
+leafParticles = NodePath("leafParticles")
 
 [node name="Sprite2D" type="Sprite2D" parent="Leaves/叶8" unique_id=242707616]
 texture = ExtResource("15_leaf6")
@@ -656,6 +785,16 @@ collision_mask = 64
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Leaves/叶8/StepArea" unique_id=1662228766]
 shape = SubResource("leaf_step_8")
+
+[node name="leafParticles" type="GPUParticles2D" parent="Leaves/叶8" unique_id=409868045]
+scale = Vector2(3.515, 3.515)
+emitting = false
+amount = 6
+texture = ExtResource("13_10o3d")
+one_shot = true
+explosiveness = 1.0
+randomness = 0.51
+process_material = SubResource("ParticleProcessMaterial_0gvmv")
 
 [node name="Clouds" type="Node2D" parent="." unique_id=733267913]
 
@@ -947,5 +1086,10 @@ texture = ExtResource("39_10o3d")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Colletor" unique_id=103407488]
 position = Vector2(0, 18)
 shape = SubResource("CircleShape2D_5miad")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1460131185]
+process_mode = 3
+stream = ExtResource("41_s05oq")
+autoplay = true
 
 [editable path="CharacterBody2D"]

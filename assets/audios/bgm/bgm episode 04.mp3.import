@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://byuvgl8k5vglw"
+path="res://.godot/imported/bgm episode 04.mp3-d9a6464702e883a514a52e407020a474.mp3str"
+
+[deps]
+
+source_file="res://assets/audios/bgm/bgm episode 04.mp3"
+dest_files=["res://.godot/imported/bgm episode 04.mp3-d9a6464702e883a514a52e407020a474.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

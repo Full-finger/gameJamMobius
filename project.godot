@@ -19,6 +19,7 @@ config/icon="uid://7vuikm2c7aek"
 
 SettingsManager="*uid://c3g13jqx8fpug"
 GameState="*uid://dgb268mk4vfhi"
+TransitionMnager="*uid://1mt748v6f0s3"
 TransitionManager="*res://scripts/TransitionManager.cs"
 
 [display]

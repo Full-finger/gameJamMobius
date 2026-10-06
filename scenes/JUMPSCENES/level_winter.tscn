@@ -24,6 +24,7 @@
 [ext_resource type="Texture2D" uid="uid://de0dt5uutcvau" path="res://assets/sprite/jumpscene/frame_40.png" id="24_h6067"]
 [ext_resource type="Texture2D" uid="uid://w4dq7ixslp7r" path="res://assets/sprite/jumpscene/frame_41.png" id="25_q0g3d"]
 [ext_resource type="Script" uid="uid://bnu8qj3besll6" path="res://scripts/NormalEndingArea.cs" id="26_xrav2"]
+[ext_resource type="AudioStream" uid="uid://byuvgl8k5vglw" path="res://assets/audios/bgm/bgm episode 04.mp3" id="27_k1gok"]
 [ext_resource type="Script" uid="uid://dypir2sutlvan" path="res://scripts/LevelBounds.cs" id="winter_bounds"]
 [ext_resource type="PackedScene" uid="uid://dw13jweir71ce" path="res://scenes/pause_menu.tscn" id="winter_pause"]
 
@@ -274,5 +275,10 @@ endingScene = "uid://dy3lrw6rvyjq7"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NormalEndingArea" unique_id=1273353442]
 position = Vector2(-161.5, -41.5)
 shape = SubResource("RectangleShape2D_ohrg4")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1181893922]
+process_mode = 3
+stream = ExtResource("27_k1gok")
+autoplay = true
 
 [editable path="CharacterBody2D"]

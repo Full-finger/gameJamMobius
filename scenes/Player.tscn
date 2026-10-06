@@ -3,10 +3,15 @@
 [ext_resource type="Script" uid="uid://dd0e6tgl84g0" path="res://scripts/Player.cs" id="1_v6fml"]
 [ext_resource type="Texture2D" uid="uid://plmdnywvr2e6" path="res://assets/sprite/PlayerSprite/young/idle/the old man-idel_00.png" id="2_agngo"]
 [ext_resource type="Shader" uid="uid://61m6i8kb54kt" path="res://assets/shaderAndMatrial/Dissolve.gdshader" id="2_gusmc"]
+[ext_resource type="AudioStream" uid="uid://du3eay4ogvwhf" path="res://assets/audios/SFX/SFX 01 step.mp3" id="2_swmfq"]
+[ext_resource type="AudioStream" uid="uid://dcwyjh5qy4h6p" path="res://assets/audios/SFX/SFX 02 jump.mp3" id="3_qeklt"]
 [ext_resource type="Texture2D" uid="uid://b00ymq7rtxpc6" path="res://assets/sprite/PlayerSprite/young/idle/the old man-idel_01.png" id="3_qrixf"]
 [ext_resource type="Texture2D" uid="uid://cv02qikwekn8w" path="res://assets/sprite/PlayerSprite/young/idle/the old man-idel_02.png" id="4_qmt83"]
+[ext_resource type="AudioStream" uid="uid://m7bovmiwoi8a" path="res://assets/audios/SFX/SFX 03 young to old.mp3" id="4_stxll"]
 [ext_resource type="Texture2D" uid="uid://dxv6mwkljnesw" path="res://assets/sprite/PlayerSprite/young/idle/the old man-idel_03.png" id="5_m4as6"]
+[ext_resource type="AudioStream" uid="uid://dl55w0rn0fnvm" path="res://assets/audios/SFX/SFX 04 old to young.mp3" id="5_qav1c"]
 [ext_resource type="Texture2D" uid="uid://byjsaojg6yv08" path="res://assets/sprite/PlayerSprite/young/idle/the old man-idel_04.png" id="6_b1r6t"]
+[ext_resource type="AudioStream" uid="uid://dlds6an0b4kvc" path="res://assets/audios/SFX/SFX 05 clock.mp3" id="6_ype7c"]
 [ext_resource type="Texture2D" uid="uid://do6fnut7ulc0h" path="res://assets/sprite/PlayerSprite/young/idle/the old man-idel_05.png" id="7_c0asu"]
 [ext_resource type="Texture2D" uid="uid://ddeubgjbu3nk6" path="res://assets/sprite/PlayerSprite/young/idle/the old man-idel_06.png" id="8_fq1a3"]
 [ext_resource type="Texture2D" uid="uid://8nfs777dnrgc" path="res://assets/sprite/PlayerSprite/young/idle/the old man-idel_07.png" id="9_gu4mg"]
@@ -707,6 +712,11 @@ jumpHeight = 200.0
 vineSwingMultiplier = 12.83
 vineGrabImpulse = 5.98
 vineJumpMultiplier = 1.545
+footstepSound = ExtResource("2_swmfq")
+landingSound = ExtResource("3_qeklt")
+leaveLightSound = ExtResource("4_stxll")
+enterLightSound = ExtResource("5_qav1c")
+clockSound = ExtResource("6_ype7c")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1710177432]
 texture_filter = 2

@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://uk1vqfhqqer4" path="res://assets/sprite/CG/INCG/Image_1791312725567_753.png" id="5_11rj5"]
 [ext_resource type="Texture2D" uid="uid://d0w3aa5yvrijp" path="res://assets/sprite/CG/INCG/Image_1791312605398_445.png" id="6_gwcb8"]
 [ext_resource type="Texture2D" uid="uid://bm6bwsoc8m7c8" path="res://assets/sprite/CG/INCG/Image_1791312589511_909.png" id="7_e2a6q"]
+[ext_resource type="AudioStream" uid="uid://n4soo3vskd6n" path="res://assets/audios/bgm/bgm TE.mp3" id="10_3lce0"]
 
 [sub_resource type="Resource" id="Resource_1cycw"]
 script = ExtResource("2_fiq31")
@@ -131,3 +132,7 @@ scale = Vector2(1.38, 1.38)
 theme = SubResource("Theme_kuhf1")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "▼"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2093823824]
+stream = ExtResource("10_3lce0")
+autoplay = true

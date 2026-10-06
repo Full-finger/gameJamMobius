@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dl55w0rn0fnvm"
+path="res://.godot/imported/SFX 04 old to young.mp3-5ab3b553ea7725dd6d4768472e77ea6e.mp3str"
+
+[deps]
+
+source_file="res://assets/audios/SFX/SFX 04 old to young.mp3"
+dest_files=["res://.godot/imported/SFX 04 old to young.mp3-5ab3b553ea7725dd6d4768472e77ea6e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

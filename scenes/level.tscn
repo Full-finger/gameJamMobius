@@ -33,6 +33,7 @@
 [ext_resource type="Script" uid="uid://brn8tl1vtud1n" path="res://scenes/Button_restart.cs" id="43_uhfbm"]
 [ext_resource type="Script" uid="uid://nqdsdkvuvmq8" path="res://scripts/Collectible.cs" id="44_uhfbm"]
 [ext_resource type="Texture2D" uid="uid://dkemaiyk5e7yr" path="res://assets/sprite/items/79f0e3c0-6d0e-49c7-83b2-07922ad9327d.png" id="45_lqb7q"]
+[ext_resource type="AudioStream" uid="uid://c2xc24ox6kecm" path="res://assets/audios/bgm/bgm episode 01.mp3" id="46_lqb7q"]
 [ext_resource type="Script" uid="uid://dypir2sutlvan" path="res://scripts/LevelBounds.cs" id="map_bounds_script"]
 [ext_resource type="Texture2D" uid="uid://cfjj32lp0fvx0" path="res://assets/sprite/春_导出素材/蘑菇/完整/蘑菇01_左.png" id="spring_tex_1"]
 [ext_resource type="Texture2D" uid="uid://djwuyfnee15gw" path="res://assets/sprite/春_导出素材/蘑菇/部件/蘑菇02_菌盖.png" id="spring_tex_2"]
@@ -765,5 +766,10 @@ texture = ExtResource("45_lqb7q")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Colletor" unique_id=724194762]
 position = Vector2(0, 18)
 shape = SubResource("CircleShape2D_ok3ci")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1275684163]
+process_mode = 3
+stream = ExtResource("46_lqb7q")
+autoplay = true
 
 [editable path="CharacterBody2D"]

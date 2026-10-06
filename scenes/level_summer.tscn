@@ -21,6 +21,7 @@
 [ext_resource type="Script" uid="uid://nqdsdkvuvmq8" path="res://scripts/Collectible.cs" id="33_c36s1"]
 [ext_resource type="Script" uid="uid://rvf1ba2etfki" path="res://scenes/InLightCrown.cs" id="33_v3why"]
 [ext_resource type="Texture2D" uid="uid://dwk5hhk13jg6y" path="res://assets/sprite/items/b92c6124-890d-41de-8099-85cb5ac92f49.png" id="34_cigiq"]
+[ext_resource type="AudioStream" uid="uid://c33mg3fg3fbo0" path="res://assets/audios/bgm/bgm episode 02.mp3" id="35_cigiq"]
 [ext_resource type="Script" uid="uid://dypir2sutlvan" path="res://scripts/LevelBounds.cs" id="map_bounds_script"]
 [ext_resource type="Texture2D" uid="uid://bkbr6m8ihopwd" path="res://assets/sprite/夏/_0011_background.png" id="summer_bg"]
 [ext_resource type="Texture2D" uid="uid://dgc6g31g4qet1" path="res://assets/sprite/夏/0003_花苞1.png" id="summer_bud1"]
@@ -592,5 +593,10 @@ texture = ExtResource("34_cigiq")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Colletor" unique_id=1692697363]
 position = Vector2(0, 18)
 shape = SubResource("CircleShape2D_7m8e7")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1823535416]
+process_mode = 3
+stream = ExtResource("35_cigiq")
+autoplay = true
 
 [editable path="CharacterBody2D"]

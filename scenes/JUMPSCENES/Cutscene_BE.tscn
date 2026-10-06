@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bflheicgtodj0" path="res://CutscenePlayer.cs" id="1_kljym"]
 [ext_resource type="Script" uid="uid://s30qc58fkcff" path="res://scripts/SO/CutsceneStep.cs" id="2_ccg3q"]
 [ext_resource type="Texture2D" uid="uid://mjr6605uxod6" path="res://assets/sprite/CG/ENDCG/Image_1791312501944_276.png" id="3_vtrw5"]
+[ext_resource type="AudioStream" uid="uid://begnmf16iaw30" path="res://assets/audios/bgm/bgm BE.mp3" id="6_bvcjp"]
 [ext_resource type="Texture2D" uid="uid://b4nxtr1kb5w21" path="res://assets/sprite/TutorialFrame/文本框2.png" id="8_j0wvg"]
 [ext_resource type="FontFile" uid="uid://siupji2vbknh" path="res://assets/Font/ZCOOLKuaiLe-Regular.ttf" id="9_ylbj1"]
 
@@ -28,7 +29,6 @@ default_font_size = 32
 Label/font_sizes/font_size = 32
 
 [node name="Control" type="Control" unique_id=43007473 node_paths=PackedStringArray("cgDisplay", "dialogueBox", "textLabel", "continueHint")]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -110,3 +110,7 @@ scale = Vector2(1.38, 1.38)
 theme = SubResource("Theme_kuhf1")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "▼"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1228690132]
+stream = ExtResource("6_bvcjp")
+autoplay = true

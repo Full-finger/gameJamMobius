@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bflheicgtodj0" path="res://CutscenePlayer.cs" id="1_77fo1"]
 [ext_resource type="Script" uid="uid://s30qc58fkcff" path="res://scripts/SO/CutsceneStep.cs" id="2_7ox1r"]
 [ext_resource type="Texture2D" uid="uid://1u1suqya8d2l" path="res://assets/sprite/CG/ENDCG/Image_1791312486875_313.png" id="3_1igoi"]
+[ext_resource type="AudioStream" uid="uid://n4soo3vskd6n" path="res://assets/audios/bgm/bgm TE.mp3" id="6_nw11l"]
 [ext_resource type="Texture2D" uid="uid://b4nxtr1kb5w21" path="res://assets/sprite/TutorialFrame/文本框2.png" id="7_2d4j3"]
 [ext_resource type="FontFile" uid="uid://siupji2vbknh" path="res://assets/Font/ZCOOLKuaiLe-Regular.ttf" id="8_kopp8"]
 
@@ -109,3 +110,7 @@ scale = Vector2(1.38, 1.38)
 theme = SubResource("Theme_kuhf1")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "▼"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=702040073]
+stream = ExtResource("6_nw11l")
+autoplay = true

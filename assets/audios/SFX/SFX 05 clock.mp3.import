@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dlds6an0b4kvc"
+path="res://.godot/imported/SFX 05 clock.mp3-af44672148a4304dba9aa914c0b108a1.mp3str"
+
+[deps]
+
+source_file="res://assets/audios/SFX/SFX 05 clock.mp3"
+dest_files=["res://.godot/imported/SFX 05 clock.mp3-af44672148a4304dba9aa914c0b108a1.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -4,7 +4,8 @@
 [ext_resource type="Script" uid="uid://bw2sybkkunphd" path="res://scripts/SettingPanel.cs" id="1_r6d6q"]
 [ext_resource type="Texture2D" uid="uid://cevnstpgmlwd4" path="res://assets/sprite/settings/返回.png" id="3_f4mfi"]
 [ext_resource type="Script" uid="uid://7pu2ypjj6hvh" path="res://scripts/Button_ReturnToMain.cs" id="4_f4mfi"]
-[ext_resource type="Script" path="res://scripts/SettingsPage.cs" id="5_settings_page"]
+[ext_resource type="Script" uid="uid://bykoa12p7quc3" path="res://scripts/SettingsPage.cs" id="5_settings_page"]
+[ext_resource type="AudioStream" uid="uid://fgrryxey16yd" path="res://assets/audios/bgm/bgm title.mp3" id="6_gis3k"]
 
 [node name="CanvasLayer" type="CanvasLayer" unique_id=283441247]
 process_mode = 3
@@ -87,3 +88,8 @@ grow_vertical = 0
 scale = Vector2(0.2, 0.2)
 icon = ExtResource("3_f4mfi")
 script = ExtResource("4_f4mfi")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=800217706]
+process_mode = 3
+stream = ExtResource("6_gis3k")
+autoplay = true
