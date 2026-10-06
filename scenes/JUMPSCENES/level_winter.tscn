@@ -1,0 +1,264 @@
+[gd_scene format=3 uid="uid://c3rmwkadl16mh"]
+
+[ext_resource type="Texture2D" uid="uid://c26svnjxghcxu" path="res://assets/sprite/冬/background.png" id="1_kno3k"]
+[ext_resource type="Texture2D" uid="uid://cxpyeeclaxcuy" path="res://assets/sprite/冬/foreground.png" id="2_t6eoh"]
+[ext_resource type="Texture2D" uid="uid://bts2ukp4nswml" path="res://assets/sprite/冬/snow.png" id="3_i8uja"]
+[ext_resource type="PackedScene" uid="uid://022fi7cav8ro" path="res://scenes/Player.tscn" id="4_ggm66"]
+[ext_resource type="PackedScene" uid="uid://cyfmxehji1crp" path="res://scenes/Light.tscn" id="5_guhbr"]
+[ext_resource type="Script" uid="uid://cs1sar11hcadv" path="res://scenes/HUD.cs" id="6_k761j"]
+[ext_resource type="Texture2D" uid="uid://c8want8bu1ix2" path="res://assets/sprite/HUD/hud_light_bar_fill.png.png" id="7_viogd"]
+[ext_resource type="Texture2D" uid="uid://dcpfb7yvbmxqp" path="res://assets/sprite/HUD/hud_light_bar_frame.png.png" id="8_wdiud"]
+[ext_resource type="Texture2D" uid="uid://dwo2kyqrt6575" path="res://assets/sprite/HUD/hud_light_bar_top_indicator.png.png" id="9_t02mu"]
+[ext_resource type="Script" uid="uid://rvf1ba2etfki" path="res://scenes/InLightCrown.cs" id="10_mbnpv"]
+[ext_resource type="Script" uid="uid://dlapik67l6nqg" path="res://scripts/TrueEndingArea.cs" id="13_yt2db"]
+[ext_resource type="Texture2D" uid="uid://5d8tf34xxck1" path="res://assets/sprite/jumpscene/frame_01.png" id="14_xrav2"]
+[ext_resource type="Texture2D" uid="uid://b4sp2ha1mksx3" path="res://assets/sprite/jumpscene/frame_05.png" id="15_k1gok"]
+[ext_resource type="Texture2D" uid="uid://cexnvxdu2k2mb" path="res://assets/sprite/jumpscene/frame_09.png" id="16_ppuei"]
+[ext_resource type="Texture2D" uid="uid://ct3mblpaqwqvo" path="res://assets/sprite/jumpscene/frame_13.png" id="17_ua5wt"]
+[ext_resource type="Texture2D" uid="uid://eaw7rs4ehlnu" path="res://assets/sprite/jumpscene/frame_17.png" id="18_jtmti"]
+[ext_resource type="Texture2D" uid="uid://v74g03kpy4ec" path="res://assets/sprite/jumpscene/frame_21.png" id="19_t3npy"]
+[ext_resource type="Texture2D" uid="uid://c36w22nl87g4v" path="res://assets/sprite/jumpscene/frame_25.png" id="20_il305"]
+[ext_resource type="Texture2D" uid="uid://dltjtcoc5ocy5" path="res://assets/sprite/jumpscene/frame_29.png" id="21_a5wql"]
+[ext_resource type="Texture2D" uid="uid://dy4dswbm05h2r" path="res://assets/sprite/jumpscene/frame_33.png" id="22_tmyi6"]
+[ext_resource type="Texture2D" uid="uid://blsujeohnqxpk" path="res://assets/sprite/jumpscene/frame_37.png" id="23_qurvv"]
+[ext_resource type="Texture2D" uid="uid://de0dt5uutcvau" path="res://assets/sprite/jumpscene/frame_40.png" id="24_h6067"]
+[ext_resource type="Texture2D" uid="uid://w4dq7ixslp7r" path="res://assets/sprite/jumpscene/frame_41.png" id="25_q0g3d"]
+[ext_resource type="Script" uid="uid://dypir2sutlvan" path="res://scripts/LevelBounds.cs" id="winter_bounds"]
+[ext_resource type="PackedScene" uid="uid://dw13jweir71ce" path="res://scenes/pause_menu.tscn" id="winter_pause"]
+
+[sub_resource type="Animation" id="Animation_dfmlf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-2213, -19.5)]
+}
+
+[sub_resource type="Animation" id="Animation_dyvr7"]
+resource_name = "new_animation"
+length = 24.315
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 4.065, 6.565, 9.565, 11.815, 14.315, 17.565, 20.565, 22.815, 24.315),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-2213, -19.5), Vector2(-2213, -19.5), Vector2(-1800, 174.6), Vector2(-1300, 323.5), Vector2(-700, 368.2), Vector2(-250, 490.5), Vector2(250, 403.2), Vector2(900, 490.5), Vector2(1500, 320.8), Vector2(1950, 217.2), Vector2(2250, 184.5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_17ng6"]
+_data = {
+&"RESET": SubResource("Animation_dfmlf"),
+&"new_animation": SubResource("Animation_dyvr7")
+}
+
+[sub_resource type="WorldBoundaryShape2D" id="winter_wall_left"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="winter_wall_right"]
+normal = Vector2(-1, 0)
+
+[sub_resource type="Environment" id="winter_environment"]
+background_mode = 3
+glow_enabled = true
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ohrg4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_xrav2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_k1gok")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_ppuei")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_ua5wt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_jtmti")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_t3npy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_il305")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_a5wql")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_tmyi6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_qurvv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_h6067")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_q0g3d")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0gvmv"]
+size = Vector2(256, 249)
+
+[node name="level_winter" type="Node2D" unique_id=1737424698]
+
+[node name="bg" type="Sprite2D" parent="." unique_id=1835706223 groups=["LevelBackground"]]
+z_index = -1000
+texture = ExtResource("1_kno3k")
+
+[node name="snow" type="Sprite2D" parent="." unique_id=2046042471]
+z_index = -5
+texture = ExtResource("3_i8uja")
+
+[node name="CharacterBody2D" parent="." unique_id=1710452791 instance=ExtResource("4_ggm66")]
+position = Vector2(-2213, -60)
+deathY = 1390.0
+
+[node name="Camera2D" parent="CharacterBody2D" index="2" unique_id=1939810449]
+zoom = Vector2(1, 1)
+limit_left = -2500
+limit_top = -1190
+limit_right = 2500
+limit_bottom = 1190
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1076131478]
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=2127307089]
+polygon = PackedVector2Array(-2500, 60.5, -2436, 60.5, -2340, 69.5, -2284, 79.5, -2212, 101.2, -2148, 128.2, -2020, 196.5, -1868, 269.2, -1772, 306.2, -1708, 319.5, -1596, 394.7, -1532, 418.2, -1508, 419.5, -1444, 437.5, -1404, 438.5, -1388, 448.9, -1364, 451.5, -1300, 443.5, -1260, 443.5, -1220, 434.5, -1196, 437.5, -1180, 431.5, -1156, 437.5, -1100, 434.5, -1036, 452.5, -1004, 456.5, -980, 452.2, -956, 458.2, -900, 456.9, -868, 448.5, -844, 455.5, -812, 457.5, -796, 464.2, -772, 464.2, -748, 469.5, -708, 487.7, -684, 490.5, -628, 519.5, -604, 525.5, -476, 614.5, -428, 624.5, -364, 630.5, -276, 627.5, -252, 611.5, -236, 607.5, -204, 605.5, -172, 610.5, -132, 600.5, -36, 556.2, 12, 547.5, 36, 538.5, 124, 528.5, 284, 521.5, 372, 527.5, 388, 533.5, 460, 540.5, 508, 553.5, 548, 552.5, 596, 558.5, 644, 570.5, 748, 583.5, 764, 591.2, 836, 596.5, 908, 613.9, 932, 613.2, 1020, 635.5, 1068, 631.2, 1092, 618.5, 1124, 616.2, 1156, 605.5, 1172, 609.5, 1196, 596.2, 1252, 587.5, 1276, 575.5, 1316, 569.6, 1548, 407.3, 1692, 342.5, 1828, 327.2, 1852, 332.5, 1868, 325.5, 1956, 337.3, 1980, 325.5, 1988, 329.5, 1996, 324.5, 2020, 329.5, 2044, 326.5, 2060, 336.5, 2500, 266.5, 2500, 1190.5, -2500, 1190.5)
+
+[node name="CeilingCollision" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=1186046865]
+polygon = PackedVector2Array(-2500, -1190.5, 2500, -1190.5, 2500, -238.5, 2404, -248.5, 2316, -266.5, 2228, -288.5, 2068, -343.5, 1940, -405.5, 1724, -546.5, 1612, -597.5, 1508, -631.5, 1308, -677.5, 1156, -704.5, 780, -791.5, 300, -867.5, -236, -899.5, -508, -890.5, -676, -874.5, -1308, -728.5, -1556, -682.5, -1732, -658.5, -1852, -651.5, -2004, -651.5, -2500, -679.5)
+
+[node name="ground" type="Sprite2D" parent="StaticBody2D" unique_id=1269041780]
+z_index = -10
+texture = ExtResource("2_t6eoh")
+
+[node name="PointLight2D" parent="." unique_id=1508022713 instance=ExtResource("5_guhbr")]
+position = Vector2(-2213, -19.5)
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="PointLight2D" unique_id=1139640521]
+callback_mode_process = 0
+libraries/ = SubResource("AnimationLibrary_17ng6")
+autoplay = &"new_animation"
+
+[node name="hud" type="CanvasLayer" parent="." unique_id=1955840404 node_paths=PackedStringArray("player", "lifeBar")]
+layer = 0
+script = ExtResource("6_k761j")
+player = NodePath("../CharacterBody2D")
+lifeBar = NodePath("Control/LifeBar")
+
+[node name="Control" type="Control" parent="hud" unique_id=1848440116]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="LifeBar" type="TextureProgressBar" parent="hud/Control" unique_id=1249123775]
+z_index = 1000
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -163.00012
+offset_top = 16.0
+offset_right = -123.00012
+offset_bottom = 56.0
+grow_horizontal = 0
+scale = Vector2(4.38, 4.38)
+mouse_filter = 2
+max_value = 1.0
+step = 0.01
+value = 1.0
+fill_mode = 3
+nine_patch_stretch = true
+texture_progress = ExtResource("7_viogd")
+
+[node name="HUDbg" type="TextureRect" parent="hud/Control" unique_id=244468498]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -184.0
+offset_top = 11.0
+offset_right = 1656.0
+offset_bottom = 1391.0
+grow_horizontal = 0
+scale = Vector2(0.14, 0.14)
+mouse_filter = 2
+texture = ExtResource("8_wdiud")
+
+[node name="InLightCrown" type="TextureRect" parent="hud/Control/HUDbg" unique_id=1609327158 node_paths=PackedStringArray("player")]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -968.5715
+offset_top = -150.0
+offset_right = 871.42847
+offset_bottom = 1230.0
+grow_horizontal = 0
+rotation = 0.31415927
+scale = Vector2(0.24, 0.24)
+mouse_filter = 2
+texture = ExtResource("9_t02mu")
+script = ExtResource("10_mbnpv")
+player = NodePath("../../../../CharacterBody2D")
+
+[node name="Bounds" type="StaticBody2D" parent="." unique_id=1829587798 node_paths=PackedStringArray("player")]
+collision_mask = 64
+script = ExtResource("winter_bounds")
+player = NodePath("../CharacterBody2D")
+
+[node name="WallLeft" type="CollisionShape2D" parent="Bounds" unique_id=519375255]
+position = Vector2(-2500, 0)
+shape = SubResource("winter_wall_left")
+
+[node name="WallRight" type="CollisionShape2D" parent="Bounds" unique_id=1185983380]
+position = Vector2(2500, 0)
+shape = SubResource("winter_wall_right")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=929844801]
+environment = SubResource("winter_environment")
+
+[node name="PauseMenu" parent="." unique_id=599933319 instance=ExtResource("winter_pause")]
+visible = false
+
+[node name="TrueEndingArea" type="Area2D" parent="." unique_id=183700208]
+collision_mask = 64
+script = ExtResource("13_yt2db")
+trueEndingScene = "uid://beoqpslwlusut"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="TrueEndingArea" unique_id=1855112661]
+position = Vector2(70.99999, 451.99997)
+scale = Vector2(0.155, 0.155)
+sprite_frames = SubResource("SpriteFrames_ohrg4")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TrueEndingArea" unique_id=326432685]
+position = Vector2(64, 422)
+shape = SubResource("RectangleShape2D_0gvmv")
+
+[editable path="CharacterBody2D"]

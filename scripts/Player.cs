@@ -460,7 +460,7 @@ private void PlayLandingSquash()
 			AnimationPlayer.SignalName.AnimationFinished
 		);
 
-		GetTree().CallDeferred(SceneTree.MethodName.ReloadCurrentScene);
+		TransitionManager.Instance.ReloadCurrentScene();
 	}
 	public float LifeRatio
 {

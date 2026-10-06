@@ -26,6 +26,18 @@
 [ext_resource type="Texture2D" uid="uid://b4lgtk3xivx10" path="res://assets/sprite/TutorialFrame/文本框3.png" id="23_iol8b"]
 [ext_resource type="FontFile" uid="uid://siupji2vbknh" path="res://assets/Font/ZCOOLKuaiLe-Regular.ttf" id="24_u50dc"]
 [ext_resource type="Script" uid="uid://bffw16gi1voma" path="res://scripts/TutorialTrigger.cs" id="25_jhe37"]
+[ext_resource type="Texture2D" uid="uid://cge25j51cl6ej" path="res://assets/sprite/每关结尾/827ab63c-2294-40ba-ab3d-7e8fb94de667.png" id="28_nop1y"]
+[ext_resource type="Texture2D" uid="uid://cl38us1m07b6b" path="res://assets/sprite/每关结尾/424cecd2-603b-4e51-a6da-f01a66fddba0.png" id="29_nj8ix"]
+[ext_resource type="Script" uid="uid://cbyccpnpke53t" path="res://scenes/Buttonjumptobefore.cs" id="30_pekg7"]
+[ext_resource type="Texture2D" uid="uid://pdm0kj8qmaip" path="res://assets/sprite/PauseMenu/8474DF0A924F78DDAE0F1745281636F2.png" id="31_vb7bf"]
+[ext_resource type="Script" uid="uid://brn8tl1vtud1n" path="res://scenes/Button_restart.cs" id="32_dxnyu"]
+[ext_resource type="Script" uid="uid://cs1sar11hcadv" path="res://scenes/HUD.cs" id="33_a83gd"]
+[ext_resource type="Texture2D" uid="uid://c8want8bu1ix2" path="res://assets/sprite/HUD/hud_light_bar_fill.png.png" id="34_7sp3g"]
+[ext_resource type="Texture2D" uid="uid://dcpfb7yvbmxqp" path="res://assets/sprite/HUD/hud_light_bar_frame.png.png" id="35_aio0i"]
+[ext_resource type="Texture2D" uid="uid://dwo2kyqrt6575" path="res://assets/sprite/HUD/hud_light_bar_top_indicator.png.png" id="36_10o3d"]
+[ext_resource type="Script" uid="uid://rvf1ba2etfki" path="res://scenes/InLightCrown.cs" id="37_s05oq"]
+[ext_resource type="Script" uid="uid://nqdsdkvuvmq8" path="res://scripts/Collectible.cs" id="38_aio0i"]
+[ext_resource type="Texture2D" uid="uid://db2ojy5wgqoyk" path="res://assets/sprite/items/480bb6f0-8507-4f66-a9ab-affe3d544e90.png" id="39_10o3d"]
 [ext_resource type="Script" uid="uid://dypir2sutlvan" path="res://scripts/LevelBounds.cs" id="map_bounds_script"]
 
 [sub_resource type="Environment" id="env_autumn"]
@@ -235,11 +247,17 @@ Label/font_sizes/font_size = 32
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xgkmh"]
 size = Vector2(1681, 1040)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s05oq"]
+size = Vector2(301, 290)
+
 [sub_resource type="WorldBoundaryShape2D" id="map_wall_left"]
 normal = Vector2(1, 0)
 
 [sub_resource type="WorldBoundaryShape2D" id="map_wall_right"]
 normal = Vector2(-1, 0)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5miad"]
+radius = 145.0
 
 [node name="Autumn" type="Node2D" unique_id=82057206]
 
@@ -259,9 +277,10 @@ limit_bottom = 2245
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=447122728]
 environment = SubResource("env_autumn")
 
-[node name="EndPoint" parent="." unique_id=739710710 instance=ExtResource("2_end")]
+[node name="EndPoint" parent="." unique_id=739710710 node_paths=PackedStringArray("endUI") instance=ExtResource("2_end")]
 position = Vector2(10190, 1758)
 collision_mask = 64
+endUI = NodePath("../EndUI")
 
 [node name="PauseMenu" parent="." unique_id=375564547 instance=ExtResource("3_pause")]
 
@@ -773,6 +792,17 @@ messages = Array[String](["秋天的树叶踩过就会碎掉...有些东西也�
 position = Vector2(-1497, -602)
 shape = SubResource("RectangleShape2D_xgkmh")
 
+[node name="TutorialTrigger2" type="Area2D" parent="." unique_id=1108559780]
+visible = false
+position = Vector2(15572, 1278)
+collision_mask = 64
+script = ExtResource("25_jhe37")
+messages = Array[String](["  珍藏的枫叶被风卷到窗外，老人没有去追。有些颜色留在那年秋天，也好。——秋天的追忆"])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TutorialTrigger2" unique_id=612439570]
+position = Vector2(-1235.5, -446)
+shape = SubResource("RectangleShape2D_s05oq")
+
 [node name="Bounds" type="StaticBody2D" parent="." unique_id=1560470445 node_paths=PackedStringArray("player")]
 collision_mask = 64
 script = ExtResource("map_bounds_script")
@@ -784,5 +814,138 @@ shape = SubResource("map_wall_left")
 [node name="WallRight" type="CollisionShape2D" parent="Bounds" unique_id=1308967659]
 position = Vector2(14505, 0)
 shape = SubResource("map_wall_right")
+
+[node name="EndUI" type="CanvasLayer" parent="." unique_id=1318293082]
+
+[node name="Control" type="Control" parent="EndUI" unique_id=1696101729]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="EndUI/Control" unique_id=1099419606]
+layout_mode = 1
+offset_left = 221.0
+offset_top = -2.0
+offset_right = 1669.0
+offset_bottom = 1084.0
+texture = ExtResource("28_nop1y")
+
+[node name="Button" type="Button" parent="EndUI/Control/TextureRect" unique_id=1005088079]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -205.0
+offset_top = -231.0
+offset_right = 1851.0
+offset_bottom = 1825.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.195, 0.195)
+icon = ExtResource("29_nj8ix")
+icon_alignment = 1
+script = ExtResource("30_pekg7")
+
+[node name="Button2" type="Button" parent="EndUI/Control/TextureRect" unique_id=515302929]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -562.0
+offset_top = -372.00003
+offset_right = 1494.0
+offset_bottom = 1684.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.095, 0.095)
+icon = ExtResource("31_vb7bf")
+script = ExtResource("32_dxnyu")
+
+[node name="hud" type="CanvasLayer" parent="." unique_id=1352687775 node_paths=PackedStringArray("player", "lifeBar")]
+layer = 0
+script = ExtResource("33_a83gd")
+player = NodePath("../CharacterBody2D")
+lifeBar = NodePath("Control/LifeBar")
+
+[node name="Control" type="Control" parent="hud" unique_id=431178942]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="LifeBar" type="TextureProgressBar" parent="hud/Control" unique_id=693378192]
+z_index = 1000
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -163.00012
+offset_top = 16.0
+offset_right = -123.00012
+offset_bottom = 56.0
+grow_horizontal = 0
+scale = Vector2(4.38, 4.38)
+mouse_filter = 2
+max_value = 1.0
+step = 0.01
+value = 1.0
+fill_mode = 3
+nine_patch_stretch = true
+texture_progress = ExtResource("34_7sp3g")
+
+[node name="HUDbg" type="TextureRect" parent="hud/Control" unique_id=1835054638]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -184.0
+offset_top = 11.0
+offset_right = 1656.0
+offset_bottom = 1391.0
+grow_horizontal = 0
+scale = Vector2(0.14, 0.14)
+mouse_filter = 2
+texture = ExtResource("35_aio0i")
+
+[node name="InLightCrown" type="TextureRect" parent="hud/Control/HUDbg" unique_id=321824649 node_paths=PackedStringArray("player")]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -968.5715
+offset_top = -150.0
+offset_right = 871.42847
+offset_bottom = 1230.0
+grow_horizontal = 0
+rotation = 0.31415927
+scale = Vector2(0.24, 0.24)
+mouse_filter = 2
+texture = ExtResource("36_10o3d")
+script = ExtResource("37_s05oq")
+player = NodePath("../../../../CharacterBody2D")
+
+[node name="Colletor" type="Area2D" parent="." unique_id=1094829841]
+position = Vector2(14334, 814)
+collision_mask = 64
+script = ExtResource("38_aio0i")
+level = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="Colletor" unique_id=1687044318]
+scale = Vector2(0.305, 0.305)
+texture = ExtResource("39_10o3d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Colletor" unique_id=103407488]
+position = Vector2(0, 18)
+shape = SubResource("CircleShape2D_5miad")
 
 [editable path="CharacterBody2D"]

@@ -55,13 +55,11 @@ public partial class PauseMenu : CanvasLayer
 
 	private void Restart()
 	{
-		GetTree().Paused = false;
-		GetTree().ReloadCurrentScene();
+		TransitionManager.Instance.ReloadCurrentScene();
 	}
 
 	private void BackToMenu()
 	{
-		GetTree().Paused = false;
-		GetTree().ChangeSceneToFile("res://scenes/main_menu.tscn");
+		TransitionManager.Instance.TransitionTo("res://scenes/main_menu.tscn");
 	}
 }

@@ -18,6 +18,8 @@ config/icon="uid://7vuikm2c7aek"
 [autoload]
 
 SettingsManager="*uid://c3g13jqx8fpug"
+GameState="*uid://dgb268mk4vfhi"
+TransitionManager="*res://scripts/TransitionManager.cs"
 
 [display]
 

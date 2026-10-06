@@ -235,6 +235,6 @@ public partial class MenuButton : Control
 		GD.Print("按钮功能触发");
 
 		// 例如：
-		// GetTree().ChangeSceneToFile("res://Scenes/Game.tscn");
+		// TransitionManager.Instance.TransitionTo("res://Scenes/Game.tscn");
 	}
 }

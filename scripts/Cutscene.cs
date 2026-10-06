@@ -21,6 +21,6 @@ public partial class Cutscene : Control
 
 	private void OnAnimationFinished()
 	{
-		GetTree().ChangeSceneToFile(nextScene);
+		TransitionManager.Instance.TransitionTo(nextScene);
 	}
 }

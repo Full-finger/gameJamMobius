@@ -29,8 +29,7 @@ public partial class SettingsPage : CanvasLayer
         }
         else
         {
-            GetTree().Paused = false;
-            GetTree().ChangeSceneToFile("res://scenes/main_menu.tscn");
+            TransitionManager.Instance.TransitionTo("res://scenes/main_menu.tscn");
         }
     }
 }

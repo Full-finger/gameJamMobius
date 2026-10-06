@@ -9,11 +9,19 @@
 [ext_resource type="Texture2D" uid="uid://b4nxtr1kb5w21" path="res://assets/sprite/TutorialFrame/文本框2.png" id="24_j7a8p"]
 [ext_resource type="FontFile" uid="uid://siupji2vbknh" path="res://assets/Font/ZCOOLKuaiLe-Regular.ttf" id="25_tpiy1"]
 [ext_resource type="Script" uid="uid://bffw16gi1voma" path="res://scripts/TutorialTrigger.cs" id="26_n4b8l"]
+[ext_resource type="Texture2D" uid="uid://cge25j51cl6ej" path="res://assets/sprite/每关结尾/827ab63c-2294-40ba-ab3d-7e8fb94de667.png" id="28_nxk2e"]
+[ext_resource type="Texture2D" uid="uid://cl38us1m07b6b" path="res://assets/sprite/每关结尾/424cecd2-603b-4e51-a6da-f01a66fddba0.png" id="29_hokrl"]
 [ext_resource type="Texture2D" uid="uid://c8want8bu1ix2" path="res://assets/sprite/HUD/hud_light_bar_fill.png.png" id="29_kih21"]
 [ext_resource type="Script" uid="uid://cs1sar11hcadv" path="res://scenes/HUD.cs" id="29_w3o6u"]
+[ext_resource type="Script" uid="uid://dsxj6e1a2i03f" path="res://scenes/Buttonjumpto3.cs" id="30_c36s1"]
 [ext_resource type="Texture2D" uid="uid://dcpfb7yvbmxqp" path="res://assets/sprite/HUD/hud_light_bar_frame.png.png" id="30_w3o6u"]
+[ext_resource type="Texture2D" uid="uid://pdm0kj8qmaip" path="res://assets/sprite/PauseMenu/8474DF0A924F78DDAE0F1745281636F2.png" id="31_cigiq"]
 [ext_resource type="Texture2D" uid="uid://dwo2kyqrt6575" path="res://assets/sprite/HUD/hud_light_bar_top_indicator.png.png" id="32_gur6y"]
+[ext_resource type="Script" uid="uid://brn8tl1vtud1n" path="res://scenes/Button_restart.cs" id="32_iq0k2"]
+[ext_resource type="Script" uid="uid://nqdsdkvuvmq8" path="res://scripts/Collectible.cs" id="33_c36s1"]
 [ext_resource type="Script" uid="uid://rvf1ba2etfki" path="res://scenes/InLightCrown.cs" id="33_v3why"]
+[ext_resource type="Texture2D" uid="uid://dwk5hhk13jg6y" path="res://assets/sprite/items/b92c6124-890d-41de-8099-85cb5ac92f49.png" id="34_cigiq"]
+[ext_resource type="Script" uid="uid://dypir2sutlvan" path="res://scripts/LevelBounds.cs" id="map_bounds_script"]
 [ext_resource type="Texture2D" uid="uid://bkbr6m8ihopwd" path="res://assets/sprite/夏/_0011_background.png" id="summer_bg"]
 [ext_resource type="Texture2D" uid="uid://dgc6g31g4qet1" path="res://assets/sprite/夏/0003_花苞1.png" id="summer_bud1"]
 [ext_resource type="Texture2D" uid="uid://cknmobuamxstd" path="res://assets/sprite/夏/0004_花苞2.png" id="summer_bud2"]
@@ -26,8 +34,6 @@
 [ext_resource type="Texture2D" uid="uid://c3xuiqf8xhpd4" path="res://assets/sprite/夏/006_莲蓬1.png" id="summer_pod1"]
 [ext_resource type="Texture2D" uid="uid://docmgqb0v16kg" path="res://assets/sprite/夏/0005_莲蓬2.png" id="summer_pod2"]
 [ext_resource type="Texture2D" uid="uid://qqb2mpuo2snc" path="res://assets/sprite/夏/water.png" id="summer_water"]
-
-[ext_resource type="Script" path="res://scripts/LevelBounds.cs" id="map_bounds_script"]
 
 [sub_resource type="Environment" id="env_summer"]
 background_mode = 3
@@ -97,11 +103,17 @@ Label/font_sizes/font_size = 32
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nxk2e"]
 size = Vector2(1681, 1040)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iq0k2"]
+size = Vector2(299, 288)
+
 [sub_resource type="WorldBoundaryShape2D" id="map_wall_left"]
 normal = Vector2(1, 0)
 
 [sub_resource type="WorldBoundaryShape2D" id="map_wall_right"]
 normal = Vector2(-1, 0)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7m8e7"]
+radius = 145.0
 
 [node name="Summer" type="Node2D" unique_id=1850497459]
 
@@ -112,7 +124,7 @@ speed = 1000.0
 jumpHeight = 600.0
 deathY = 3031.0
 
-[node name="Camera2D" parent="CharacterBody2D" index="2"]
+[node name="Camera2D" parent="CharacterBody2D" index="2" unique_id=1939810449]
 limit_left = 0
 limit_top = 0
 limit_right = 9666
@@ -121,10 +133,11 @@ limit_bottom = 2831
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=477770792]
 environment = SubResource("env_summer")
 
-[node name="EndPoint" parent="." unique_id=860793240 instance=ExtResource("2_end")]
+[node name="EndPoint" parent="." unique_id=860793240 node_paths=PackedStringArray("endUI") instance=ExtResource("2_end")]
 z_index = 1000
 position = Vector2(9426, 1583)
 collision_mask = 64
+endUI = NodePath("../EndUI")
 nextScenePath = "res://scenes/level_autumn.tscn"
 
 [node name="PauseMenu" parent="." unique_id=1137995668 instance=ExtResource("3_pause")]
@@ -490,18 +503,94 @@ messages = Array[String](["这次的光普遍很高，看到面前的荷叶了�
 position = Vector2(-1649, -570)
 shape = SubResource("RectangleShape2D_nxk2e")
 
-[node name="Bounds" type="StaticBody2D" parent="." node_paths=PackedStringArray("player")]
-collision_layer = 1
+[node name="TutorialTrigger2" type="Area2D" parent="." unique_id=739761978]
+visible = false
+position = Vector2(3471, 2761)
+collision_mask = 64
+script = ExtResource("26_n4b8l")
+messages = Array[String](["  小猫把荷花瓣拨进水里，它顺着池塘漂远了。老人笑着说，也许它会替你去看更远的夏天。——夏天的追忆"])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TutorialTrigger2" unique_id=1397463915]
+position = Vector2(-1655.5, -504)
+shape = SubResource("RectangleShape2D_iq0k2")
+
+[node name="Bounds" type="StaticBody2D" parent="." unique_id=948121631 node_paths=PackedStringArray("player")]
 collision_mask = 64
 script = ExtResource("map_bounds_script")
 player = NodePath("../CharacterBody2D")
 
-[node name="WallLeft" type="CollisionShape2D" parent="Bounds"]
-position = Vector2(0, 0)
+[node name="WallLeft" type="CollisionShape2D" parent="Bounds" unique_id=1879948678]
 shape = SubResource("map_wall_left")
 
-[node name="WallRight" type="CollisionShape2D" parent="Bounds"]
+[node name="WallRight" type="CollisionShape2D" parent="Bounds" unique_id=1817979419]
 position = Vector2(9666, 0)
 shape = SubResource("map_wall_right")
+
+[node name="EndUI" type="CanvasLayer" parent="." unique_id=1483426389]
+
+[node name="Control" type="Control" parent="EndUI" unique_id=698672986]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="EndUI/Control" unique_id=764169127]
+layout_mode = 1
+offset_left = 221.0
+offset_top = -2.0
+offset_right = 1669.0
+offset_bottom = 1084.0
+texture = ExtResource("28_nxk2e")
+
+[node name="Button" type="Button" parent="EndUI/Control/TextureRect" unique_id=1277906212]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -205.0
+offset_top = -231.0
+offset_right = 1851.0
+offset_bottom = 1825.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.195, 0.195)
+icon = ExtResource("29_hokrl")
+icon_alignment = 1
+script = ExtResource("30_c36s1")
+
+[node name="Button2" type="Button" parent="EndUI/Control/TextureRect" unique_id=1817842888]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -562.0
+offset_top = -372.00003
+offset_right = 1494.0
+offset_bottom = 1684.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.095, 0.095)
+icon = ExtResource("31_cigiq")
+script = ExtResource("32_iq0k2")
+
+[node name="Colletor" type="Area2D" parent="." unique_id=348046417]
+position = Vector2(1817, 2242)
+collision_mask = 64
+script = ExtResource("33_c36s1")
+level = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Colletor" unique_id=377042292]
+scale = Vector2(0.305, 0.305)
+texture = ExtResource("34_cigiq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Colletor" unique_id=1692697363]
+position = Vector2(0, 18)
+shape = SubResource("CircleShape2D_7m8e7")
 
 [editable path="CharacterBody2D"]
