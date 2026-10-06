@@ -18,6 +18,12 @@
 [ext_resource type="Texture2D" uid="uid://docmgqb0v16kg" path="res://assets/sprite/夏/0005_莲蓬2.png" id="summer_pod2"]
 [ext_resource type="Texture2D" uid="uid://qqb2mpuo2snc" path="res://assets/sprite/夏/water.png" id="summer_water"]
 
+[ext_resource type="Texture2D" uid="uid://c8want8bu1ix2" path="res://assets/sprite/HUD/hud_light_bar_fill.png.png" id="29_kih21"]
+[ext_resource type="Script" uid="uid://cs1sar11hcadv" path="res://scenes/HUD.cs" id="29_w3o6u"]
+[ext_resource type="Texture2D" uid="uid://dcpfb7yvbmxqp" path="res://assets/sprite/HUD/hud_light_bar_frame.png.png" id="30_w3o6u"]
+[ext_resource type="Texture2D" uid="uid://dwo2kyqrt6575" path="res://assets/sprite/HUD/hud_light_bar_top_indicator.png.png" id="32_gur6y"]
+[ext_resource type="Script" uid="uid://rvf1ba2etfki" path="res://scenes/InLightCrown.cs" id="33_v3why"]
+
 [sub_resource type="Environment" id="env_summer"]
 background_mode = 3
 glow_enabled = true
@@ -49,7 +55,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(242, 1792)]
+"values": [Vector2(185, 1707)]
 }
 
 [sub_resource type="Animation" id="light_fly"]
@@ -63,10 +69,10 @@ tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(-0.53333336, 0, 4.233333, 4.6, 8.766666),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 4.233333, 4.6, 20),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(242, 1792), Vector2(185, 1707), Vector2(3318, 903), Vector2(3810, 1354), Vector2(9246, 1666)]
+"values": [Vector2(185, 1707), Vector2(3318, 903), Vector2(3810, 1354), Vector2(9246, 1666)]
 }
 
 [sub_resource type="AnimationLibrary" id="light_lib"]
@@ -78,16 +84,16 @@ _data = {
 [node name="Summer" type="Node2D" unique_id=1850497459]
 
 [node name="CharacterBody2D" parent="." unique_id=806095493 instance=ExtResource("1_player")]
-position = Vector2(300, 1700)
+position = Vector2(300, 1600)
 scale = Vector2(3.11, 3.11)
 speed = 1000.0
 jumpHeight = 600.0
 
 [node name="Camera2D" parent="CharacterBody2D" index="2" unique_id=1939810449]
-limit_left = -150
-limit_top = -1400
-limit_right = 9800
-limit_bottom = 3050
+limit_left = 0
+limit_top = 0
+limit_right = 9666
+limit_bottom = 2831
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=477770792]
 environment = SubResource("env_summer")
@@ -96,6 +102,7 @@ environment = SubResource("env_summer")
 position = Vector2(9300, 1850)
 scale = Vector2(0.44, 0.44)
 collision_mask = 64
+nextScenePath = "res://scenes/main_menu.tscn"
 
 [node name="PauseMenu" parent="." unique_id=1137995668 instance=ExtResource("3_pause")]
 visible = false
@@ -137,6 +144,7 @@ one_way_collision_margin = 4.0
 
 [node name="Trampoline" type="Area2D" parent="Plants/荷叶1" unique_id=1014526925]
 position = Vector2(12, 73)
+collision_layer = 0
 collision_mask = 64
 script = ExtResource("5_tramp")
 
@@ -185,28 +193,22 @@ shape = SubResource("plat_3")
 one_way_collision = true
 one_way_collision_margin = 4.0
 
-[node name="荷叶2" type="StaticBody2D" parent="Plants" unique_id=665366141]
-position = Vector2(9587, 1533)
-collision_mask = 64
+[node name="荷叶2" type="Node2D" parent="Plants" unique_id=665366141]
+position = Vector2(1594, 2109)
 
 [node name="Sprite2D" type="Sprite2D" parent="Plants/荷叶2" unique_id=1938365278]
-position = Vector2(-7993, 576)
 texture = ExtResource("summer_leaf2")
 
-[node name="莲蓬2" type="StaticBody2D" parent="Plants" unique_id=163369472]
-position = Vector2(9635, 1457)
-collision_mask = 64
+[node name="莲蓬2" type="Node2D" parent="Plants" unique_id=163369472]
+position = Vector2(3853, 2108)
 
 [node name="Sprite2D" type="Sprite2D" parent="Plants/莲蓬2" unique_id=196392669]
-position = Vector2(-5782, 651)
 texture = ExtResource("summer_pod2")
 
-[node name="花苞2" type="StaticBody2D" parent="Plants" unique_id=2055241128]
-position = Vector2(9568, 766)
-collision_mask = 64
+[node name="花苞2" type="Node2D" parent="Plants" unique_id=2055241128]
+position = Vector2(7606, 1835)
 
 [node name="Sprite2D" type="Sprite2D" parent="Plants/花苞2" unique_id=619331652]
-position = Vector2(-1962, 1069)
 texture = ExtResource("summer_bud2")
 
 [node name="荷花2" type="Sprite2D" parent="Plants" unique_id=1898472164]
@@ -218,12 +220,79 @@ position = Vector2(5099, 2330.5)
 texture = ExtResource("summer_fg")
 
 [node name="PointLight2D" parent="." unique_id=1892702020 instance=ExtResource("4_light")]
-position = Vector2(242, 1792)
+position = Vector2(185, 1707)
 color = Color(0.9866782, 0.9866782, 0.9866782, 1)
 energy = 4.43
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="PointLight2D" unique_id=428978602]
+callback_mode_process = 0
 libraries/ = SubResource("light_lib")
 autoplay = &"fly"
+
+[node name="hud" type="CanvasLayer" parent="." node_paths=PackedStringArray("player", "lifeBar")]
+layer = 0
+script = ExtResource("29_w3o6u")
+player = NodePath("../CharacterBody2D")
+lifeBar = NodePath("Control/LifeBar")
+
+[node name="Control" type="Control" parent="hud"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="LifeBar" type="TextureProgressBar" parent="hud/Control"]
+mouse_filter = 2
+z_index = 1000
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -163.00012
+offset_top = 16.0
+offset_right = -123.00012
+offset_bottom = 56.0
+grow_horizontal = 0
+scale = Vector2(4.38, 4.38)
+max_value = 1.0
+step = 0.01
+value = 1.0
+fill_mode = 3
+nine_patch_stretch = true
+texture_progress = ExtResource("29_kih21")
+
+[node name="HUDbg" type="TextureRect" parent="hud/Control"]
+mouse_filter = 2
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -184.0
+offset_top = 11.0
+offset_right = 1656.0
+offset_bottom = 1391.0
+grow_horizontal = 0
+scale = Vector2(0.14, 0.14)
+texture = ExtResource("30_w3o6u")
+
+[node name="InLightCrown" type="TextureRect" parent="hud/Control/HUDbg" node_paths=PackedStringArray("player")]
+mouse_filter = 2
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -968.5715
+offset_top = -150.0
+offset_right = 871.42847
+offset_bottom = 1230.0
+grow_horizontal = 0
+rotation = 0.31415927
+scale = Vector2(0.24, 0.24)
+texture = ExtResource("32_gur6y")
+script = ExtResource("33_v3why")
+player = NodePath("../../../../CharacterBody2D")
 
 [editable path="CharacterBody2D"]
