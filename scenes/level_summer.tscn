@@ -96,6 +96,7 @@ environment = SubResource("env_summer")
 position = Vector2(9300, 1850)
 scale = Vector2(0.44, 0.44)
 collision_mask = 64
+nextScenePath = "res://scenes/level_autumn.tscn"
 
 [node name="PauseMenu" parent="." unique_id=1137995668 instance=ExtResource("3_pause")]
 visible = false
