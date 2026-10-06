@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cyfmxehji1crp" path="res://scenes/Light.tscn" id="3_w8frs"]
 [ext_resource type="PackedScene" uid="uid://mxt78cvn5w35" path="res://scenes/endPoint.tscn" id="4_mx8sn"]
 [ext_resource type="PackedScene" uid="uid://dw13jweir71ce" path="res://scenes/pause_menu.tscn" id="5_ppgk2"]
+[ext_resource type="PackedScene" uid="uid://cohub3088q7to" path="res://scenes/wineTEST.tscn" id="6_2r41h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ohrg4"]
 size = Vector2(529, 535)
@@ -81,8 +82,11 @@ autoplay = &"new_animation"
 environment = SubResource("Environment_0gvmv")
 
 [node name="Area2D" parent="." unique_id=905016184 instance=ExtResource("4_mx8sn")]
-position = Vector2(1449, 457)
+position = Vector2(2379, 462)
 scale = Vector2(0.44, 0.44)
 collision_mask = 64
 
 [node name="PauseMenu" parent="." unique_id=1057490932 instance=ExtResource("5_ppgk2")]
+
+[node name="Wine" parent="." unique_id=1148817497 instance=ExtResource("6_2r41h")]
+position = Vector2(1178, -197)

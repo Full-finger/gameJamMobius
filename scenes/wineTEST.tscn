@@ -1,0 +1,94 @@
+[gd_scene format=3 uid="uid://cohub3088q7to"]
+
+[ext_resource type="Texture2D" uid="uid://x3phok1a737w" path="res://assets/sprite/JustTesting/testingWine.png" id="1_y20ny"]
+[ext_resource type="Script" uid="uid://chqvqsxukwhni" path="res://scenes/GrabArea.cs" id="2_x4ajo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0gvmv"]
+size = Vector2(19, 280.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ohrg4"]
+size = Vector2(20, 231)
+
+[node name="Wine" type="Node2D" unique_id=1148817497]
+
+[node name="Anker" type="RigidBody2D" parent="." unique_id=1850402919]
+freeze = true
+
+[node name="Rope1" type="RigidBody2D" parent="." unique_id=888764997]
+collision_layer = 128
+
+[node name="Sprite2D" type="Sprite2D" parent="Rope1" unique_id=1446739190]
+scale = Vector2(0.205, 0.205)
+texture = ExtResource("1_y20ny")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rope1" unique_id=50337899]
+position = Vector2(0.5, -0.75)
+shape = SubResource("RectangleShape2D_0gvmv")
+
+[node name="PinJoint2D" type="PinJoint2D" parent="Rope1" unique_id=739949439]
+position = Vector2(0, -141.00002)
+scale = Vector2(4.945, 4.945)
+node_a = NodePath("..")
+node_b = NodePath("../../Anker")
+
+[node name="GrabArea" type="Area2D" parent="Rope1" unique_id=154042609]
+collision_mask = 64
+script = ExtResource("2_x4ajo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rope1/GrabArea" unique_id=1102081342]
+position = Vector2(0, -24)
+shape = SubResource("RectangleShape2D_ohrg4")
+
+[node name="Rope2" type="RigidBody2D" parent="." unique_id=214977650]
+position = Vector2(0, 279)
+collision_layer = 128
+
+[node name="Sprite2D" type="Sprite2D" parent="Rope2" unique_id=92566107]
+scale = Vector2(0.205, 0.205)
+texture = ExtResource("1_y20ny")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rope2" unique_id=515236333]
+position = Vector2(0.5, -0.75)
+shape = SubResource("RectangleShape2D_0gvmv")
+
+[node name="PinJoint2D" type="PinJoint2D" parent="Rope2" unique_id=41547390]
+position = Vector2(0, -141.00002)
+scale = Vector2(4.945, 4.945)
+node_a = NodePath("..")
+node_b = NodePath("../../Rope1")
+
+[node name="GrabArea2" type="Area2D" parent="Rope2" unique_id=1978995164]
+position = Vector2(0, 3)
+collision_mask = 64
+script = ExtResource("2_x4ajo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rope2/GrabArea2" unique_id=1618295822]
+position = Vector2(0, -24.5)
+shape = SubResource("RectangleShape2D_ohrg4")
+
+[node name="Rope3" type="RigidBody2D" parent="." unique_id=1689724729]
+position = Vector2(0, 559)
+collision_layer = 128
+
+[node name="Sprite2D" type="Sprite2D" parent="Rope3" unique_id=318424468]
+scale = Vector2(0.205, 0.205)
+texture = ExtResource("1_y20ny")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rope3" unique_id=1233438852]
+position = Vector2(0.5, -0.75)
+shape = SubResource("RectangleShape2D_0gvmv")
+
+[node name="PinJoint2D" type="PinJoint2D" parent="Rope3" unique_id=1666551105]
+position = Vector2(0, -141.00002)
+scale = Vector2(4.945, 4.945)
+node_a = NodePath("..")
+node_b = NodePath("../../Rope2")
+
+[node name="GrabArea3" type="Area2D" parent="Rope3" unique_id=512082200]
+position = Vector2(1, 37)
+collision_mask = 64
+script = ExtResource("2_x4ajo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rope3/GrabArea3" unique_id=315858355]
+position = Vector2(0, -24.5)
+shape = SubResource("RectangleShape2D_ohrg4")
