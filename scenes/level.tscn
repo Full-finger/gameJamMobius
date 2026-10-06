@@ -17,6 +17,11 @@
 [ext_resource type="Texture2D" uid="uid://ccbto3rsmxien" path="res://assets/sprite/春_导出素材/地面/地面_02.png" id="17_5k0ak"]
 [ext_resource type="Texture2D" uid="uid://pqr10vr5fgop" path="res://assets/sprite/春_导出素材/地面/地面_03.png" id="18_wu01b"]
 [ext_resource type="Texture2D" uid="uid://baim8jmt7wp8c" path="res://assets/sprite/春_导出素材/地面/地面_04.png" id="19_3ies3"]
+[ext_resource type="Texture2D" uid="uid://c8want8bu1ix2" path="res://assets/sprite/HUD/hud_light_bar_fill.png.png" id="29_kih21"]
+[ext_resource type="Script" uid="uid://cs1sar11hcadv" path="res://scenes/HUD.cs" id="29_w3o6u"]
+[ext_resource type="Texture2D" uid="uid://dcpfb7yvbmxqp" path="res://assets/sprite/HUD/hud_light_bar_frame.png.png" id="30_w3o6u"]
+[ext_resource type="Texture2D" uid="uid://dwo2kyqrt6575" path="res://assets/sprite/HUD/hud_light_bar_top_indicator.png.png" id="32_gur6y"]
+[ext_resource type="Script" uid="uid://rvf1ba2etfki" path="res://scenes/InLightCrown.cs" id="33_v3why"]
 [ext_resource type="Texture2D" uid="uid://cfjj32lp0fvx0" path="res://assets/sprite/春_导出素材/蘑菇/完整/蘑菇01_左.png" id="spring_tex_1"]
 [ext_resource type="Texture2D" uid="uid://djwuyfnee15gw" path="res://assets/sprite/春_导出素材/蘑菇/部件/蘑菇02_菌盖.png" id="spring_tex_2"]
 [ext_resource type="Texture2D" uid="uid://cpqvpgaa7v1al" path="res://assets/sprite/春_导出素材/蘑菇/部件/蘑菇02_菌柄.png" id="spring_tex_3"]
@@ -32,6 +37,7 @@
 [sub_resource type="Environment" id="Environment_0gvmv"]
 background_mode = 3
 glow_enabled = true
+glow_strength = 1.02
 
 [sub_resource type="AtlasTexture" id="Atlas_Mushroom01_Left_Stem"]
 atlas = ExtResource("spring_tex_1")
@@ -466,3 +472,78 @@ energy = 4.43
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="PointLight2D" unique_id=1822652394]
 libraries/ = SubResource("AnimationLibrary_2r41h")
 autoplay = &"RESET"
+
+[node name="hud" type="CanvasLayer" parent="." unique_id=1760950058 node_paths=PackedStringArray("player", "lifeBar")]
+script = ExtResource("29_w3o6u")
+player = NodePath("../CharacterBody2D")
+lifeBar = NodePath("Control/LifeBar")
+
+[node name="Control" type="Control" parent="hud" unique_id=419020409]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="LifeBar" type="TextureProgressBar" parent="hud/Control" unique_id=1114648951]
+z_index = 1000
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -163.00012
+offset_top = 16.0
+offset_right = -123.00012
+offset_bottom = 56.0
+grow_horizontal = 0
+scale = Vector2(4.38, 4.38)
+max_value = 1.0
+step = 0.01
+value = 1.0
+fill_mode = 3
+nine_patch_stretch = true
+texture_progress = ExtResource("29_kih21")
+
+[node name="HUDbg" type="TextureRect" parent="hud/Control" unique_id=1369348603]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -184.0
+offset_top = 11.0
+offset_right = 1656.0
+offset_bottom = 1391.0
+grow_horizontal = 0
+scale = Vector2(0.14, 0.14)
+texture = ExtResource("30_w3o6u")
+
+[node name="InLightCrown" type="TextureRect" parent="hud/Control/HUDbg" unique_id=2120746537 node_paths=PackedStringArray("player")]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -968.5715
+offset_top = -150.0
+offset_right = 871.42847
+offset_bottom = 1230.0
+grow_horizontal = 0
+rotation = 0.31415927
+scale = Vector2(0.24, 0.24)
+texture = ExtResource("32_gur6y")
+script = ExtResource("33_v3why")
+player = NodePath("../../../../CharacterBody2D")
+
+[node name="TutUI" type="CanvasLayer" parent="." unique_id=1248608634]
+
+[node name="Control" type="Control" parent="TutUI" unique_id=479376537]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="TutUI/Control" unique_id=694058278]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
