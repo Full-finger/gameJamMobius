@@ -4,12 +4,14 @@
 [ext_resource type="Texture2D" uid="uid://b0gbn2f6vxm4f" path="res://assets/sprite/光源/光源.png" id="2_b1e3x"]
 
 [sub_resource type="Gradient" id="Gradient_2jnl3"]
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+offsets = PackedFloat32Array(0, 0.6572958, 1)
+colors = PackedColorArray(1.8247963, 1.8247963, 1.8247963, 1, 0.4159807, 0.41598034, 0.4159804, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_2jnl3"]
 gradient = SubResource("Gradient_2jnl3")
-width = 740
-height = 714
+width = 1370
+height = 1380
+use_hdr = true
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(1, 0.5)

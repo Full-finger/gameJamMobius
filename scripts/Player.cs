@@ -434,6 +434,7 @@ private void PlayLandingSquash()
 			}
 		}
 	}
+
 	private async void Die()
 	{
 		SetPhysicsProcess(false);
@@ -461,4 +462,21 @@ private void PlayLandingSquash()
 
 		GetTree().CallDeferred(SceneTree.MethodName.ReloadCurrentScene);
 	}
+	public float LifeRatio
+{
+    get
+    {
+        if (normalSpeed <= 0f || normalJumpHeight <= 0f)
+            return 0f;
+
+        float speedRatio = speed / normalSpeed;
+        float jumpRatio = jumpHeight / normalJumpHeight;
+
+        return Mathf.Clamp(
+            Mathf.Min(speedRatio, jumpRatio),
+            0f,
+            1f
+        );
+    }
+}
 }
