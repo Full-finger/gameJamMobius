@@ -118,6 +118,13 @@ public partial class Player : CharacterBody2D
 		FloorConstantSpeed = true;
 
 		anim = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
+		anim = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
+
+		// 给当前玩家一份独立材质。
+		anim.Material = (ShaderMaterial)anim.Material.Duplicate();
+
+		// 出生时恢复完整显示。
+		((ShaderMaterial)anim.Material).SetShaderParameter("progress", 0f);
 		anim.SpriteFrames.SetAnimationLoopMode("jump", SpriteFrames.LoopMode.None);
 		anim.SpriteFrames.SetAnimationLoopMode("jumpOLD", SpriteFrames.LoopMode.None);
 		PlayAnimation("idle");
@@ -141,7 +148,7 @@ public partial class Player : CharacterBody2D
 
 		if (speed == 0f && jumpHeight == 0f)
 		{
-			GetTree().CallDeferred(SceneTree.MethodName.ReloadCurrentScene);
+			Die();
 			return;
 		}
 		if (UpdateVine(dt))
@@ -303,5 +310,32 @@ public partial class Player : CharacterBody2D
 				}
 			}
 		}
+	}
+	private async void Die()
+	{
+		SetPhysicsProcess(false);
+		Velocity = Vector2.Zero;
+
+		// 定格角色姿势。
+		anim.Pause();
+
+		AnimationPlayer animationPlayer =
+			GetNode<AnimationPlayer>("AnimationPlayer");
+
+		GpuParticles2D particles =
+			GetNode<GpuParticles2D>("DeathParticles");
+
+		// 溶解和粒子同时开始。
+		animationPlayer.Play("Dissolve");
+		particles.Restart();
+		particles.Emitting = true;
+
+		// 等一秒的溶解动画结束，再重开。
+		await ToSignal(
+			animationPlayer,
+			AnimationPlayer.SignalName.AnimationFinished
+		);
+
+		GetTree().CallDeferred(SceneTree.MethodName.ReloadCurrentScene);
 	}
 }

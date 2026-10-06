@@ -1,14 +1,32 @@
 shader_type canvas_item;
 
-void vertex() {
-	// Called for every vertex the material is visible on.
-}
+uniform float progress : hint_range(0.0, 1.1, 0.01) = 0.0;
+uniform sampler2D noise_texture;
+
+uniform vec4 edge_color : source_color = vec4(1.0, 0.5, 0.0, 1.0);
+uniform float edge_width : hint_range(0.0, 0.1) = 0.05;
 
 void fragment() {
-	// Called for every pixel the material is visible on.
-}
+	vec4 current_color = texture(TEXTURE, UV);
 
-//void light() {
-//	// Called for every pixel for every light affecting the CanvasItem.
-//	// Uncomment to replace the default light processing function with this one.
-//}
+	// 原图完全透明的地方不参与溶解。
+	if (current_color.a <= 0.0) {
+		discard;
+	}
+
+	float noise_value = texture(noise_texture, UV).r;
+
+	if (noise_value < progress - edge_width) {
+		discard;
+	}
+	else if (noise_value < progress) {
+		// 边缘染色，但保留原图透明度，包括半透明边缘。
+		COLOR = vec4(
+			edge_color.rgb,
+			current_color.a * edge_color.a
+		);
+	}
+	else {
+		COLOR = current_color;
+	}
+}

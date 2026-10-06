@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dd0e6tgl84g0" path="res://scripts/Player.cs" id="1_v6fml"]
 [ext_resource type="Texture2D" uid="uid://plmdnywvr2e6" path="res://assets/sprite/PlayerSprite/young/idle/the old man-idel_00.png" id="2_agngo"]
+[ext_resource type="Shader" uid="uid://61m6i8kb54kt" path="res://assets/shaderAndMatrial/Dissolve.gdshader" id="2_gusmc"]
 [ext_resource type="Texture2D" uid="uid://b00ymq7rtxpc6" path="res://assets/sprite/PlayerSprite/young/idle/the old man-idel_01.png" id="3_qrixf"]
 [ext_resource type="Texture2D" uid="uid://cv02qikwekn8w" path="res://assets/sprite/PlayerSprite/young/idle/the old man-idel_02.png" id="4_qmt83"]
 [ext_resource type="Texture2D" uid="uid://dxv6mwkljnesw" path="res://assets/sprite/PlayerSprite/young/idle/the old man-idel_03.png" id="5_m4as6"]
@@ -145,6 +146,19 @@
 [ext_resource type="Texture2D" uid="uid://bem6jhips4x7l" path="res://assets/sprite/PlayerSprite/old/walk/the old man-walk_17.png" id="143_0ybu3"]
 [ext_resource type="Texture2D" uid="uid://c6wjqe7j6t1c0" path="res://assets/sprite/PlayerSprite/old/walk/the old man-walk_18.png" id="144_n5pma"]
 [ext_resource type="Texture2D" uid="uid://dg76e77r2k8eq" path="res://assets/sprite/PlayerSprite/old/walk/the old man-walk_19.png" id="145_kvby3"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_g6jhj"]
+frequency = 0.009
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_gusmc"]
+noise = SubResource("FastNoiseLite_g6jhj")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_000wm"]
+shader = ExtResource("2_gusmc")
+shader_parameter/progress = 0.0
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_gusmc")
+shader_parameter/edge_color = Color(4.165, 4.165, 4.165, 1)
+shader_parameter/edge_width = 0.0350000016625
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0gvmv"]
 animations = [{
@@ -614,6 +628,75 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ohrg4"]
 size = Vector2(88.5, 171)
 
+[sub_resource type="Animation" id="Animation_gusmc"]
+resource_name = "Dissolve"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:material:shader_parameter/progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0999999754128]
+}
+
+[sub_resource type="Animation" id="Animation_g6jhj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:material:shader_parameter/progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_g6jhj"]
+_data = {
+&"Dissolve": SubResource("Animation_gusmc"),
+&"RESET": SubResource("Animation_g6jhj")
+}
+
+[sub_resource type="Gradient" id="Gradient_gusmc"]
+offsets = PackedFloat32Array(0, 0.20615797, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.7590361, 0.7590361, 0.7590361, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_0gvmv"]
+gradient = SubResource("Gradient_gusmc")
+width = 8
+height = 4
+
+[sub_resource type="Gradient" id="Gradient_g6jhj"]
+offsets = PackedFloat32Array(0, 0.55509067, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.9902371, 0.9902371, 0.9902371, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_i45ji"]
+gradient = SubResource("Gradient_g6jhj")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ohrg4"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(40, 75, 0)
+angle_min = -178.49998
+angle_max = 172.50002
+direction = Vector3(-1, -0.15, 0)
+spread = 21.0
+initial_velocity_min = 61.969997
+initial_velocity_max = 116.77
+angular_velocity_min = -121.69001
+angular_velocity_max = 122.54998
+gravity = Vector3(-50, 25, 0)
+scale_min = 0.39999998
+scale_max = 0.9
+color_ramp = SubResource("GradientTexture1D_i45ji")
+
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=1710452791]
 position = Vector2(1, 0)
 collision_layer = 64
@@ -621,10 +704,12 @@ script = ExtResource("1_v6fml")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1710177432]
 texture_filter = 2
+material = SubResource("ShaderMaterial_000wm")
 scale = Vector2(0.626, 0.626)
 sprite_frames = SubResource("SpriteFrames_0gvmv")
 animation = &"idle"
 autoplay = "idle"
+frame_progress = 0.24889329
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1107252805]
 position = Vector2(-5.25, 39.5)
@@ -632,3 +717,17 @@ shape = SubResource("RectangleShape2D_ohrg4")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1939810449]
 position_smoothing_enabled = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=648125655]
+libraries/ = SubResource("AnimationLibrary_g6jhj")
+
+[node name="DeathParticles" type="GPUParticles2D" parent="." unique_id=1269764988]
+z_index = 3
+position = Vector2(-6, 25)
+emitting = false
+amount = 30
+texture = SubResource("GradientTexture2D_0gvmv")
+lifetime = 0.65
+one_shot = true
+explosiveness = 0.5
+process_material = SubResource("ParticleProcessMaterial_ohrg4")
