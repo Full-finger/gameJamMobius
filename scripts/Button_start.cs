@@ -7,8 +7,17 @@ public partial class Button_start : Button
         Pressed += StartGame;
     }
 
-    private void StartGame()
+    private async void StartGame()
     {
+        // 防止这 0.7 秒里重复点击
+        Disabled = true;
+
+        // 等待 0.7 秒，让动画播完
+        await ToSignal(
+            GetTree().CreateTimer(0.7),
+            SceneTreeTimer.SignalName.Timeout
+        );
+
         GetTree().ChangeSceneToFile("res://scenes/level.tscn");
     }
 }

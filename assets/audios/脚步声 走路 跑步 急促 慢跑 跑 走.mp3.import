@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ct34a3mdg8w86"
+path="res://.godot/imported/脚步声 走路 跑步 急促 慢跑 跑 走.mp3-30b2f1c99b0fa0a8a3fc2f6688f72da2.mp3str"
+
+[deps]
+
+source_file="res://assets/audios/脚步声 走路 跑步 急促 慢跑 跑 走.mp3"
+dest_files=["res://.godot/imported/脚步声 走路 跑步 急促 慢跑 跑 走.mp3-30b2f1c99b0fa0a8a3fc2f6688f72da2.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

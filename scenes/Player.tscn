@@ -147,6 +147,8 @@
 [ext_resource type="Texture2D" uid="uid://c6wjqe7j6t1c0" path="res://assets/sprite/PlayerSprite/old/walk/the old man-walk_18.png" id="144_n5pma"]
 [ext_resource type="Texture2D" uid="uid://dg76e77r2k8eq" path="res://assets/sprite/PlayerSprite/old/walk/the old man-walk_19.png" id="145_kvby3"]
 
+[ext_resource type="Script" path="res://scripts/LevelCamera.cs" id="camera_bounds"]
+
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_g6jhj"]
 frequency = 0.009
 
@@ -720,11 +722,12 @@ position = Vector2(-2.5, 41)
 shape = SubResource("RectangleShape2D_7agi7")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1939810449]
+script = ExtResource("camera_bounds")
 zoom = Vector2(0.5, 0.5)
 limit_left = -2066
-limit_top = -1689
-limit_right = 18381
-limit_bottom = 1677
+limit_top = -1683
+limit_right = 18364
+limit_bottom = 1673
 position_smoothing_enabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=648125655]

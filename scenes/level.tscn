@@ -6,9 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://dw13jweir71ce" path="res://scenes/pause_menu.tscn" id="5_ppgk2"]
 [ext_resource type="PackedScene" uid="uid://cohub3088q7to" path="res://scenes/wineTEST.tscn" id="6_2r41h"]
 [ext_resource type="Texture2D" uid="uid://brbhfddrvrd6l" path="res://assets/sprite/春_导出素材/背景/森林背景_01.png" id="7_olg7q"]
+[ext_resource type="Texture2D" uid="uid://cgxejidqyytrd" path="res://assets/sprite/春_导出素材/背景/9ab28fdce6993d8e77ad5d782f1f7af8.png" id="8_556r4"]
 [ext_resource type="Texture2D" uid="uid://cy50s3wyu3rwa" path="res://assets/sprite/春_导出素材/背景/森林背景_02.png" id="8_t1rx8"]
 [ext_resource type="Texture2D" uid="uid://p88orty4wpbd" path="res://assets/sprite/春_导出素材/背景/森林背景_03.png" id="9_8iemx"]
-[ext_resource type="Texture2D" uid="uid://dvgp1p2wi3al2" path="res://assets/sprite/春_导出素材/背景/森林背景_04.png" id="10_64w2a"]
 [ext_resource type="Texture2D" uid="uid://d14ta6td86tlk" path="res://assets/sprite/春_导出素材/前景/前景剪影_01.png" id="11_gunhw"]
 [ext_resource type="Texture2D" uid="uid://damk34qpobo85" path="res://assets/sprite/春_导出素材/前景/前景剪影_02.png" id="12_8gofh"]
 [ext_resource type="Texture2D" uid="uid://b28xv8hj2p81c" path="res://assets/sprite/春_导出素材/地面/地面_01.png" id="12_64w2a"]
@@ -231,15 +231,10 @@ z_index = -1000
 position = Vector2(8181, -3)
 texture = ExtResource("9_8iemx")
 
-[node name="Sprite2D4" type="Sprite2D" parent="BG" unique_id=810702504]
-z_index = -1000
-position = Vector2(12260, -3)
-texture = ExtResource("10_64w2a")
-
 [node name="Sprite2D5" type="Sprite2D" parent="BG" unique_id=864545697]
 z_index = -1000
-position = Vector2(16333, -4)
-texture = ExtResource("10_64w2a")
+position = Vector2(14283, -5)
+texture = ExtResource("8_556r4")
 
 [node name="Mushrooms" type="Node2D" parent="." unique_id=1492154123]
 
