@@ -18,6 +18,6 @@ public partial class Button_start : Button
             SceneTreeTimer.SignalName.Timeout
         );
 
-        GetTree().ChangeSceneToFile("res://scenes/level.tscn");
+        GetTree().ChangeSceneToFile("res://scenes/JUMPSCENES/jump_1.tscn");
     }
 }

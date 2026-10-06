@@ -22,6 +22,10 @@
 [ext_resource type="Texture2D" uid="uid://dcpfb7yvbmxqp" path="res://assets/sprite/HUD/hud_light_bar_frame.png.png" id="30_w3o6u"]
 [ext_resource type="Texture2D" uid="uid://dwo2kyqrt6575" path="res://assets/sprite/HUD/hud_light_bar_top_indicator.png.png" id="32_gur6y"]
 [ext_resource type="Script" uid="uid://rvf1ba2etfki" path="res://scenes/InLightCrown.cs" id="33_v3why"]
+[ext_resource type="Script" uid="uid://c1cww0nhwfp5t" path="res://scripts/TutorialUI.cs" id="34_2jdvr"]
+[ext_resource type="Texture2D" uid="uid://b3ifisqt6f4y0" path="res://assets/sprite/TutorialFrame/文本框1.png" id="34_v3why"]
+[ext_resource type="Script" uid="uid://bffw16gi1voma" path="res://scripts/TutorialTrigger.cs" id="36_q4oe8"]
+[ext_resource type="FontFile" uid="uid://siupji2vbknh" path="res://assets/Font/ZCOOLKuaiLe-Regular.ttf" id="36_svjb4"]
 [ext_resource type="Texture2D" uid="uid://cfjj32lp0fvx0" path="res://assets/sprite/春_导出素材/蘑菇/完整/蘑菇01_左.png" id="spring_tex_1"]
 [ext_resource type="Texture2D" uid="uid://djwuyfnee15gw" path="res://assets/sprite/春_导出素材/蘑菇/部件/蘑菇02_菌盖.png" id="spring_tex_2"]
 [ext_resource type="Texture2D" uid="uid://cpqvpgaa7v1al" path="res://assets/sprite/春_导出素材/蘑菇/部件/蘑菇02_菌柄.png" id="spring_tex_3"]
@@ -192,6 +196,18 @@ _data = {
 &"new_animation": SubResource("Animation_ppgk2")
 }
 
+[sub_resource type="Theme" id="Theme_q4oe8"]
+default_font = ExtResource("36_svjb4")
+default_font_size = 44
+RichTextLabel/font_sizes/normal_font_size = 235
+
+[sub_resource type="Theme" id="Theme_0gvmv"]
+default_font_size = 32
+Label/font_sizes/font_size = 32
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2jdvr"]
+size = Vector2(1681, 1040)
+
 [node name="Level" type="Node2D" unique_id=654422132]
 
 [node name="CharacterBody2D" parent="." unique_id=1710452791 instance=ExtResource("2_w7c3h")]
@@ -205,9 +221,7 @@ environment = SubResource("Environment_0gvmv")
 
 [node name="Area2D" parent="." unique_id=905016184 instance=ExtResource("4_mx8sn")]
 position = Vector2(17194, 1030)
-scale = Vector2(0.44, 0.44)
 collision_mask = 64
-nextScenePath = "res://scenes/level_summer.tscn"
 
 [node name="PauseMenu" parent="." unique_id=1057490932 instance=ExtResource("5_ppgk2")]
 visible = false
@@ -536,15 +550,99 @@ texture = ExtResource("32_gur6y")
 script = ExtResource("33_v3why")
 player = NodePath("../../../../CharacterBody2D")
 
-[node name="TutUI" type="CanvasLayer" parent="." unique_id=1248608634]
+[node name="TutUI" type="CanvasLayer" parent="." unique_id=1248608634 node_paths=PackedStringArray("root", "textLabel", "continueHint") groups=["TutorialUI"]]
+script = ExtResource("34_2jdvr")
+root = NodePath("Control")
+textLabel = NodePath("Control/TutorialBox/Text")
+continueHint = NodePath("Control/TutorialBox/Label")
 
 [node name="Control" type="Control" parent="TutUI" unique_id=479376537]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="ColorRect" type="ColorRect" parent="TutUI/Control" unique_id=694058278]
+[node name="DIM" type="ColorRect" parent="TutUI/Control" unique_id=694058278]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.54509807)
+
+[node name="TutorialBox" type="TextureRect" parent="TutUI/Control" unique_id=747975227]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1915.0002
+offset_top = -393.00024
+offset_right = 3437.0
+offset_bottom = 2114.9998
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.155, 0.155)
+texture = ExtResource("34_v3why")
+
+[node name="Text" type="RichTextLabel" parent="TutUI/Control/TutorialBox" unique_id=1539008687]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 1058.0662
+offset_top = 374.195
+offset_right = 4761.2915
+offset_bottom = 1516.1306
+theme = SubResource("Theme_q4oe8")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "你现在必须追上光，否则就会“迟暮”，逐渐减速和降低跳跃高度，并最终死亡。"
+
+[node name="Label" type="Label" parent="TutUI/Control/TutorialBox" unique_id=1894129425]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -855.2246
+offset_top = -1017.67566
+offset_right = -697.2246
+offset_bottom = -972.67566
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(6.3, 6.3)
+theme = SubResource("Theme_0gvmv")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "▼"
+
+[node name="TutorialTrigger1" type="Area2D" parent="." unique_id=934683876]
+collision_mask = 64
+script = ExtResource("36_q4oe8")
+messages = Array[String](["A/D移动，空格跳跃，ESC开启菜单以便重开和游戏设置。", "追上光！否则就会\"迟暮\"，右上角是你离开光后的\"余晖\",当其耗尽就会死亡！"])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TutorialTrigger1" unique_id=990137661]
+position = Vector2(-1649, -570)
+shape = SubResource("RectangleShape2D_2jdvr")
+
+[node name="TutorialTrigger2" type="Area2D" parent="." unique_id=2035382545]
+position = Vector2(3962, -20)
+collision_mask = 64
+script = ExtResource("36_q4oe8")
+messages = Array[String](["看到前方的紫藤了吗？跳上去可以自动抓住，按住A/D向对应方向继续荡，最后按空格借力跳出！"])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TutorialTrigger2" unique_id=610747883]
+position = Vector2(-1649, -570)
+shape = SubResource("RectangleShape2D_2jdvr")
+
+[node name="TutorialTrigger3" type="Area2D" parent="." unique_id=1064705673]
+position = Vector2(19064, 1172)
+collision_mask = 64
+script = ExtResource("36_q4oe8")
+messages = Array[String](["不知道你是否注意到沿途的隐藏道具，偶尔你需要离开光去冒险收集收藏品！也许都收集了会触发意想不到的结局~", "由于一开始需要摸索，也许需要多次尝试来决策路线~可以ESC后按R按钮来快速重启本关或是进入下一关前决定是否重启！"])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TutorialTrigger3" unique_id=1499880499]
+position = Vector2(-1649, -570)
+shape = SubResource("RectangleShape2D_2jdvr")

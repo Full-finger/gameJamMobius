@@ -5,6 +5,11 @@
 [ext_resource type="PackedScene" uid="uid://dw13jweir71ce" path="res://scenes/pause_menu.tscn" id="3_pause"]
 [ext_resource type="PackedScene" uid="uid://cyfmxehji1crp" path="res://scenes/Light.tscn" id="4_light"]
 [ext_resource type="Script" uid="uid://cmcqsu7psyo7g" path="res://scripts/Trampoline.cs" id="5_tramp"]
+[ext_resource type="Texture2D" uid="uid://c8want8bu1ix2" path="res://assets/sprite/HUD/hud_light_bar_fill.png.png" id="29_kih21"]
+[ext_resource type="Script" uid="uid://cs1sar11hcadv" path="res://scenes/HUD.cs" id="29_w3o6u"]
+[ext_resource type="Texture2D" uid="uid://dcpfb7yvbmxqp" path="res://assets/sprite/HUD/hud_light_bar_frame.png.png" id="30_w3o6u"]
+[ext_resource type="Texture2D" uid="uid://dwo2kyqrt6575" path="res://assets/sprite/HUD/hud_light_bar_top_indicator.png.png" id="32_gur6y"]
+[ext_resource type="Script" uid="uid://rvf1ba2etfki" path="res://scenes/InLightCrown.cs" id="33_v3why"]
 [ext_resource type="Texture2D" uid="uid://bkbr6m8ihopwd" path="res://assets/sprite/夏/_0011_background.png" id="summer_bg"]
 [ext_resource type="Texture2D" uid="uid://dgc6g31g4qet1" path="res://assets/sprite/夏/0003_花苞1.png" id="summer_bud1"]
 [ext_resource type="Texture2D" uid="uid://cknmobuamxstd" path="res://assets/sprite/夏/0004_花苞2.png" id="summer_bud2"]
@@ -17,12 +22,6 @@
 [ext_resource type="Texture2D" uid="uid://c3xuiqf8xhpd4" path="res://assets/sprite/夏/006_莲蓬1.png" id="summer_pod1"]
 [ext_resource type="Texture2D" uid="uid://docmgqb0v16kg" path="res://assets/sprite/夏/0005_莲蓬2.png" id="summer_pod2"]
 [ext_resource type="Texture2D" uid="uid://qqb2mpuo2snc" path="res://assets/sprite/夏/water.png" id="summer_water"]
-
-[ext_resource type="Texture2D" uid="uid://c8want8bu1ix2" path="res://assets/sprite/HUD/hud_light_bar_fill.png.png" id="29_kih21"]
-[ext_resource type="Script" uid="uid://cs1sar11hcadv" path="res://scenes/HUD.cs" id="29_w3o6u"]
-[ext_resource type="Texture2D" uid="uid://dcpfb7yvbmxqp" path="res://assets/sprite/HUD/hud_light_bar_frame.png.png" id="30_w3o6u"]
-[ext_resource type="Texture2D" uid="uid://dwo2kyqrt6575" path="res://assets/sprite/HUD/hud_light_bar_top_indicator.png.png" id="32_gur6y"]
-[ext_resource type="Script" uid="uid://rvf1ba2etfki" path="res://scenes/InLightCrown.cs" id="33_v3why"]
 
 [sub_resource type="Environment" id="env_summer"]
 background_mode = 3
@@ -102,7 +101,6 @@ environment = SubResource("env_summer")
 position = Vector2(9300, 1850)
 scale = Vector2(0.44, 0.44)
 collision_mask = 64
-nextScenePath = "res://scenes/main_menu.tscn"
 
 [node name="PauseMenu" parent="." unique_id=1137995668 instance=ExtResource("3_pause")]
 visible = false
@@ -193,22 +191,22 @@ shape = SubResource("plat_3")
 one_way_collision = true
 one_way_collision_margin = 4.0
 
-[node name="荷叶2" type="Node2D" parent="Plants" unique_id=665366141]
+[node name="荷叶杆" type="Node2D" parent="Plants" unique_id=665366141]
 position = Vector2(1594, 2109)
 
-[node name="Sprite2D" type="Sprite2D" parent="Plants/荷叶2" unique_id=1938365278]
+[node name="Sprite2D" type="Sprite2D" parent="Plants/荷叶杆" unique_id=1938365278]
 texture = ExtResource("summer_leaf2")
 
-[node name="莲蓬2" type="Node2D" parent="Plants" unique_id=163369472]
+[node name="莲蓬杆" type="Node2D" parent="Plants" unique_id=163369472]
 position = Vector2(3853, 2108)
 
-[node name="Sprite2D" type="Sprite2D" parent="Plants/莲蓬2" unique_id=196392669]
+[node name="Sprite2D" type="Sprite2D" parent="Plants/莲蓬杆" unique_id=196392669]
 texture = ExtResource("summer_pod2")
 
-[node name="花苞2" type="Node2D" parent="Plants" unique_id=2055241128]
+[node name="花苞杆" type="Node2D" parent="Plants" unique_id=2055241128]
 position = Vector2(7606, 1835)
 
-[node name="Sprite2D" type="Sprite2D" parent="Plants/花苞2" unique_id=619331652]
+[node name="Sprite2D" type="Sprite2D" parent="Plants/花苞杆" unique_id=619331652]
 texture = ExtResource("summer_bud2")
 
 [node name="荷花2" type="Sprite2D" parent="Plants" unique_id=1898472164]
@@ -229,13 +227,13 @@ callback_mode_process = 0
 libraries/ = SubResource("light_lib")
 autoplay = &"fly"
 
-[node name="hud" type="CanvasLayer" parent="." node_paths=PackedStringArray("player", "lifeBar")]
+[node name="hud" type="CanvasLayer" parent="." unique_id=245339296 node_paths=PackedStringArray("player", "lifeBar")]
 layer = 0
 script = ExtResource("29_w3o6u")
 player = NodePath("../CharacterBody2D")
 lifeBar = NodePath("Control/LifeBar")
 
-[node name="Control" type="Control" parent="hud"]
+[node name="Control" type="Control" parent="hud" unique_id=1918976962]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -244,8 +242,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="LifeBar" type="TextureProgressBar" parent="hud/Control"]
-mouse_filter = 2
+[node name="LifeBar" type="TextureProgressBar" parent="hud/Control" unique_id=360050728]
 z_index = 1000
 layout_mode = 1
 anchors_preset = 1
@@ -257,6 +254,7 @@ offset_right = -123.00012
 offset_bottom = 56.0
 grow_horizontal = 0
 scale = Vector2(4.38, 4.38)
+mouse_filter = 2
 max_value = 1.0
 step = 0.01
 value = 1.0
@@ -264,8 +262,7 @@ fill_mode = 3
 nine_patch_stretch = true
 texture_progress = ExtResource("29_kih21")
 
-[node name="HUDbg" type="TextureRect" parent="hud/Control"]
-mouse_filter = 2
+[node name="HUDbg" type="TextureRect" parent="hud/Control" unique_id=1882217676]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -276,10 +273,10 @@ offset_right = 1656.0
 offset_bottom = 1391.0
 grow_horizontal = 0
 scale = Vector2(0.14, 0.14)
+mouse_filter = 2
 texture = ExtResource("30_w3o6u")
 
-[node name="InLightCrown" type="TextureRect" parent="hud/Control/HUDbg" node_paths=PackedStringArray("player")]
-mouse_filter = 2
+[node name="InLightCrown" type="TextureRect" parent="hud/Control/HUDbg" unique_id=1622611735 node_paths=PackedStringArray("player")]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -291,6 +288,7 @@ offset_bottom = 1230.0
 grow_horizontal = 0
 rotation = 0.31415927
 scale = Vector2(0.24, 0.24)
+mouse_filter = 2
 texture = ExtResource("32_gur6y")
 script = ExtResource("33_v3why")
 player = NodePath("../../../../CharacterBody2D")
