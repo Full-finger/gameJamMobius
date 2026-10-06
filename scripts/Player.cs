@@ -51,6 +51,7 @@ private Tween landingTween;
 	private bool jumping;
 	private bool jumpCut;
 	private AnimatedSprite2D anim;
+	private AudioStreamPlayer2D footstepAudio;
 	private string currentAction = "";
 
 	private RigidBody2D vine;
@@ -163,7 +164,7 @@ private Tween landingTween;
 
 		anim = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
 	animNormalScale = anim.Scale;
-
+footstepAudio = GetNode<AudioStreamPlayer2D>("FootstepAudio");
 		// 给当前玩家一份独立材质。
 		anim.Material = (ShaderMaterial)anim.Material.Duplicate();
 
@@ -299,7 +300,22 @@ if (!wasOnFloor && IsOnFloor())
 			nextAnimation = "walk";
 		else
 			nextAnimation = "idle";
+bool isWalking =
+    IsOnFloor() &&
+    !bufferedJump &&
+    Mathf.Abs(Velocity.X) > 1f;
 
+if (isWalking)
+{
+    // 防止每个 PhysicsProcess 都从头播放
+    if (!footstepAudio.Playing)
+        footstepAudio.Play();
+}
+else
+{
+    if (footstepAudio.Playing)
+        footstepAudio.Stop();
+}
 		PlayAnimation(nextAnimation);
 	}
 
