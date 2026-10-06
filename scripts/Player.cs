@@ -273,7 +273,7 @@ MoveAndSlide();
 
 if (!wasOnFloor && IsOnFloor())
 {
-    PlayLandingSquash();
+	PlayLandingSquash();
 }
 
 		if (IsOnCeiling())
@@ -337,40 +337,53 @@ if (!wasOnFloor && IsOnFloor())
 
 		PlayAnimation("jump", true);
 	}
+
+	// 蹦床等外部弹射：给一个大向上的速度，不受松键小跳削减影响。
+	public void Launch(float verticalSpeed)
+	{
+		var v = Velocity;
+		v.Y = -verticalSpeed;
+		Velocity = v;
+		coyoteCounter = 0f;
+		jumpBufferCounter = 0f;
+		jumping = true;
+		jumpCut = true; // 锁死小跳削减，弹力全额生效
+		PlayAnimation("jump", true);
+	}
 private void PlayLandingSquash()
 {
-    // 防止短时间连续触发导致 Tween 互相打架
-    if (landingTween != null && landingTween.IsValid())
-        landingTween.Kill();
+	// 防止短时间连续触发导致 Tween 互相打架
+	if (landingTween != null && landingTween.IsValid())
+		landingTween.Kill();
 
-    anim.Scale = animNormalScale;
+	anim.Scale = animNormalScale;
 
-    Vector2 squashScale = new Vector2(
-        animNormalScale.X * (1f + landingSquash * 0.6f),
-        animNormalScale.Y * (1f - landingSquash)
-    );
+	Vector2 squashScale = new Vector2(
+		animNormalScale.X * (1f + landingSquash * 0.6f),
+		animNormalScale.Y * (1f - landingSquash)
+	);
 
-    landingTween = CreateTween();
+	landingTween = CreateTween();
 
-    // 落地：快速压扁
-    landingTween.TweenProperty(
-        anim,
-        "scale",
-        squashScale,
-        landingSquashTime
-    )
-    .SetTrans(Tween.TransitionType.Quad)
-    .SetEase(Tween.EaseType.Out);
+	// 落地：快速压扁
+	landingTween.TweenProperty(
+		anim,
+		"scale",
+		squashScale,
+		landingSquashTime
+	)
+	.SetTrans(Tween.TransitionType.Quad)
+	.SetEase(Tween.EaseType.Out);
 
-    // 回弹：恢复原大小
-    landingTween.TweenProperty(
-        anim,
-        "scale",
-        animNormalScale,
-        landingRecoverTime
-    )
-    .SetTrans(Tween.TransitionType.Back)
-    .SetEase(Tween.EaseType.Out);
+	// 回弹：恢复原大小
+	landingTween.TweenProperty(
+		anim,
+		"scale",
+		animNormalScale,
+		landingRecoverTime
+	)
+	.SetTrans(Tween.TransitionType.Back)
+	.SetEase(Tween.EaseType.Out);
 }
 	private void CorrectCeilingCorner(float upwardDistance, float direction)
 	{

@@ -11,3 +11,6 @@ assets/test/
 # *.zip
 # .DS_Store
 # *.gif
+
+docs/other/
+/tools/

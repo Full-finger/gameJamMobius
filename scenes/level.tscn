@@ -201,6 +201,7 @@ environment = SubResource("Environment_0gvmv")
 position = Vector2(17194, 1030)
 scale = Vector2(0.44, 0.44)
 collision_mask = 64
+nextScenePath = "res://scenes/level_summer.tscn"
 
 [node name="PauseMenu" parent="." unique_id=1057490932 instance=ExtResource("5_ppgk2")]
 visible = false
