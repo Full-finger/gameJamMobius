@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://jmee77mtpvsv" path="res://assets/sprite/秋/前景/前景.png" id="8_fg"]
 [ext_resource type="Texture2D" uid="uid://6yp4pqfgajcn" path="res://assets/sprite/秋/平台/云.png" id="9_cloud"]
 [ext_resource type="Texture2D" uid="uid://dee400puj06yp" path="res://assets/sprite/秋/平台/叶1.png" id="10_leaf1"]
+[ext_resource type="Script" uid="uid://dapdi83lytcbs" path="res://scripts/Leaves.cs" id="11_k7kcu"]
 [ext_resource type="Texture2D" uid="uid://beipot5sguxbf" path="res://assets/sprite/秋/平台/叶2.png" id="11_leaf2"]
 [ext_resource type="Texture2D" uid="uid://dp0phojnv34bq" path="res://assets/sprite/秋/平台/叶3.png" id="12_leaf3"]
 [ext_resource type="Texture2D" uid="uid://bprr21aj8p66h" path="res://assets/sprite/秋/平台/叶4.png" id="13_leaf4"]
@@ -21,13 +22,15 @@
 [ext_resource type="Texture2D" uid="uid://d2aage5nbcknp" path="res://assets/sprite/春_导出素材/蘑菇/完整/蘑菇03_左.png" id="19_mush03L"]
 [ext_resource type="Texture2D" uid="uid://djwuyfnee15gw" path="res://assets/sprite/春_导出素材/蘑菇/部件/蘑菇02_菌盖.png" id="20_mush02cap"]
 [ext_resource type="Texture2D" uid="uid://cpqvpgaa7v1al" path="res://assets/sprite/春_导出素材/蘑菇/部件/蘑菇02_菌柄.png" id="21_mush02stem"]
+[ext_resource type="Script" uid="uid://c1cww0nhwfp5t" path="res://scripts/TutorialUI.cs" id="22_iol8b"]
+[ext_resource type="Texture2D" uid="uid://b4lgtk3xivx10" path="res://assets/sprite/TutorialFrame/文本框3.png" id="23_iol8b"]
+[ext_resource type="FontFile" uid="uid://siupji2vbknh" path="res://assets/Font/ZCOOLKuaiLe-Regular.ttf" id="24_u50dc"]
+[ext_resource type="Script" uid="uid://bffw16gi1voma" path="res://scripts/TutorialTrigger.cs" id="25_jhe37"]
+[ext_resource type="Script" uid="uid://dypir2sutlvan" path="res://scripts/LevelBounds.cs" id="map_bounds_script"]
 
 [sub_resource type="Environment" id="env_autumn"]
 background_mode = 3
 glow_enabled = true
-
-[sub_resource type="RectangleShape2D" id="rect_wall"]
-size = Vector2(100, 3100)
 
 [sub_resource type="AtlasTexture" id="atlas_mush01L_stem"]
 atlas = ExtResource("17_mush01L")
@@ -65,20 +68,44 @@ filter_clip = true
 [sub_resource type="RectangleShape2D" id="leaf_small"]
 size = Vector2(320, 20)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0gvmv"]
+size = Vector2(320, 21)
+
+[sub_resource type="RectangleShape2D" id="leaf_step_4"]
+size = Vector2(320, 21)
+
 [sub_resource type="RectangleShape2D" id="leaf_tiny"]
 size = Vector2(280, 20)
+
+[sub_resource type="RectangleShape2D" id="leaf_step_2"]
+size = Vector2(280, 21)
 
 [sub_resource type="RectangleShape2D" id="leaf_mid"]
 size = Vector2(440, 20)
 
+[sub_resource type="RectangleShape2D" id="leaf_step_5"]
+size = Vector2(440, 21)
+
 [sub_resource type="RectangleShape2D" id="leaf_big"]
 size = Vector2(467, 20)
+
+[sub_resource type="RectangleShape2D" id="leaf_step_1"]
+size = Vector2(467, 21)
 
 [sub_resource type="RectangleShape2D" id="leaf_big2"]
 size = Vector2(760, 20)
 
+[sub_resource type="RectangleShape2D" id="leaf_step_7"]
+size = Vector2(760, 21)
+
 [sub_resource type="RectangleShape2D" id="leaf_mid2"]
 size = Vector2(318, 20)
+
+[sub_resource type="RectangleShape2D" id="leaf_step_6"]
+size = Vector2(318, 21)
+
+[sub_resource type="RectangleShape2D" id="leaf_step_8"]
+size = Vector2(318, 21)
 
 [sub_resource type="RectangleShape2D" id="cloud_top"]
 size = Vector2(620, 30)
@@ -176,8 +203,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="light_fly"]
 resource_name = "fly"
-length = 20.0
-loop_mode = 2
+length = 23.966667
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -185,10 +211,10 @@ tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 5, 10, 15, 19.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 5, 10, 15, 19.5, 23.927292),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(300, 1150), Vector2(2200, 650), Vector2(4600, 450), Vector2(7000, 250), Vector2(9300, 1100)]
+"values": [Vector2(300, 1150), Vector2(2200, 650), Vector2(4600, 450), Vector2(7000, 250), Vector2(9300, 1100), Vector2(11552, 555)]
 }
 
 [sub_resource type="AnimationLibrary" id="light_lib"]
@@ -197,6 +223,24 @@ _data = {
 &"fly": SubResource("light_fly")
 }
 
+[sub_resource type="Theme" id="Theme_ifsbr"]
+default_font = ExtResource("24_u50dc")
+default_font_size = 44
+RichTextLabel/font_sizes/normal_font_size = 235
+
+[sub_resource type="Theme" id="Theme_kmy6n"]
+default_font_size = 32
+Label/font_sizes/font_size = 32
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xgkmh"]
+size = Vector2(1681, 1040)
+
+[sub_resource type="WorldBoundaryShape2D" id="map_wall_left"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="map_wall_right"]
+normal = Vector2(-1, 0)
+
 [node name="Autumn" type="Node2D" unique_id=82057206]
 
 [node name="CharacterBody2D" parent="." unique_id=148444415 instance=ExtResource("1_player")]
@@ -204,30 +248,61 @@ position = Vector2(300, 1250)
 scale = Vector2(3.11, 3.11)
 speed = 1000.0
 jumpHeight = 600.0
-deathY = 2600.0
+deathY = 2445.0
 
 [node name="Camera2D" parent="CharacterBody2D" index="2" unique_id=1939810449]
-limit_left = 5
-limit_top = -132
-limit_right = 9651
-limit_bottom = 2253
+limit_left = 0
+limit_top = -135
+limit_right = 14505
+limit_bottom = 2245
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=447122728]
 environment = SubResource("env_autumn")
 
 [node name="EndPoint" parent="." unique_id=739710710 instance=ExtResource("2_end")]
-position = Vector2(9373, 450.99988)
-scale = Vector2(0.44, 0.44)
+position = Vector2(10190, 1758)
 collision_mask = 64
 
 [node name="PauseMenu" parent="." unique_id=375564547 instance=ExtResource("3_pause")]
 
-[node name="Background" type="Sprite2D" parent="." unique_id=1844105571]
+[node name="Background" type="Sprite2D" parent="." unique_id=1844105571 groups=["LevelBackground"]]
 z_index = -1000
 position = Vector2(4833, 1055)
 texture = ExtResource("6_bg")
 
+[node name="Background2" type="Sprite2D" parent="." unique_id=1908116493 groups=["LevelBackground"]]
+z_index = -1000
+position = Vector2(9672, 1055)
+texture = ExtResource("6_bg")
+
+[node name="Ground2" type="StaticBody2D" parent="." unique_id=1413378761]
+position = Vector2(9650, 459)
+
+[node name="Sprite2D" type="Sprite2D" parent="Ground2" unique_id=1698834501]
+z_index = 1
+position = Vector2(4833, 1800)
+texture = ExtResource("7_flat")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Ground2" unique_id=1605293791]
+visible = false
+position = Vector2(4833, 1800)
+polygon = PackedVector2Array(-4829, -335, -4681, -361, -4382, -352, -4071, -273, -3867, -242, -3685, -133, -3409, -17, -3152, 56, -2961, 51, -2816, 59, -2706, 56, -2683, 70, -2516, 72, -2360, 68, -2123, 86, -1752, 100, -1589, 115, -1415, 106, -1297, 101, -1193, 104, -981, 108, -428, 72, -137, 68, 220, 71, 515, 63, 623, 57, 904, 56, 997.2593, 48.014526, 1343, -165, 1570, -213, 1907, -195, 2052, -163, 2259, 5, 2487, 79, 2629, 83, 2817, 39, 2873, 35, 2971, 52, 3181, 61, 3316, 44, 3438, 68, 3701, 72, 3942, 84, 4441, 112, 4826, 143, 4828, 1000, -4828, 1000)
+
+[node name="Ground3" type="StaticBody2D" parent="." unique_id=1867757624]
+position = Vector2(6136, 316)
+
+[node name="Sprite2D" type="Sprite2D" parent="Ground3" unique_id=204935148]
+z_index = 1
+position = Vector2(4833, 1800)
+texture = ExtResource("7_flat")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Ground3" unique_id=861463536]
+visible = false
+position = Vector2(4833, 1800)
+polygon = PackedVector2Array(-4829, -335, -4681, -361, -4382, -352, -4071, -273, -3867, -242, -3685, -133, -3409, -17, -3152, 56, -2961, 51, -2816, 59, -2706, 56, -2683, 70, -2516, 72, -2360, 68, -2123, 86, -1752, 100, -1589, 115, -1415, 106, -1297, 101, -1193, 104, -981, 108, -428, 72, -137, 68, 220, 71, 515, 63, 623, 57, 904, 56, 997.2593, 48.014526, 1343, -165, 1570, -213, 1907, -195, 2052, -163, 2259, 5, 2487, 79, 2629, 83, 2817, 39, 2873, 35, 2971, 52, 3181, 61, 3316, 44, 3438, 68, 3701, 72, 3942, 84, 4441, 112, 4826, 143, 4828, 1000, -4828, 1000)
+
 [node name="Ground" type="StaticBody2D" parent="." unique_id=505286852]
+position = Vector2(4, 7)
 
 [node name="Sprite2D" type="Sprite2D" parent="Ground" unique_id=1458991684]
 z_index = 1
@@ -238,16 +313,6 @@ texture = ExtResource("7_flat")
 visible = false
 position = Vector2(4833, 1800)
 polygon = PackedVector2Array(-4829, -335, -4681, -361, -4382, -352, -4071, -273, -3867, -242, -3685, -133, -3409, -17, -3152, 56, -2961, 51, -2816, 59, -2706, 56, -2683, 70, -2516, 72, -2360, 68, -2123, 86, -1752, 100, -1589, 115, -1415, 106, -1297, 101, -1193, 104, -981, 108, -428, 72, -137, 68, 220, 71, 515, 63, 623, 57, 904, 56, 997.2593, 48.014526, 1343, -165, 1570, -213, 1907, -195, 2052, -163, 2259, 5, 2487, 79, 2629, 83, 2817, 39, 2873, 35, 2971, 52, 3181, 61, 3316, 44, 3438, 68, 3701, 72, 3942, 84, 4441, 112, 4826, 143, 4828, 1000, -4828, 1000)
-
-[node name="Bounds" type="StaticBody2D" parent="." unique_id=245357803]
-
-[node name="WallLeft" type="CollisionShape2D" parent="Bounds" unique_id=434758820]
-position = Vector2(-47, 60)
-shape = SubResource("rect_wall")
-
-[node name="WallRight" type="CollisionShape2D" parent="Bounds" unique_id=387768801]
-position = Vector2(9709, 498)
-shape = SubResource("rect_wall")
 
 [node name="Mushrooms" type="Node2D" parent="." unique_id=1833984224]
 
@@ -287,6 +352,26 @@ shape = SubResource("rect_mush02")
 one_way_collision = true
 one_way_collision_margin = 4.0
 
+[node name="Mushroom03" type="Node2D" parent="Mushrooms" unique_id=777757929]
+position = Vector2(13703.001, 1298.0001)
+scale = Vector2(2.03, 2.03)
+
+[node name="Stem" type="Sprite2D" parent="Mushrooms/Mushroom03" unique_id=1521894780]
+position = Vector2(-42, 425)
+texture = ExtResource("21_mush02stem")
+
+[node name="Cap" type="StaticBody2D" parent="Mushrooms/Mushroom03" unique_id=369722288]
+collision_mask = 64
+
+[node name="Sprite2D" type="Sprite2D" parent="Mushrooms/Mushroom03/Cap" unique_id=1029932878]
+texture = ExtResource("20_mush02cap")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mushrooms/Mushroom03/Cap" unique_id=330468705]
+position = Vector2(5, -127)
+shape = SubResource("rect_mush02")
+one_way_collision = true
+one_way_collision_margin = 4.0
+
 [node name="Mushroom03_Left" type="Node2D" parent="Mushrooms" unique_id=1997149795]
 position = Vector2(5765, 1442)
 
@@ -301,6 +386,38 @@ collision_mask = 64
 texture = SubResource("atlas_mush03L_cap")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Mushrooms/Mushroom03_Left/Cap" unique_id=1688616433]
+polygon = PackedVector2Array(157.5, -68.8, -8.299988, -110, -23.5, -110, -490.4, 68, -521.5, 97.3, -521.5, 110, -429.3, 110, -94, 102, -69.29999, 110, 13.5, 110, 23.599976, 100.8, 511.80005, 85, 520.9, 85, 522.5, 75.8, 516.5, 63)
+
+[node name="Mushroom03_Left2" type="Node2D" parent="Mushrooms" unique_id=946857891]
+position = Vector2(10018, 1003)
+
+[node name="Stem" type="Sprite2D" parent="Mushrooms/Mushroom03_Left2" unique_id=942983442]
+position = Vector2(0, 659)
+texture = SubResource("atlas_mush03L_stem")
+
+[node name="Cap" type="StaticBody2D" parent="Mushrooms/Mushroom03_Left2" unique_id=1690473917]
+collision_mask = 64
+
+[node name="Sprite2D" type="Sprite2D" parent="Mushrooms/Mushroom03_Left2/Cap" unique_id=1684352664]
+texture = SubResource("atlas_mush03L_cap")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Mushrooms/Mushroom03_Left2/Cap" unique_id=339609846]
+polygon = PackedVector2Array(157.5, -68.8, -8.299988, -110, -23.5, -110, -490.4, 68, -521.5, 97.3, -521.5, 110, -429.3, 110, -94, 102, -69.29999, 110, 13.5, 110, 23.599976, 100.8, 511.80005, 85, 520.9, 85, 522.5, 75.8, 516.5, 63)
+
+[node name="Mushroom03_Left3" type="Node2D" parent="Mushrooms" unique_id=2002688475]
+position = Vector2(11567, 1026)
+
+[node name="Stem" type="Sprite2D" parent="Mushrooms/Mushroom03_Left3" unique_id=376098320]
+position = Vector2(0, 659)
+texture = SubResource("atlas_mush03L_stem")
+
+[node name="Cap" type="StaticBody2D" parent="Mushrooms/Mushroom03_Left3" unique_id=1331700875]
+collision_mask = 64
+
+[node name="Sprite2D" type="Sprite2D" parent="Mushrooms/Mushroom03_Left3/Cap" unique_id=1478234616]
+texture = SubResource("atlas_mush03L_cap")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Mushrooms/Mushroom03_Left3/Cap" unique_id=1614533851]
 polygon = PackedVector2Array(157.5, -68.8, -8.299988, -110, -23.5, -110, -490.4, 68, -521.5, 97.3, -521.5, 110, -429.3, 110, -94, 102, -69.29999, 110, 13.5, 110, 23.599976, 100.8, 511.80005, 85, 520.9, 85, 522.5, 75.8, 516.5, 63)
 
 [node name="Mushroom01_Right" type="Node2D" parent="Mushrooms" unique_id=708499281]
@@ -320,10 +437,12 @@ texture = SubResource("atlas_mush01R_cap")
 polygon = PackedVector2Array(-20.5, -110, -36, -108.2, -117, -92, -227.3, -43, -308, 37, -321, 100.2, -321, 110, 305.2, 110, 318.5, 95, 324, 95, 324, 80.600006, 289, 15.5, 198, -62)
 
 [node name="Leaves" type="Node2D" parent="." unique_id=2046217800]
+position = Vector2(-19, 9)
 
 [node name="叶3" type="StaticBody2D" parent="Leaves" unique_id=1549857560]
 position = Vector2(1724, 1062)
 collision_mask = 64
+script = ExtResource("11_k7kcu")
 
 [node name="Sprite2D" type="Sprite2D" parent="Leaves/叶3" unique_id=1621124876]
 texture = ExtResource("12_leaf3")
@@ -334,9 +453,19 @@ shape = SubResource("leaf_small")
 one_way_collision = true
 one_way_collision_margin = 4.0
 
+[node name="StepArea" type="Area2D" parent="Leaves/叶3" unique_id=907931678]
+position = Vector2(-512, -17)
+collision_layer = 0
+collision_mask = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Leaves/叶3/StepArea" unique_id=833174961]
+position = Vector2(491, 4)
+shape = SubResource("RectangleShape2D_0gvmv")
+
 [node name="叶4" type="StaticBody2D" parent="Leaves" unique_id=406020382]
 position = Vector2(4893, 1701)
 collision_mask = 64
+script = ExtResource("11_k7kcu")
 
 [node name="Sprite2D" type="Sprite2D" parent="Leaves/叶4" unique_id=934368285]
 texture = ExtResource("13_leaf4")
@@ -347,9 +476,18 @@ shape = SubResource("leaf_small")
 one_way_collision = true
 one_way_collision_margin = 4.0
 
+[node name="StepArea" type="Area2D" parent="Leaves/叶4" unique_id=641322265]
+position = Vector2(15, -8)
+collision_layer = 0
+collision_mask = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Leaves/叶4/StepArea" unique_id=276454157]
+shape = SubResource("leaf_step_4")
+
 [node name="叶2" type="StaticBody2D" parent="Leaves" unique_id=711798872]
 position = Vector2(4369, 905)
 collision_mask = 64
+script = ExtResource("11_k7kcu")
 
 [node name="Sprite2D" type="Sprite2D" parent="Leaves/叶2" unique_id=1192800737]
 texture = ExtResource("11_leaf2")
@@ -360,9 +498,18 @@ shape = SubResource("leaf_tiny")
 one_way_collision = true
 one_way_collision_margin = 4.0
 
+[node name="StepArea" type="Area2D" parent="Leaves/叶2" unique_id=320445971]
+position = Vector2(-6, 27)
+collision_layer = 0
+collision_mask = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Leaves/叶2/StepArea" unique_id=2132746027]
+shape = SubResource("leaf_step_2")
+
 [node name="叶5" type="StaticBody2D" parent="Leaves" unique_id=622730850]
 position = Vector2(4900, 1000)
 collision_mask = 64
+script = ExtResource("11_k7kcu")
 
 [node name="Sprite2D" type="Sprite2D" parent="Leaves/叶5" unique_id=521344609]
 texture = ExtResource("14_leaf5")
@@ -373,9 +520,18 @@ shape = SubResource("leaf_mid")
 one_way_collision = true
 one_way_collision_margin = 4.0
 
+[node name="StepArea" type="Area2D" parent="Leaves/叶5" unique_id=202733350]
+position = Vector2(50, -10)
+collision_layer = 0
+collision_mask = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Leaves/叶5/StepArea" unique_id=1671829655]
+shape = SubResource("leaf_step_5")
+
 [node name="叶1" type="StaticBody2D" parent="Leaves" unique_id=316456479]
 position = Vector2(5387, 658)
 collision_mask = 64
+script = ExtResource("11_k7kcu")
 
 [node name="Sprite2D" type="Sprite2D" parent="Leaves/叶1" unique_id=2095040501]
 texture = ExtResource("10_leaf1")
@@ -386,9 +542,40 @@ shape = SubResource("leaf_big")
 one_way_collision = true
 one_way_collision_margin = 4.0
 
+[node name="StepArea" type="Area2D" parent="Leaves/叶1" unique_id=111990267]
+position = Vector2(280, 173)
+collision_layer = 0
+collision_mask = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Leaves/叶1/StepArea" unique_id=1836912317]
+shape = SubResource("leaf_step_1")
+
+[node name="叶9" type="StaticBody2D" parent="Leaves" unique_id=1415032202]
+position = Vector2(12304, 898)
+collision_mask = 64
+script = ExtResource("11_k7kcu")
+
+[node name="Sprite2D" type="Sprite2D" parent="Leaves/叶9" unique_id=1530679079]
+texture = ExtResource("10_leaf1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Leaves/叶9" unique_id=201177460]
+position = Vector2(280, 192)
+shape = SubResource("leaf_big")
+one_way_collision = true
+one_way_collision_margin = 4.0
+
+[node name="StepArea" type="Area2D" parent="Leaves/叶9" unique_id=1480842729]
+position = Vector2(280, 173)
+collision_layer = 0
+collision_mask = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Leaves/叶9/StepArea" unique_id=1775704727]
+shape = SubResource("leaf_step_1")
+
 [node name="叶7" type="StaticBody2D" parent="Leaves" unique_id=1580527624]
 position = Vector2(6894, -709)
 collision_mask = 64
+script = ExtResource("11_k7kcu")
 
 [node name="Sprite2D" type="Sprite2D" parent="Leaves/叶7" unique_id=1292737329]
 texture = ExtResource("16_leaf7")
@@ -399,9 +586,18 @@ shape = SubResource("leaf_big2")
 one_way_collision = true
 one_way_collision_margin = 4.0
 
+[node name="StepArea" type="Area2D" parent="Leaves/叶7" unique_id=903526979]
+position = Vector2(0, -129)
+collision_layer = 0
+collision_mask = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Leaves/叶7/StepArea" unique_id=1141657580]
+shape = SubResource("leaf_step_7")
+
 [node name="叶6" type="StaticBody2D" parent="Leaves" unique_id=579423141]
 position = Vector2(8628, 938)
 collision_mask = 64
+script = ExtResource("11_k7kcu")
 
 [node name="Sprite2D" type="Sprite2D" parent="Leaves/叶6" unique_id=1574915570]
 texture = ExtResource("15_leaf6")
@@ -412,9 +608,18 @@ shape = SubResource("leaf_mid2")
 one_way_collision = true
 one_way_collision_margin = 4.0
 
+[node name="StepArea" type="Area2D" parent="Leaves/叶6" unique_id=215719844]
+position = Vector2(52, -18)
+collision_layer = 0
+collision_mask = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Leaves/叶6/StepArea" unique_id=2014168806]
+shape = SubResource("leaf_step_6")
+
 [node name="叶8" type="StaticBody2D" parent="Leaves" unique_id=1758962334]
 position = Vector2(9098, 769)
 collision_mask = 64
+script = ExtResource("11_k7kcu")
 
 [node name="Sprite2D" type="Sprite2D" parent="Leaves/叶8" unique_id=242707616]
 texture = ExtResource("15_leaf6")
@@ -424,6 +629,14 @@ position = Vector2(52, 1)
 shape = SubResource("leaf_mid2")
 one_way_collision = true
 one_way_collision_margin = 4.0
+
+[node name="StepArea" type="Area2D" parent="Leaves/叶8" unique_id=1984115718]
+position = Vector2(52, -18)
+collision_layer = 0
+collision_mask = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Leaves/叶8/StepArea" unique_id=1662228766]
+shape = SubResource("leaf_step_8")
 
 [node name="Clouds" type="Node2D" parent="." unique_id=733267913]
 
@@ -481,5 +694,95 @@ energy = 4.43
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="PointLight2D" unique_id=215511260]
 libraries/ = SubResource("light_lib")
 autoplay = &"fly"
+
+[node name="TutUI" type="CanvasLayer" parent="." unique_id=1419577741 node_paths=PackedStringArray("root", "textLabel", "continueHint") groups=["TutorialUI"]]
+script = ExtResource("22_iol8b")
+root = NodePath("Control")
+textLabel = NodePath("Control/TutorialBox/Text")
+continueHint = NodePath("Control/TutorialBox/Label")
+
+[node name="Control" type="Control" parent="TutUI" unique_id=1618880656]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DIM" type="ColorRect" parent="TutUI/Control" unique_id=213608325]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.54509807)
+
+[node name="TutorialBox" type="TextureRect" parent="TutUI/Control" unique_id=396373198]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1915.0002
+offset_top = -393.00024
+offset_right = 3437.0
+offset_bottom = 2114.9998
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.155, 0.155)
+texture = ExtResource("23_iol8b")
+
+[node name="Text" type="RichTextLabel" parent="TutUI/Control/TutorialBox" unique_id=523157801]
+layout_mode = 0
+offset_left = 1058.0662
+offset_top = 374.195
+offset_right = 4761.2915
+offset_bottom = 1516.1306
+theme = SubResource("Theme_ifsbr")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "你现在必须追上光，否则就会“迟暮”，逐渐减速和降低跳跃高度，并最终死亡。"
+
+[node name="Label" type="Label" parent="TutUI/Control/TutorialBox" unique_id=1177570037]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -855.2246
+offset_top = -1017.67566
+offset_right = -697.2246
+offset_bottom = -972.67566
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(6.3, 6.3)
+theme = SubResource("Theme_kmy6n")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "▼"
+
+[node name="TutorialTrigger1" type="Area2D" parent="." unique_id=104735862]
+position = Vector2(2291, 1628)
+collision_mask = 64
+script = ExtResource("25_jhe37")
+messages = Array[String](["秋天的树叶踩过就会碎掉...有些东西也许年轻时可以省下来给暮年的自己..."])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TutorialTrigger1" unique_id=320180828]
+position = Vector2(-1497, -602)
+shape = SubResource("RectangleShape2D_xgkmh")
+
+[node name="Bounds" type="StaticBody2D" parent="." unique_id=1560470445 node_paths=PackedStringArray("player")]
+collision_mask = 64
+script = ExtResource("map_bounds_script")
+player = NodePath("../CharacterBody2D")
+
+[node name="WallLeft" type="CollisionShape2D" parent="Bounds" unique_id=759525255]
+shape = SubResource("map_wall_left")
+
+[node name="WallRight" type="CollisionShape2D" parent="Bounds" unique_id=1308967659]
+position = Vector2(14505, 0)
+shape = SubResource("map_wall_right")
 
 [editable path="CharacterBody2D"]

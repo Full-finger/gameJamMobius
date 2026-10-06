@@ -5,6 +5,10 @@
 [ext_resource type="PackedScene" uid="uid://dw13jweir71ce" path="res://scenes/pause_menu.tscn" id="3_pause"]
 [ext_resource type="PackedScene" uid="uid://cyfmxehji1crp" path="res://scenes/Light.tscn" id="4_light"]
 [ext_resource type="Script" uid="uid://cmcqsu7psyo7g" path="res://scripts/Trampoline.cs" id="5_tramp"]
+[ext_resource type="Script" uid="uid://c1cww0nhwfp5t" path="res://scripts/TutorialUI.cs" id="23_qv3im"]
+[ext_resource type="Texture2D" uid="uid://b4nxtr1kb5w21" path="res://assets/sprite/TutorialFrame/文本框2.png" id="24_j7a8p"]
+[ext_resource type="FontFile" uid="uid://siupji2vbknh" path="res://assets/Font/ZCOOLKuaiLe-Regular.ttf" id="25_tpiy1"]
+[ext_resource type="Script" uid="uid://bffw16gi1voma" path="res://scripts/TutorialTrigger.cs" id="26_n4b8l"]
 [ext_resource type="Texture2D" uid="uid://c8want8bu1ix2" path="res://assets/sprite/HUD/hud_light_bar_fill.png.png" id="29_kih21"]
 [ext_resource type="Script" uid="uid://cs1sar11hcadv" path="res://scenes/HUD.cs" id="29_w3o6u"]
 [ext_resource type="Texture2D" uid="uid://dcpfb7yvbmxqp" path="res://assets/sprite/HUD/hud_light_bar_frame.png.png" id="30_w3o6u"]
@@ -23,6 +27,8 @@
 [ext_resource type="Texture2D" uid="uid://docmgqb0v16kg" path="res://assets/sprite/夏/0005_莲蓬2.png" id="summer_pod2"]
 [ext_resource type="Texture2D" uid="uid://qqb2mpuo2snc" path="res://assets/sprite/夏/water.png" id="summer_water"]
 
+[ext_resource type="Script" path="res://scripts/LevelBounds.cs" id="map_bounds_script"]
+
 [sub_resource type="Environment" id="env_summer"]
 background_mode = 3
 glow_enabled = true
@@ -34,7 +40,7 @@ size = Vector2(850, 20)
 size = Vector2(850, 24)
 
 [sub_resource type="RectangleShape2D" id="plat_1"]
-size = Vector2(650, 20)
+size = Vector2(890, 27)
 
 [sub_resource type="RectangleShape2D" id="plat_2"]
 size = Vector2(220, 20)
@@ -59,8 +65,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="light_fly"]
 resource_name = "fly"
-length = 20.0
-loop_mode = 2
+length = 23.666666
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -68,10 +73,10 @@ tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 4.233333, 4.6, 20),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 3.89, 7.2565694, 21.066668, 23.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(185, 1707), Vector2(3318, 903), Vector2(3810, 1354), Vector2(9246, 1666)]
+"values": [Vector2(531, 515), Vector2(1987, 450), Vector2(3705, 437), Vector2(8136, 454), Vector2(9259, 454)]
 }
 
 [sub_resource type="AnimationLibrary" id="light_lib"]
@@ -80,6 +85,24 @@ _data = {
 &"fly": SubResource("light_fly")
 }
 
+[sub_resource type="Theme" id="Theme_stym0"]
+default_font = ExtResource("25_tpiy1")
+default_font_size = 44
+RichTextLabel/font_sizes/normal_font_size = 235
+
+[sub_resource type="Theme" id="Theme_l7iab"]
+default_font_size = 32
+Label/font_sizes/font_size = 32
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nxk2e"]
+size = Vector2(1681, 1040)
+
+[sub_resource type="WorldBoundaryShape2D" id="map_wall_left"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="map_wall_right"]
+normal = Vector2(-1, 0)
+
 [node name="Summer" type="Node2D" unique_id=1850497459]
 
 [node name="CharacterBody2D" parent="." unique_id=806095493 instance=ExtResource("1_player")]
@@ -87,8 +110,9 @@ position = Vector2(300, 1600)
 scale = Vector2(3.11, 3.11)
 speed = 1000.0
 jumpHeight = 600.0
+deathY = 3031.0
 
-[node name="Camera2D" parent="CharacterBody2D" index="2" unique_id=1939810449]
+[node name="Camera2D" parent="CharacterBody2D" index="2"]
 limit_left = 0
 limit_top = 0
 limit_right = 9666
@@ -98,15 +122,15 @@ limit_bottom = 2831
 environment = SubResource("env_summer")
 
 [node name="EndPoint" parent="." unique_id=860793240 instance=ExtResource("2_end")]
-position = Vector2(9300, 1850)
-scale = Vector2(0.44, 0.44)
+z_index = 1000
+position = Vector2(9426, 1583)
 collision_mask = 64
 nextScenePath = "res://scenes/level_autumn.tscn"
 
 [node name="PauseMenu" parent="." unique_id=1137995668 instance=ExtResource("3_pause")]
 visible = false
 
-[node name="Background" type="Sprite2D" parent="." unique_id=1425412049]
+[node name="Background" type="Sprite2D" parent="." unique_id=1425412049 groups=["LevelBackground"]]
 z_index = -1000
 position = Vector2(4833, 1415.5)
 texture = ExtResource("summer_bg")
@@ -128,7 +152,7 @@ polygon = PackedVector2Array(0, 2011, 184, 1996, 296, 2017, 408, 2017, 528, 1999
 [node name="Plants" type="Node2D" parent="." unique_id=129662650]
 
 [node name="荷叶1" type="StaticBody2D" parent="Plants" unique_id=1281253603]
-position = Vector2(1507, 1716)
+position = Vector2(1245, 1748)
 collision_mask = 64
 
 [node name="Sprite2D" type="Sprite2D" parent="Plants/荷叶1" unique_id=1593886344]
@@ -138,7 +162,6 @@ texture = ExtResource("summer_leaf1")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Plants/荷叶1" unique_id=171207532]
 position = Vector2(12, 73)
 shape = SubResource("plat_0")
-one_way_collision = true
 one_way_collision_margin = 4.0
 
 [node name="Trampoline" type="Area2D" parent="Plants/荷叶1" unique_id=1014526925]
@@ -150,8 +173,52 @@ script = ExtResource("5_tramp")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Plants/荷叶1/Trampoline" unique_id=2039134142]
 shape = SubResource("tramp_area")
 
+[node name="荷叶2" type="StaticBody2D" parent="Plants" unique_id=1543072396]
+position = Vector2(2773, 2057)
+collision_mask = 64
+
+[node name="Sprite2D" type="Sprite2D" parent="Plants/荷叶2" unique_id=1951688855]
+position = Vector2(0, 103)
+texture = ExtResource("summer_leaf1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plants/荷叶2" unique_id=1903340979]
+position = Vector2(12, 73)
+shape = SubResource("plat_0")
+one_way_collision_margin = 4.0
+
+[node name="Trampoline" type="Area2D" parent="Plants/荷叶2" unique_id=58349423]
+position = Vector2(12, 73)
+collision_layer = 0
+collision_mask = 64
+script = ExtResource("5_tramp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plants/荷叶2/Trampoline" unique_id=1249862102]
+shape = SubResource("tramp_area")
+
+[node name="荷叶3" type="StaticBody2D" parent="Plants" unique_id=247376960]
+position = Vector2(7375, 1966)
+collision_mask = 64
+
+[node name="Sprite2D" type="Sprite2D" parent="Plants/荷叶3" unique_id=618289626]
+position = Vector2(0, 103)
+texture = ExtResource("summer_leaf1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plants/荷叶3" unique_id=951121360]
+position = Vector2(12, 73)
+shape = SubResource("plat_0")
+one_way_collision_margin = 4.0
+
+[node name="Trampoline" type="Area2D" parent="Plants/荷叶3" unique_id=1236555799]
+position = Vector2(12, 73)
+collision_layer = 0
+collision_mask = 64
+script = ExtResource("5_tramp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plants/荷叶3/Trampoline" unique_id=179099637]
+shape = SubResource("tramp_area")
+
 [node name="荷花1" type="StaticBody2D" parent="Plants" unique_id=482616129]
-position = Vector2(3309, 910)
+position = Vector2(2253, 869)
 collision_mask = 64
 
 [node name="Sprite2D" type="Sprite2D" parent="Plants/荷花1" unique_id=401392927]
@@ -159,13 +226,40 @@ position = Vector2(0.5, 238.5)
 texture = ExtResource("summer_lotus1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Plants/荷花1" unique_id=1523499679]
+position = Vector2(-7, 291.5)
+shape = SubResource("plat_1")
+one_way_collision = true
+one_way_collision_margin = 4.0
+
+[node name="荷花4" type="StaticBody2D" parent="Plants" unique_id=1597920783]
+position = Vector2(3456, 1202)
+collision_mask = 64
+
+[node name="Sprite2D" type="Sprite2D" parent="Plants/荷花4" unique_id=1158408241]
+position = Vector2(0.5, 238.5)
+texture = ExtResource("summer_lotus1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plants/荷花4" unique_id=1393310601]
 position = Vector2(12, 288)
 shape = SubResource("plat_1")
 one_way_collision = true
 one_way_collision_margin = 4.0
 
+[node name="荷花7" type="StaticBody2D" parent="Plants" unique_id=1684206146]
+position = Vector2(9441, 1387)
+collision_mask = 64
+
+[node name="Sprite2D" type="Sprite2D" parent="Plants/荷花7" unique_id=551133263]
+position = Vector2(0.5, 238.5)
+texture = ExtResource("summer_lotus1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plants/荷花7" unique_id=1891122464]
+position = Vector2(5, 380)
+shape = SubResource("plat_1")
+one_way_collision_margin = 4.0
+
 [node name="莲蓬1" type="StaticBody2D" parent="Plants" unique_id=441478942]
-position = Vector2(3824, 1576)
+position = Vector2(3823, 1613)
 collision_mask = 64
 
 [node name="Sprite2D" type="Sprite2D" parent="Plants/莲蓬1" unique_id=1980710610]
@@ -179,7 +273,7 @@ one_way_collision = true
 one_way_collision_margin = 4.0
 
 [node name="花苞1" type="StaticBody2D" parent="Plants" unique_id=883949504]
-position = Vector2(7745, 772)
+position = Vector2(4865, 1503)
 collision_mask = 64
 
 [node name="Sprite2D" type="Sprite2D" parent="Plants/花苞1" unique_id=1682649551]
@@ -193,9 +287,27 @@ one_way_collision = true
 one_way_collision_margin = 4.0
 
 [node name="荷叶杆" type="Node2D" parent="Plants" unique_id=665366141]
-position = Vector2(1594, 2109)
+position = Vector2(1629, 2119)
 
 [node name="Sprite2D" type="Sprite2D" parent="Plants/荷叶杆" unique_id=1938365278]
+texture = ExtResource("summer_leaf2")
+
+[node name="荷叶杆3" type="Node2D" parent="Plants" unique_id=1583924142]
+position = Vector2(7219, 2344)
+
+[node name="Sprite2D" type="Sprite2D" parent="Plants/荷叶杆3" unique_id=1417765446]
+texture = ExtResource("summer_leaf2")
+
+[node name="荷叶杆5" type="Node2D" parent="Plants" unique_id=389787336]
+position = Vector2(9437, 2018)
+
+[node name="Sprite2D" type="Sprite2D" parent="Plants/荷叶杆5" unique_id=1203398691]
+texture = ExtResource("summer_leaf2")
+
+[node name="荷叶杆4" type="Node2D" parent="Plants" unique_id=1079053286]
+position = Vector2(2950, 2403)
+
+[node name="Sprite2D" type="Sprite2D" parent="Plants/荷叶杆4" unique_id=2117976797]
 texture = ExtResource("summer_leaf2")
 
 [node name="莲蓬杆" type="Node2D" parent="Plants" unique_id=163369472]
@@ -205,13 +317,19 @@ position = Vector2(3853, 2108)
 texture = ExtResource("summer_pod2")
 
 [node name="花苞杆" type="Node2D" parent="Plants" unique_id=2055241128]
-position = Vector2(7606, 1835)
+position = Vector2(7029, 1877)
 
 [node name="Sprite2D" type="Sprite2D" parent="Plants/花苞杆" unique_id=619331652]
+position = Vector2(-2275, 512)
+scale = Vector2(0.778, 0.76)
 texture = ExtResource("summer_bud2")
 
 [node name="荷花2" type="Sprite2D" parent="Plants" unique_id=1898472164]
-position = Vector2(3303, 1929)
+position = Vector2(2236, 1864)
+texture = ExtResource("summer_lotus2")
+
+[node name="荷花5" type="Sprite2D" parent="Plants" unique_id=1537996135]
+position = Vector2(3448, 2189)
 texture = ExtResource("summer_lotus2")
 
 [node name="Foreground" type="Sprite2D" parent="." unique_id=851442097]
@@ -293,5 +411,97 @@ mouse_filter = 2
 texture = ExtResource("32_gur6y")
 script = ExtResource("33_v3why")
 player = NodePath("../../../../CharacterBody2D")
+
+[node name="TutUI" type="CanvasLayer" parent="." unique_id=2060039912 node_paths=PackedStringArray("root", "textLabel", "continueHint") groups=["TutorialUI"]]
+script = ExtResource("23_qv3im")
+root = NodePath("Control")
+textLabel = NodePath("Control/TutorialBox/Text")
+continueHint = NodePath("Control/TutorialBox/Label")
+
+[node name="Control" type="Control" parent="TutUI" unique_id=384403899]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DIM" type="ColorRect" parent="TutUI/Control" unique_id=38342406]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.54509807)
+
+[node name="TutorialBox" type="TextureRect" parent="TutUI/Control" unique_id=1386107607]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1915.0002
+offset_top = -393.00024
+offset_right = 3437.0
+offset_bottom = 2114.9998
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.155, 0.155)
+texture = ExtResource("24_j7a8p")
+
+[node name="Text" type="RichTextLabel" parent="TutUI/Control/TutorialBox" unique_id=772052340]
+layout_mode = 0
+offset_left = 1058.0662
+offset_top = 374.195
+offset_right = 4761.2915
+offset_bottom = 1516.1306
+theme = SubResource("Theme_stym0")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "你现在必须追上光，否则就会“迟暮”，逐渐减速和降低跳跃高度，并最终死亡。"
+
+[node name="Label" type="Label" parent="TutUI/Control/TutorialBox" unique_id=1411053959]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -855.2246
+offset_top = -1017.67566
+offset_right = -697.2246
+offset_bottom = -972.67566
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(6.3, 6.3)
+theme = SubResource("Theme_l7iab")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "▼"
+
+[node name="TutorialTrigger1" type="Area2D" parent="." unique_id=1845000511]
+position = Vector2(2514, 2183)
+collision_mask = 64
+script = ExtResource("26_n4b8l")
+messages = Array[String](["这次的光普遍很高，看到面前的荷叶了吗~跳上去就能帮你一把~"])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TutorialTrigger1" unique_id=966792590]
+position = Vector2(-1649, -570)
+shape = SubResource("RectangleShape2D_nxk2e")
+
+[node name="Bounds" type="StaticBody2D" parent="." node_paths=PackedStringArray("player")]
+collision_layer = 1
+collision_mask = 64
+script = ExtResource("map_bounds_script")
+player = NodePath("../CharacterBody2D")
+
+[node name="WallLeft" type="CollisionShape2D" parent="Bounds"]
+position = Vector2(0, 0)
+shape = SubResource("map_wall_left")
+
+[node name="WallRight" type="CollisionShape2D" parent="Bounds"]
+position = Vector2(9666, 0)
+shape = SubResource("map_wall_right")
 
 [editable path="CharacterBody2D"]

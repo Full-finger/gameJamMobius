@@ -38,6 +38,8 @@
 [ext_resource type="Texture2D" uid="uid://b2mjt8h23jgoc" path="res://assets/sprite/春_导出素材/云/云01.png" id="spring_tex_10"]
 [ext_resource type="Texture2D" uid="uid://bsvp8rvchrwr8" path="res://assets/sprite/春_导出素材/云/云02.png" id="spring_tex_11"]
 
+[ext_resource type="Script" path="res://scripts/LevelBounds.cs" id="map_bounds_script"]
+
 [sub_resource type="Environment" id="Environment_0gvmv"]
 background_mode = 3
 glow_enabled = true
@@ -208,6 +210,12 @@ Label/font_sizes/font_size = 32
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2jdvr"]
 size = Vector2(1681, 1040)
 
+[sub_resource type="WorldBoundaryShape2D" id="map_wall_left"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="map_wall_right"]
+normal = Vector2(-1, 0)
+
 [node name="Level" type="Node2D" unique_id=654422132]
 
 [node name="CharacterBody2D" parent="." unique_id=1710452791 instance=ExtResource("2_w7c3h")]
@@ -215,6 +223,14 @@ position = Vector2(-1858, -696)
 scale = Vector2(3.11, 3.11)
 speed = 1000.0
 jumpHeight = 600.0
+deathY = 1878.0
+
+[node name="Camera2D" parent="CharacterBody2D" index="2"]
+limit_left = -2066
+limit_top = -1689
+limit_right = 18364
+limit_bottom = 1678
+
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1882800937]
 environment = SubResource("Environment_0gvmv")
@@ -237,24 +253,28 @@ position = Vector2(13244, -1544)
 
 [node name="BG" type="Node" parent="." unique_id=974800398]
 
-[node name="Sprite2D" type="Sprite2D" parent="BG" unique_id=1679403986]
+[node name="Sprite2D" type="Sprite2D" parent="BG" unique_id=1679403986 groups=["LevelBackground"]]
 z_index = -1000
-position = Vector2(-18, -8)
+position = Vector2(-18, -5.5)
+scale = Vector2(1.000000000, 1.001487210)
 texture = ExtResource("7_olg7q")
 
-[node name="Sprite2D2" type="Sprite2D" parent="BG" unique_id=1438262450]
+[node name="Sprite2D2" type="Sprite2D" parent="BG" unique_id=1438262450 groups=["LevelBackground"]]
 z_index = -1000
-position = Vector2(4094, -3)
+position = Vector2(4086, -5.5)
+scale = Vector2(1.003906250, 1.001487210)
 texture = ExtResource("8_t1rx8")
 
-[node name="Sprite2D3" type="Sprite2D" parent="BG" unique_id=447973610]
+[node name="Sprite2D3" type="Sprite2D" parent="BG" unique_id=447973610 groups=["LevelBackground"]]
 z_index = -1000
-position = Vector2(8181, -3)
+position = Vector2(8181, -5.5)
+scale = Vector2(1.000000000, 1.001487210)
 texture = ExtResource("9_8iemx")
 
-[node name="Sprite2D5" type="Sprite2D" parent="BG" unique_id=864545697]
+[node name="Sprite2D5" type="Sprite2D" parent="BG" unique_id=864545697 groups=["LevelBackground"]]
 z_index = -1000
-position = Vector2(14283, -5)
+position = Vector2(14283, -5.5)
+scale = Vector2(1.000000000, 1.002083333)
 texture = ExtResource("8_556r4")
 
 [node name="Mushrooms" type="Node2D" parent="." unique_id=1492154123]
@@ -646,3 +666,19 @@ messages = Array[String](["不知道你是否注意到沿途的隐藏道具，�
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TutorialTrigger3" unique_id=1499880499]
 position = Vector2(-1649, -570)
 shape = SubResource("RectangleShape2D_2jdvr")
+
+[node name="Bounds" type="StaticBody2D" parent="." node_paths=PackedStringArray("player")]
+collision_layer = 1
+collision_mask = 64
+script = ExtResource("map_bounds_script")
+player = NodePath("../CharacterBody2D")
+
+[node name="WallLeft" type="CollisionShape2D" parent="Bounds"]
+position = Vector2(-2066, 0)
+shape = SubResource("map_wall_left")
+
+[node name="WallRight" type="CollisionShape2D" parent="Bounds"]
+position = Vector2(18364, 0)
+shape = SubResource("map_wall_right")
+
+[editable path="CharacterBody2D"]

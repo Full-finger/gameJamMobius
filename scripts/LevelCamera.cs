@@ -11,6 +11,16 @@ public partial class LevelCamera : Camera2D
         FitInsideBackground();
     }
 
+    // 每关的 Bounds 根据该关背景设置限制，同一个 Player 可以用于不同大小的地图。
+    public void SetBackgroundBounds(Rect2 bounds)
+    {
+        LimitLeft = Mathf.CeilToInt(bounds.Position.X);
+        LimitTop = Mathf.CeilToInt(bounds.Position.Y);
+        LimitRight = Mathf.FloorToInt(bounds.End.X);
+        LimitBottom = Mathf.FloorToInt(bounds.End.Y);
+        FitInsideBackground();
+    }
+
     private void FitInsideBackground()
     {
         Vector2 screen = GetViewportRect().Size;

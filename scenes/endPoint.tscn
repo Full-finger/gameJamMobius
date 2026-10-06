@@ -59,7 +59,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0gvmv"]
-size = Vector2(656.4103, 263.24786)
+size = Vector2(322.22223, 263.24786)
 
 [node name="EndPoint" type="Area2D" unique_id=905016184]
 script = ExtResource("1_1ckhb")
@@ -70,6 +70,6 @@ sprite_frames = SubResource("SpriteFrames_0gvmv")
 autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1697602288]
-position = Vector2(1.0000076, 14.999995)
+position = Vector2(-6.4999847, 14.999995)
 scale = Vector2(1.17, 1.17)
 shape = SubResource("RectangleShape2D_0gvmv")
