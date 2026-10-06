@@ -2,6 +2,8 @@ using Godot;
 
 public partial class endPoint : Area2D
 {
+	[Export] public string nextScenePath = "res://scenes/main_menu.tscn";
+
 	public override void _Ready()
 	{
 		BodyEntered += OnBodyEntered;
@@ -13,7 +15,7 @@ public partial class endPoint : Area2D
 		{
 			GetTree().CallDeferred(
 				SceneTree.MethodName.ChangeSceneToFile,
-				"res://scenes/main_menu.tscn"
+				nextScenePath
 			);
 		}
 	}
