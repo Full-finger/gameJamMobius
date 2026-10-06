@@ -1,0 +1,133 @@
+[gd_scene format=3 uid="uid://bamyseyas5r7f"]
+
+[ext_resource type="Script" uid="uid://bflheicgtodj0" path="res://CutscenePlayer.cs" id="1_tda0w"]
+[ext_resource type="Texture2D" uid="uid://b4nxtr1kb5w21" path="res://assets/sprite/TutorialFrame/文本框2.png" id="2_b6u4r"]
+[ext_resource type="Script" uid="uid://s30qc58fkcff" path="res://scripts/SO/CutsceneStep.cs" id="2_fiq31"]
+[ext_resource type="Texture2D" uid="uid://d2x7kkaxv540w" path="res://assets/sprite/CG/INCG/Image_1791312795132_362.png" id="3_3lce0"]
+[ext_resource type="FontFile" uid="uid://siupji2vbknh" path="res://assets/Font/ZCOOLKuaiLe-Regular.ttf" id="3_4evwg"]
+[ext_resource type="Texture2D" uid="uid://dtnwpbjttatcc" path="res://assets/sprite/CG/INCG/Image_1791312777553_88.png" id="4_4flxi"]
+[ext_resource type="Texture2D" uid="uid://uk1vqfhqqer4" path="res://assets/sprite/CG/INCG/Image_1791312725567_753.png" id="5_11rj5"]
+[ext_resource type="Texture2D" uid="uid://d0w3aa5yvrijp" path="res://assets/sprite/CG/INCG/Image_1791312605398_445.png" id="6_gwcb8"]
+[ext_resource type="Texture2D" uid="uid://bm6bwsoc8m7c8" path="res://assets/sprite/CG/INCG/Image_1791312589511_909.png" id="7_e2a6q"]
+
+[sub_resource type="Resource" id="Resource_1cycw"]
+script = ExtResource("2_fiq31")
+cg = ExtResource("3_3lce0")
+text = "开场"
+metadata/_custom_type_script = "uid://s30qc58fkcff"
+
+[sub_resource type="Resource" id="Resource_vsubv"]
+script = ExtResource("2_fiq31")
+cg = ExtResource("4_4flxi")
+text = "睡着了"
+metadata/_custom_type_script = "uid://s30qc58fkcff"
+
+[sub_resource type="Resource" id="Resource_8jejx"]
+script = ExtResource("2_fiq31")
+cg = ExtResource("5_11rj5")
+text = "和年轻的自己散步"
+metadata/_custom_type_script = "uid://s30qc58fkcff"
+
+[sub_resource type="Resource" id="Resource_fiq31"]
+script = ExtResource("2_fiq31")
+cg = ExtResource("6_gwcb8")
+text = "也许在拍照"
+metadata/_custom_type_script = "uid://s30qc58fkcff"
+
+[sub_resource type="Resource" id="Resource_3lce0"]
+script = ExtResource("2_fiq31")
+cg = ExtResource("7_e2a6q")
+text = "拍好了 接下来进入游戏"
+metadata/_custom_type_script = "uid://s30qc58fkcff"
+
+[sub_resource type="Theme" id="Theme_2mha5"]
+default_font = ExtResource("3_4evwg")
+default_font_size = 44
+RichTextLabel/font_sizes/normal_font_size = 177
+
+[sub_resource type="Theme" id="Theme_kuhf1"]
+default_font_size = 32
+Label/font_sizes/font_size = 32
+
+[node name="Control" type="Control" unique_id=43007473 node_paths=PackedStringArray("cgDisplay", "dialogueBox", "textLabel", "continueHint")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tda0w")
+cgDisplay = NodePath("CG")
+dialogueBox = NodePath("Control/TutorialBox")
+textLabel = NodePath("Control/Text")
+continueHint = NodePath("Control/Label")
+steps = Array[ExtResource("2_fiq31")]([SubResource("Resource_1cycw"), SubResource("Resource_vsubv"), SubResource("Resource_8jejx"), SubResource("Resource_fiq31"), SubResource("Resource_3lce0")])
+nextScene = "uid://du6cwn4l58bwm"
+
+[node name="CG" type="TextureRect" parent="." unique_id=1308119415]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch_mode = 6
+
+[node name="Control" type="Control" parent="." unique_id=376311215]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 25.0
+offset_top = -43.0
+offset_right = 65.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="TutorialBox" type="TextureRect" parent="Control" unique_id=1439828307]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1021.0
+offset_top = -376.0
+offset_right = 4331.0
+offset_bottom = 2132.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.155, 0.155)
+texture = ExtResource("2_b6u4r")
+
+[node name="Text" type="RichTextLabel" parent="Control" unique_id=508616255]
+layout_mode = 0
+offset_left = -799.00006
+offset_top = -281.00003
+offset_right = 2904.2256
+offset_bottom = 860.93555
+scale = Vector2(0.15, 0.15)
+theme = SubResource("Theme_2mha5")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "你现在必须追上光，否则就会“迟暮”，逐渐减速和降低跳跃高度，并最终死亡。"
+
+[node name="Label" type="Label" parent="Control" unique_id=786367349]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -329.0
+offset_top = -158.99997
+offset_right = -171.0
+offset_bottom = -113.99997
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(1.38, 1.38)
+theme = SubResource("Theme_kuhf1")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "▼"

@@ -1,0 +1,97 @@
+[gd_scene format=3 uid="uid://umupblm0eqp7"]
+
+[ext_resource type="Script" uid="uid://bflheicgtodj0" path="res://CutscenePlayer.cs" id="1_f71uf"]
+[ext_resource type="Script" uid="uid://s30qc58fkcff" path="res://scripts/SO/CutsceneStep.cs" id="2_4rl3n"]
+[ext_resource type="Texture2D" uid="uid://b4nxtr1kb5w21" path="res://assets/sprite/TutorialFrame/文本框2.png" id="2_6lehg"]
+[ext_resource type="FontFile" uid="uid://siupji2vbknh" path="res://assets/Font/ZCOOLKuaiLe-Regular.ttf" id="3_4rl3n"]
+
+[sub_resource type="Resource" id="Resource_oq22c"]
+script = ExtResource("2_4rl3n")
+metadata/_custom_type_script = "uid://s30qc58fkcff"
+
+[sub_resource type="Theme" id="Theme_2mha5"]
+default_font = ExtResource("3_4rl3n")
+default_font_size = 44
+RichTextLabel/font_sizes/normal_font_size = 177
+
+[sub_resource type="Theme" id="Theme_kuhf1"]
+default_font_size = 32
+Label/font_sizes/font_size = 32
+
+[node name="Control" type="Control" unique_id=43007473]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_f71uf")
+steps = Array[ExtResource("2_4rl3n")]([SubResource("Resource_oq22c")])
+
+[node name="CG" type="TextureRect" parent="." unique_id=1308119415]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch_mode = 6
+
+[node name="Control" type="Control" parent="." unique_id=376311215]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 25.0
+offset_top = -43.0
+offset_right = 65.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="TutorialBox" type="TextureRect" parent="Control" unique_id=1439828307]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1021.0
+offset_top = -376.0
+offset_right = 4331.0
+offset_bottom = 2132.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.155, 0.155)
+texture = ExtResource("2_6lehg")
+
+[node name="Text" type="RichTextLabel" parent="Control" unique_id=508616255]
+layout_mode = 0
+offset_left = -799.00006
+offset_top = -281.00003
+offset_right = 2904.2256
+offset_bottom = 860.93555
+scale = Vector2(0.15, 0.15)
+theme = SubResource("Theme_2mha5")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "你现在必须追上光，否则就会“迟暮”，逐渐减速和降低跳跃高度，并最终死亡。"
+
+[node name="Label" type="Label" parent="Control" unique_id=786367349]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -329.0
+offset_top = -158.99997
+offset_right = -171.0
+offset_bottom = -113.99997
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(1.38, 1.38)
+theme = SubResource("Theme_kuhf1")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "▼"
