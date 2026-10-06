@@ -1,16 +1,75 @@
 [gd_scene format=3 uid="uid://cfr8ot282ngno"]
 
-[ext_resource type="Texture2D" uid="uid://dgdprqk4vaikd" path="res://assets/icon.svg" id="1_w8frs"]
 [ext_resource type="PackedScene" uid="uid://022fi7cav8ro" path="res://scenes/Player.tscn" id="2_w7c3h"]
 [ext_resource type="PackedScene" uid="uid://cyfmxehji1crp" path="res://scenes/Light.tscn" id="3_w8frs"]
 [ext_resource type="PackedScene" uid="uid://mxt78cvn5w35" path="res://scenes/endPoint.tscn" id="4_mx8sn"]
 [ext_resource type="PackedScene" uid="uid://dw13jweir71ce" path="res://scenes/pause_menu.tscn" id="5_ppgk2"]
 [ext_resource type="PackedScene" uid="uid://cohub3088q7to" path="res://scenes/wineTEST.tscn" id="6_2r41h"]
+[ext_resource type="Texture2D" uid="uid://brbhfddrvrd6l" path="res://assets/sprite/春_导出素材/背景/森林背景_01.png" id="7_olg7q"]
+[ext_resource type="Texture2D" uid="uid://cy50s3wyu3rwa" path="res://assets/sprite/春_导出素材/背景/森林背景_02.png" id="8_t1rx8"]
+[ext_resource type="Texture2D" uid="uid://p88orty4wpbd" path="res://assets/sprite/春_导出素材/背景/森林背景_03.png" id="9_8iemx"]
+[ext_resource type="Texture2D" uid="uid://dvgp1p2wi3al2" path="res://assets/sprite/春_导出素材/背景/森林背景_04.png" id="10_64w2a"]
+[ext_resource type="Texture2D" uid="uid://d14ta6td86tlk" path="res://assets/sprite/春_导出素材/前景/前景剪影_01.png" id="11_gunhw"]
+[ext_resource type="Texture2D" uid="uid://damk34qpobo85" path="res://assets/sprite/春_导出素材/前景/前景剪影_02.png" id="12_8gofh"]
+[ext_resource type="Texture2D" uid="uid://b28xv8hj2p81c" path="res://assets/sprite/春_导出素材/地面/地面_01.png" id="12_64w2a"]
+[ext_resource type="Texture2D" uid="uid://bfxo7wf6p4ivy" path="res://assets/sprite/春_导出素材/前景/前景剪影_03.png" id="13_h6wmr"]
+[ext_resource type="Texture2D" uid="uid://ir6tvmmipnby" path="res://assets/sprite/春_导出素材/前景/前景剪影_04.png" id="14_pqd0y"]
+[ext_resource type="Texture2D" uid="uid://ccbto3rsmxien" path="res://assets/sprite/春_导出素材/地面/地面_02.png" id="17_5k0ak"]
+[ext_resource type="Texture2D" uid="uid://pqr10vr5fgop" path="res://assets/sprite/春_导出素材/地面/地面_03.png" id="18_wu01b"]
+[ext_resource type="Texture2D" uid="uid://baim8jmt7wp8c" path="res://assets/sprite/春_导出素材/地面/地面_04.png" id="19_3ies3"]
+[ext_resource type="Texture2D" uid="uid://cfjj32lp0fvx0" path="res://assets/sprite/春_导出素材/蘑菇/完整/蘑菇01_左.png" id="spring_tex_1"]
+[ext_resource type="Texture2D" uid="uid://djwuyfnee15gw" path="res://assets/sprite/春_导出素材/蘑菇/部件/蘑菇02_菌盖.png" id="spring_tex_2"]
+[ext_resource type="Texture2D" uid="uid://cpqvpgaa7v1al" path="res://assets/sprite/春_导出素材/蘑菇/部件/蘑菇02_菌柄.png" id="spring_tex_3"]
+[ext_resource type="Texture2D" uid="uid://d2aage5nbcknp" path="res://assets/sprite/春_导出素材/蘑菇/完整/蘑菇03_左.png" id="spring_tex_4"]
+[ext_resource type="Texture2D" uid="uid://doeoydneabxqm" path="res://assets/sprite/春_导出素材/蘑菇/部件/蘑菇04_菌盖.png" id="spring_tex_5"]
+[ext_resource type="Texture2D" uid="uid://b7ilvlttj2hdh" path="res://assets/sprite/春_导出素材/蘑菇/部件/蘑菇04_菌柄.png" id="spring_tex_6"]
+[ext_resource type="Texture2D" uid="uid://bk6gkxp0piql1" path="res://assets/sprite/春_导出素材/蘑菇/部件/蘑菇03_菌盖.png" id="spring_tex_7"]
+[ext_resource type="Texture2D" uid="uid://b0ko20ln48aes" path="res://assets/sprite/春_导出素材/蘑菇/部件/蘑菇03_菌柄.png" id="spring_tex_8"]
+[ext_resource type="Texture2D" uid="uid://cccnjrdspb2c7" path="res://assets/sprite/春_导出素材/蘑菇/完整/蘑菇01_右.png" id="spring_tex_9"]
+[ext_resource type="Texture2D" uid="uid://b2mjt8h23jgoc" path="res://assets/sprite/春_导出素材/云/云01.png" id="spring_tex_10"]
+[ext_resource type="Texture2D" uid="uid://bsvp8rvchrwr8" path="res://assets/sprite/春_导出素材/云/云02.png" id="spring_tex_11"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ohrg4"]
-size = Vector2(529, 535)
+[sub_resource type="Environment" id="Environment_0gvmv"]
+background_mode = 3
+glow_enabled = true
 
-[sub_resource type="Animation" id="Animation_mx8sn"]
+[sub_resource type="AtlasTexture" id="Atlas_Mushroom01_Left_Stem"]
+atlas = ExtResource("spring_tex_1")
+region = Rect2(0, 220, 648, 565)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Atlas_Mushroom01_Left_Cap"]
+atlas = ExtResource("spring_tex_1")
+region = Rect2(0, 0, 648, 220)
+filter_clip = true
+
+[sub_resource type="RectangleShape2D" id="Rectangle_Mushroom02"]
+size = Vector2(696, 18)
+
+[sub_resource type="AtlasTexture" id="Atlas_Mushroom03_Left_Stem"]
+atlas = ExtResource("spring_tex_4")
+region = Rect2(0, 220, 1045, 1098)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Atlas_Mushroom03_Left_Cap"]
+atlas = ExtResource("spring_tex_4")
+region = Rect2(0, 0, 1045, 220)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Atlas_Mushroom01_Right_Stem"]
+atlas = ExtResource("spring_tex_9")
+region = Rect2(0, 220, 648, 565)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Atlas_Mushroom01_Right_Cap"]
+atlas = ExtResource("spring_tex_9")
+region = Rect2(0, 0, 648, 220)
+filter_clip = true
+
+[sub_resource type="RectangleShape2D" id="Rectangle_Cloud01"]
+size = Vector2(1444.25, 105)
+
+[sub_resource type="Animation" id="Animation_556r4"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -22,7 +81,86 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(668, 500)]
+"values": [Vector2(6270, 47.5)]
+}
+
+[sub_resource type="Animation" id="Animation_7agi7"]
+resource_name = "new_animation"
+length = 3.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.94),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(6270, 58), Vector2(6579, 766)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kih21"]
+_data = {
+&"RESET": SubResource("Animation_556r4"),
+&"new_animation": SubResource("Animation_7agi7")
+}
+
+[sub_resource type="RectangleShape2D" id="Rectangle_Cloud02"]
+size = Vector2(969.5, 104)
+
+[sub_resource type="Animation" id="Animation_w3o6u"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(10671, 551)]
+}
+
+[sub_resource type="Animation" id="Animation_2e2fo"]
+resource_name = "new_animation"
+length = 3.0333333
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.97),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(11611, 66), Vector2(10610, 703)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gur6y"]
+_data = {
+&"RESET": SubResource("Animation_w3o6u"),
+&"new_animation": SubResource("Animation_2e2fo")
+}
+
+[sub_resource type="Animation" id="Animation_mx8sn"]
+length = 23.833334
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3.01, 5.86, 8.96, 12.02, 14.8, 17.916346, 20.816687),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-1464, -497), Vector2(255, 60), Vector2(1539, -435), Vector2(3771, 177), Vector2(6615, -484), Vector2(9208, 378), Vector2(11116, 1075), Vector2(16393, 869)]
 }
 
 [sub_resource type="Animation" id="Animation_ppgk2"]
@@ -48,45 +186,288 @@ _data = {
 &"new_animation": SubResource("Animation_ppgk2")
 }
 
-[sub_resource type="Environment" id="Environment_0gvmv"]
-background_mode = 3
-glow_enabled = true
-
 [node name="Level" type="Node2D" unique_id=654422132]
 
-[node name="TerrainSample" type="StaticBody2D" parent="." unique_id=2047963053]
-position = Vector2(942, 796)
-
-[node name="Sprite2D" type="Sprite2D" parent="TerrainSample" unique_id=550694502]
-scale = Vector2(4.14, 4.14)
-texture = ExtResource("1_w8frs")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TerrainSample" unique_id=919321172]
-position = Vector2(-1.5, -3.5)
-shape = SubResource("RectangleShape2D_ohrg4")
-debug_color = Color(1, 1, 1, 0)
-
 [node name="CharacterBody2D" parent="." unique_id=1710452791 instance=ExtResource("2_w7c3h")]
-position = Vector2(941, 399)
-
-[node name="PointLight2D" parent="." unique_id=1508022713 instance=ExtResource("3_w8frs")]
-position = Vector2(668, 500)
-color = Color(0.9866782, 0.9866782, 0.9866782, 1)
-energy = 4.43
-
-[node name="AnimationPlayer2" type="AnimationPlayer" parent="PointLight2D" unique_id=1822652394]
-libraries/ = SubResource("AnimationLibrary_2r41h")
-autoplay = &"new_animation"
+position = Vector2(-1858, -696)
+scale = Vector2(3.11, 3.11)
+speed = 1000.0
+jumpHeight = 600.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1882800937]
 environment = SubResource("Environment_0gvmv")
 
 [node name="Area2D" parent="." unique_id=905016184 instance=ExtResource("4_mx8sn")]
-position = Vector2(2379, 462)
+position = Vector2(17194, 1030)
 scale = Vector2(0.44, 0.44)
 collision_mask = 64
 
 [node name="PauseMenu" parent="." unique_id=1057490932 instance=ExtResource("5_ppgk2")]
+visible = false
 
 [node name="Wine" parent="." unique_id=1148817497 instance=ExtResource("6_2r41h")]
-position = Vector2(1178, -197)
+position = Vector2(2548, -1560)
+
+[node name="Wine2" parent="." unique_id=983801618 instance=ExtResource("6_2r41h")]
+position = Vector2(11453, -1536)
+
+[node name="Wine3" parent="." unique_id=516405629 instance=ExtResource("6_2r41h")]
+position = Vector2(13244, -1544)
+
+[node name="BG" type="Node" parent="." unique_id=974800398]
+
+[node name="Sprite2D" type="Sprite2D" parent="BG" unique_id=1679403986]
+z_index = -1000
+position = Vector2(-18, -8)
+texture = ExtResource("7_olg7q")
+
+[node name="Sprite2D2" type="Sprite2D" parent="BG" unique_id=1438262450]
+z_index = -1000
+position = Vector2(4094, -3)
+texture = ExtResource("8_t1rx8")
+
+[node name="Sprite2D3" type="Sprite2D" parent="BG" unique_id=447973610]
+z_index = -1000
+position = Vector2(8181, -3)
+texture = ExtResource("9_8iemx")
+
+[node name="Sprite2D4" type="Sprite2D" parent="BG" unique_id=810702504]
+z_index = -1000
+position = Vector2(12260, -3)
+texture = ExtResource("10_64w2a")
+
+[node name="Sprite2D5" type="Sprite2D" parent="BG" unique_id=864545697]
+z_index = -1000
+position = Vector2(16333, -4)
+texture = ExtResource("10_64w2a")
+
+[node name="Mushrooms" type="Node2D" parent="." unique_id=1492154123]
+
+[node name="Mushroom01_Left" type="Node2D" parent="Mushrooms" unique_id=494859525]
+position = Vector2(99, 366)
+
+[node name="Stem" type="Sprite2D" parent="Mushrooms/Mushroom01_Left" unique_id=1309855586]
+position = Vector2(0, 392.5)
+texture = SubResource("Atlas_Mushroom01_Left_Stem")
+
+[node name="Cap" type="StaticBody2D" parent="Mushrooms/Mushroom01_Left" unique_id=1290582743]
+collision_mask = 64
+
+[node name="Sprite2D" type="Sprite2D" parent="Mushrooms/Mushroom01_Left/Cap" unique_id=1270206966]
+texture = SubResource("Atlas_Mushroom01_Left_Cap")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Mushrooms/Mushroom01_Left/Cap" unique_id=831886566]
+polygon = PackedVector2Array(107, -91, -36, -110, -117, -92, -231, -40, -305.4, 38, -321, 100.2, -321, 110, 305.2, 110, 320, 94, 324, 80.600006, 289, 10.900002, 197, -60)
+
+[node name="Mushroom02" type="Node2D" parent="Mushrooms" unique_id=1203018183]
+position = Vector2(-580, 302)
+
+[node name="Stem" type="Sprite2D" parent="Mushrooms/Mushroom02" unique_id=1989056446]
+position = Vector2(-42, 425)
+texture = ExtResource("spring_tex_3")
+
+[node name="Cap" type="StaticBody2D" parent="Mushrooms/Mushroom02" unique_id=1265223277]
+collision_mask = 64
+
+[node name="Sprite2D" type="Sprite2D" parent="Mushrooms/Mushroom02/Cap" unique_id=524542637]
+texture = ExtResource("spring_tex_2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mushrooms/Mushroom02/Cap" unique_id=82034803]
+position = Vector2(5, -127)
+shape = SubResource("Rectangle_Mushroom02")
+one_way_collision = true
+one_way_collision_margin = 4.0
+
+[node name="Mushroom03_Left" type="Node2D" parent="Mushrooms" unique_id=299992711]
+position = Vector2(1263.5, -101)
+
+[node name="Stem" type="Sprite2D" parent="Mushrooms/Mushroom03_Left" unique_id=453324640]
+position = Vector2(0, 659)
+texture = SubResource("Atlas_Mushroom03_Left_Stem")
+
+[node name="Cap" type="StaticBody2D" parent="Mushrooms/Mushroom03_Left" unique_id=874869229]
+collision_mask = 64
+
+[node name="Sprite2D" type="Sprite2D" parent="Mushrooms/Mushroom03_Left/Cap" unique_id=1653396863]
+texture = SubResource("Atlas_Mushroom03_Left_Cap")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Mushrooms/Mushroom03_Left/Cap" unique_id=498126083]
+polygon = PackedVector2Array(157.5, -68.8, -8.299988, -110, -23.5, -110, -490.4, 68, -521.5, 97.3, -521.5, 110, -429.3, 110, -94, 102, -69.29999, 110, 13.5, 110, 23.599976, 100.8, 511.80005, 85, 520.9, 85, 522.5, 75.8, 516.5, 63)
+
+[node name="Mushroom04" type="Node2D" parent="Mushrooms" unique_id=205461952]
+position = Vector2(3331.5, 558.5)
+
+[node name="Stem" type="Sprite2D" parent="Mushrooms/Mushroom04" unique_id=111246602]
+position = Vector2(-22.5, 413.5)
+texture = ExtResource("spring_tex_6")
+
+[node name="Cap" type="StaticBody2D" parent="Mushrooms/Mushroom04" unique_id=1204283093]
+collision_mask = 64
+
+[node name="Sprite2D" type="Sprite2D" parent="Mushrooms/Mushroom04/Cap" unique_id=1721119069]
+texture = ExtResource("spring_tex_5")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Mushrooms/Mushroom04/Cap" unique_id=184730391]
+polygon = PackedVector2Array(212.5, -177.7, -14.5, -196.5, -49.5, -196.5, -132.9, -186.5, -245.9, -152.5, -441.3, -38.5, -523.1, 51.5, -559.5, 185.29999, -559.5, 196.5, -529.8, 196.5, 473, 142.5, 486.5, 142.5, 538.4, 132.5, 546.19995, 132.5, 564.19995, 102.5, 567.5, 102.5, 567.5, 84.100006, 557.5, 41.5, 513.5, -16.5, 405.5, -97.5)
+
+[node name="Mushroom05" type="Node2D" parent="Mushrooms" unique_id=1838051412]
+position = Vector2(4653, 185)
+
+[node name="Stem" type="Sprite2D" parent="Mushrooms/Mushroom05" unique_id=1396139581]
+position = Vector2(-22.5, 413.5)
+texture = ExtResource("spring_tex_6")
+
+[node name="Cap" type="StaticBody2D" parent="Mushrooms/Mushroom05" unique_id=1085183718]
+collision_mask = 64
+
+[node name="Sprite2D" type="Sprite2D" parent="Mushrooms/Mushroom05/Cap" unique_id=981182482]
+texture = ExtResource("spring_tex_5")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Mushrooms/Mushroom05/Cap" unique_id=178062352]
+polygon = PackedVector2Array(212.5, -177.7, -14.5, -196.5, -49.5, -196.5, -132.9, -186.5, -245.9, -152.5, -441.3, -38.5, -523.1, 51.5, -559.5, 185.29999, -559.5, 196.5, -529.8, 196.5, 473, 142.5, 486.5, 142.5, 538.4, 132.5, 546.19995, 132.5, 564.19995, 102.5, 567.5, 102.5, 567.5, 84.100006, 557.5, 41.5, 513.5, -16.5, 405.5, -97.5)
+
+[node name="Mushroom03_Right" type="Node2D" parent="Mushrooms" unique_id=549068159]
+position = Vector2(7945.5, 280.5)
+
+[node name="Stem" type="Sprite2D" parent="Mushrooms/Mushroom03_Right" unique_id=1505787270]
+position = Vector2(11, 654)
+texture = ExtResource("spring_tex_8")
+
+[node name="Cap" type="StaticBody2D" parent="Mushrooms/Mushroom03_Right" unique_id=2014259848]
+collision_mask = 64
+
+[node name="Sprite2D" type="Sprite2D" parent="Mushrooms/Mushroom03_Right/Cap" unique_id=2056748346]
+texture = ExtResource("spring_tex_7")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Mushrooms/Mushroom03_Right/Cap" unique_id=680322987]
+polygon = PackedVector2Array(-12.200012, -123.5, -22.5, -123.5, -494, 31.5, -516.5, 56.899994, -516.5, 70, 252.29999, 105.5, 350.8, 105.5, 466.5, 122.100006, 466.5, 123.5, 481.7, 123.5, 513.69995, 115.5, 520.1, 115.5, 522.5, 109.8, 522.5, 100.3, 500.5, 73.8, 32.5, -118.3)
+
+[node name="Mushroom01_Right" type="Node2D" parent="Mushrooms" unique_id=1507799415]
+position = Vector2(9426, 754)
+
+[node name="Stem" type="Sprite2D" parent="Mushrooms/Mushroom01_Right" unique_id=500706126]
+position = Vector2(0, 392.5)
+texture = SubResource("Atlas_Mushroom01_Right_Stem")
+
+[node name="Cap" type="StaticBody2D" parent="Mushrooms/Mushroom01_Right" unique_id=316530218]
+collision_mask = 64
+
+[node name="Sprite2D" type="Sprite2D" parent="Mushrooms/Mushroom01_Right/Cap" unique_id=1172037989]
+texture = SubResource("Atlas_Mushroom01_Right_Cap")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Mushrooms/Mushroom01_Right/Cap" unique_id=1751057066]
+polygon = PackedVector2Array(-20.5, -110, -36, -108.2, -117, -92, -227.3, -43, -308, 37, -321, 100.2, -321, 110, 305.2, 110, 318.5, 95, 324, 95, 324, 80.600006, 289, 15.5, 198, -62)
+
+[node name="Clouds" type="Node2D" parent="." unique_id=393618056]
+
+[node name="Cloud01" type="AnimatableBody2D" parent="Clouds" unique_id=1802519600]
+position = Vector2(6270, 47.5)
+collision_mask = 64
+
+[node name="Sprite2D" type="Sprite2D" parent="Clouds/Cloud01" unique_id=903335637]
+position = Vector2(15, -22)
+texture = ExtResource("spring_tex_10")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Clouds/Cloud01" unique_id=1817755376]
+position = Vector2(6, 114)
+shape = SubResource("Rectangle_Cloud01")
+one_way_collision = true
+one_way_collision_margin = 4.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Clouds/Cloud01" unique_id=1745643061]
+libraries/ = SubResource("AnimationLibrary_kih21")
+autoplay = &"new_animation"
+
+[node name="Cloud02" type="AnimatableBody2D" parent="Clouds" unique_id=1847261644]
+position = Vector2(10671, 551)
+collision_mask = 64
+
+[node name="Sprite2D" type="Sprite2D" parent="Clouds/Cloud02" unique_id=1476003187]
+position = Vector2(0.5, -28.5)
+texture = ExtResource("spring_tex_11")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Clouds/Cloud02" unique_id=939600884]
+position = Vector2(12.75, 58)
+shape = SubResource("Rectangle_Cloud02")
+one_way_collision = true
+one_way_collision_margin = 4.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Clouds/Cloud02" unique_id=1905421410]
+libraries/ = SubResource("AnimationLibrary_gur6y")
+
+[node name="FG" type="Node" parent="." unique_id=1427096900]
+
+[node name="Sprite2D" type="Sprite2D" parent="FG" unique_id=1140546157]
+position = Vector2(-296, 784)
+texture = ExtResource("11_gunhw")
+
+[node name="Sprite2D2" type="Sprite2D" parent="FG" unique_id=1717476872]
+position = Vector2(4794, 1082)
+texture = ExtResource("12_8gofh")
+
+[node name="Sprite2D3" type="Sprite2D" parent="FG" unique_id=1740471428]
+position = Vector2(8086, 909)
+texture = ExtResource("13_h6wmr")
+
+[node name="Sprite2D4" type="Sprite2D" parent="FG" unique_id=1171985629]
+position = Vector2(10883, 897)
+texture = ExtResource("14_pqd0y")
+
+[node name="Ground" type="StaticBody2D" parent="." unique_id=238963374]
+
+[node name="Sprite2D" type="Sprite2D" parent="Ground" unique_id=106358245]
+position = Vector2(-17, 697)
+texture = ExtResource("12_64w2a")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Ground" unique_id=1423220233]
+position = Vector2(4079, 1354)
+texture = ExtResource("17_5k0ak")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Ground" unique_id=1475477386]
+position = Vector2(8173, 1482)
+texture = ExtResource("18_wu01b")
+
+[node name="Sprite2D5" type="Sprite2D" parent="Ground" unique_id=466873591]
+position = Vector2(16348, 1197)
+texture = ExtResource("18_wu01b")
+
+[node name="Sprite2D6" type="Sprite2D" parent="Ground" unique_id=2034244925]
+position = Vector2(16339, 1362)
+texture = ExtResource("18_wu01b")
+
+[node name="Sprite2D7" type="Sprite2D" parent="Ground" unique_id=1929620400]
+position = Vector2(16339, 1468)
+texture = ExtResource("18_wu01b")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Ground" unique_id=195297965]
+position = Vector2(12268, 1308)
+texture = ExtResource("19_3ies3")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Ground" unique_id=679308070]
+position = Vector2(-17, 697)
+polygon = PackedVector2Array(-1678, -980.5, -1859.3, -990, -1932.1, -990, -2039.3, -987, -2048, -987, -2048, 990, 2048, 990, 2048, 753.1, 1762.1001, 749, 1739.3999, 749, 1692.6001, 734, 1691.7, 734, 1529.2, 638.5, 1373, 413.80005, 993, 337.69995, 614.6001, 359.30005, 374, 335, -283, 336, -309.30005, 336, -501.30005, 309, -506.59998, 309, -640.6, 270, -642.1, 270, -1184.4, -71, -1334.3, -253, -1463, -467.8, -1659.4, -715.2, -1678, -966.7)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Ground" unique_id=1443693100]
+position = Vector2(4079, 1354)
+polygon = PackedVector2Array(555.6001, -132.8, 544.3999, -332, 534.69995, -332, 525, -331.7, 525, -330.2, 98, -292.1, -380, -296, -399.5, -296, -675.4, -210, -679.4, -210, -983, -57.200012, -1285.2, 55.600006, -1470, 76, -2039.3, 96, -2048, 96, -2048, 332, 2048, 332, 2048, -64.399994, 1952.3, -70, 1944.8999, -70, 1578, -140.3, 1578, -142.8, 1344.1001, -147, 1329.8999, -147, 1025.8999, -205, 988.5, -205, 900.3999, -178, 894.6001, -178, 788, -13.299988)
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Ground" unique_id=326284560]
+position = Vector2(8173, 1482)
+polygon = PackedVector2Array(-1766, -173.2, -1968.8, -200.5, -1994, -200.5, -2039.2, -195.5, -2048, -195.5, -2048, 200.5, 2048, 200.5, 2048, -86.7, 436.80005, -59.5, 434.5, -59.5, -141, 1.5, -352, 8.699997, -416.69995, 4.5, -420.30005, 4.5, -621, -62.800003, -621, -65.100006, -726.30005, -80.5, -728.80005, -80.5, -1167.1, -6.5, -1398.3, -40.5, -1405.6, -40.5, -1672.5, -123.5, -1675.7, -123.5, -1766, -169.6)
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="Ground" unique_id=1459244642]
+position = Vector2(12268, 1308)
+polygon = PackedVector2Array(1459.3, -374.5, 1430.5, -373.5, 1251.5, -355.5, 1038.3, -311.5, 6.5, 15.200012, -188.09998, 59, -1090, -27.5, -1118.2, -27.5, -1406.2, 12.5, -1412.9, 12.5, -1628.3, 72.70001, -2037.9, 89.5, -2046.5, 89.5, -2046.5, 374.5, 1982.3999, 374.5, 2046.5, 326.90002, 2046.5, -313.3, 1829.5, -351.9)
+
+[node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="Ground" unique_id=1799221590]
+position = Vector2(16348, 1197)
+polygon = PackedVector2Array(-1766, -173.2, -1968.8, -200.5, -1994, -200.5, -2048, -195.5, -2048, 200.5, 2048, 200.5, 2048, -86.7, 436.80005, -59.5, 434.5, -59.5, -141, 1.5, -352, 8.699997, -416.69995, 4.5, -621, -62.800003, -621, -65.100006, -726.30005, -80.5, -728.80005, -80.5, -1167.1, -6.5, -1398.3, -40.5, -1672.5, -123.5, -1675.7, -123.5, -1766, -169.6)
+
+[node name="PointLight2D" parent="." unique_id=1508022713 instance=ExtResource("3_w8frs")]
+position = Vector2(-1464, -497)
+color = Color(0.9866782, 0.9866782, 0.9866782, 1)
+energy = 4.43
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="PointLight2D" unique_id=1822652394]
+libraries/ = SubResource("AnimationLibrary_2r41h")
+autoplay = &"RESET"

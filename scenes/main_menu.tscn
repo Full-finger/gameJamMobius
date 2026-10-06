@@ -1,12 +1,18 @@
 [gd_scene format=3 uid="uid://cenrmkmh26udf"]
 
 [ext_resource type="Script" uid="uid://87e808ux7art" path="res://scripts/Button_start.cs" id="1_l6cm7"]
+[ext_resource type="Texture2D" uid="uid://cfmbs4j34w5jc" path="res://assets/sprite/MainMenu/85c21079cad0f05e786a985f60701a36.png" id="2_8ln24"]
+[ext_resource type="Texture2D" uid="uid://bbr1ah6o4d2co" path="res://assets/sprite/MainMenu/6787051ff782a0dd1627d55323af5525.png" id="3_rtw2f"]
+[ext_resource type="Texture2D" uid="uid://4hrebmn16ljt" path="res://assets/sprite/MainMenu/bd0395134ac81352217e9705b4e6bd4c.png" id="4_oa1go"]
+[ext_resource type="Texture2D" uid="uid://6dmxj6fypfve" path="res://assets/sprite/MainMenu/c06d7c661343e2ced500cc528084cf8f.png" id="5_tbmy8"]
 
 [sub_resource type="Theme" id="Theme_0gvmv"]
 default_font_size = 48
 Label/font_sizes/font_size = 16
 
-[node name="MainMenu" type="Control" unique_id=1848099975]
+[node name="MainMenu" type="CanvasLayer" unique_id=1238812440]
+
+[node name="Control" type="Control" parent="." unique_id=1445330334]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -14,19 +20,48 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Button" type="Button" parent="." unique_id=2065375655]
+[node name="Button" type="Button" parent="Control" unique_id=2065375655]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
+anchors_preset = 4
 anchor_top = 0.5
-anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -4.0
-offset_top = -4.0
-offset_right = 176.0
-offset_bottom = 76.0
-grow_horizontal = 2
+offset_top = -40.0
+offset_right = 180.0
+offset_bottom = 40.0
 grow_vertical = 2
 theme = SubResource("Theme_0gvmv")
 text = "Start"
 script = ExtResource("1_l6cm7")
+
+[node name="BG" type="TextureRect" parent="." unique_id=630488164]
+z_index = -1000
+offset_left = 199.99998
+offset_top = 4.9999995
+offset_right = 2040.0
+offset_bottom = 1040.0
+scale = Vector2(1.045, 1.045)
+texture = ExtResource("2_8ln24")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=902391205]
+offset_left = 215.99998
+offset_top = -8.999999
+offset_right = 2056.0
+offset_bottom = 1026.0
+scale = Vector2(1.045, 1.045)
+texture = ExtResource("3_rtw2f")
+
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=434489725]
+offset_left = 199.99998
+offset_top = 13.999999
+offset_right = 2040.0
+offset_bottom = 1049.0
+scale = Vector2(1.045, 1.045)
+texture = ExtResource("4_oa1go")
+
+[node name="TextureRect3" type="TextureRect" parent="." unique_id=455401126]
+offset_left = 187.99998
+offset_top = 4.9999995
+offset_right = 2028.0
+offset_bottom = 1040.0
+scale = Vector2(1.045, 1.045)
+texture = ExtResource("5_tbmy8")

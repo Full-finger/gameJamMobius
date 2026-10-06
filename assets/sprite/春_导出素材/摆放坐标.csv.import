@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://31om5f1c2lip"
+
+[deps]
+
+files=["res://assets/sprite/春_导出素材/摆放坐标.类型.translation", "res://assets/sprite/春_导出素材/摆放坐标.原图层.translation", "res://assets/sprite/春_导出素材/摆放坐标.左上角X.translation", "res://assets/sprite/春_导出素材/摆放坐标.左上角Y.translation", "res://assets/sprite/春_导出素材/摆放坐标.宽.translation", "res://assets/sprite/春_导出素材/摆放坐标.高.translation", "res://assets/sprite/春_导出素材/摆放坐标.Sprite2D居中PositionX.translation", "res://assets/sprite/春_导出素材/摆放坐标.Sprite2D居中PositionY.translation", "res://assets/sprite/春_导出素材/摆放坐标.Z Index.translation"]
+
+source_file="res://assets/sprite/春_导出素材/摆放坐标.csv"
+dest_files=["res://assets/sprite/春_导出素材/摆放坐标.类型.translation", "res://assets/sprite/春_导出素材/摆放坐标.原图层.translation", "res://assets/sprite/春_导出素材/摆放坐标.左上角X.translation", "res://assets/sprite/春_导出素材/摆放坐标.左上角Y.translation", "res://assets/sprite/春_导出素材/摆放坐标.宽.translation", "res://assets/sprite/春_导出素材/摆放坐标.高.translation", "res://assets/sprite/春_导出素材/摆放坐标.Sprite2D居中PositionX.translation", "res://assets/sprite/春_导出素材/摆放坐标.Sprite2D居中PositionY.translation", "res://assets/sprite/春_导出素材/摆放坐标.Z Index.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

@@ -25,6 +25,23 @@ public partial class Player : CharacterBody2D
 	[Export] public float jumpCutMultiplier = 0.45f;
 	[Export] public float maxFallSpeed = 900f;
 
+	[ExportGroup("藤蔓手感")]
+	[Export] public float vineSwingMultiplier = 5f; // A/D 推力、摆荡速度上限和跟随速度倍率。
+	[Export] public float vineGrabImpulse = 1.25f; // 抓住时带入水平冲量；原先 0.25 的五倍。
+	[Export] public float vineJumpMultiplier = 5f; // 跳离藤蔓的速度倍率。
+
+[ExportGroup("落地回弹")]
+[Export(PropertyHint.Range, "0.0,0.15,0.01")]
+public float landingSquash = 0.05f; // Y轴压缩5%
+
+[Export(PropertyHint.Range, "0.01,0.2,0.01")]
+public float landingSquashTime = 0.06f;
+
+[Export(PropertyHint.Range, "0.01,0.3,0.01")]
+public float landingRecoverTime = 0.10f;
+
+private Vector2 animNormalScale;
+private Tween landingTween;
 	public bool isInLight = false;
 
 	private float normalSpeed;
@@ -40,17 +57,26 @@ public partial class Player : CharacterBody2D
 	private float grabCooldown;
 	private float vineFlightTime;
 	private bool canJumpFromVine;
+	private Vector2 vineGrabPoint;
+	private Vector2 grabCenterOffset;
 
 	// GrabArea 调用这个方法，让玩家抓住当前这一节。
 	public void GrabVine(RigidBody2D target)
 	{
-		if (vine != null || grabCooldown > 0f)
+		if (!IsPhysicsProcessing() || vine != null || grabCooldown > 0f)
 			return;
 
 		vine = target;
 
-		// 把玩家冲过来的部分动量传给藤蔓。
-		vine.ApplyCentralImpulse(Velocity * 0.25f);
+		// 抓身体接触到的这一段位置，保持玩家直立，不跳到刚体中心。
+		grabCenterOffset = GetNode<CollisionShape2D>("CollisionShape2D").GlobalPosition - GlobalPosition;
+		vineGrabPoint = vine.ToLocal(GlobalPosition + grabCenterOffset);
+		float halfLength = ((RectangleShape2D)vine.GetNode<CollisionShape2D>("CollisionShape2D").Shape).Size.Y * 0.5f;
+		vineGrabPoint.X = 0f;
+		vineGrabPoint.Y = Mathf.Clamp(vineGrabPoint.Y, -halfLength, halfLength);
+		vine.ApplyCentralImpulse(new Vector2(Velocity.X, 0f) * vineGrabImpulse);
+		Velocity = Vector2.Zero;
+		vineFlightTime = 0f;
 
 		// 如果正按着跳跃，先松开，再按才会跳离藤蔓。
 		canJumpFromVine = !Input.IsActionPressed("move_jump");
@@ -69,15 +95,19 @@ public partial class Player : CharacterBody2D
 		grabCooldown = Mathf.Max(0f, grabCooldown - dt);
 		vineFlightTime = Mathf.Max(0f, vineFlightTime - dt);
 
-		if (vine == null)
+		if (!GodotObject.IsInstanceValid(vine))
+		{
+			vine = null;
 			return false;
+		}
 
 		float direction = 0f;
 		if (Input.IsActionPressed("move_left")) direction -= 1f;
 		if (Input.IsActionPressed("move_right")) direction += 1f;
 
 		// 左右按键推动藤蔓摆动。
-		vine.ApplyCentralForce(new Vector2(direction * 1500f, 0f));
+		if (Mathf.Abs(vine.LinearVelocity.X) < 650f * vineSwingMultiplier || direction * vine.LinearVelocity.X < 0f)
+			vine.ApplyCentralForce(new Vector2(direction * 900f * vineSwingMultiplier, 0f));
 
 		if (direction != 0f)
 			anim.FlipH = direction > 0f;
@@ -87,17 +117,21 @@ public partial class Player : CharacterBody2D
 
 		if (canJumpFromVine && Input.IsActionJustPressed("move_jump"))
 		{
-			// 保留藤蔓当前的速度，再给一个向上的起跳速度。
-			Vector2 launch = vine.LinearVelocity;
-			launch.Y = Mathf.Min(launch.Y, 0f) - 300f;
+			// 继承抓取点的部分切向速度；旋转带来的速度也算进去。
+			Vector2 radius = vine.ToGlobal(vineGrabPoint) - vine.GlobalPosition;
+			Vector2 pointVelocity = vine.LinearVelocity + new Vector2(-radius.Y, radius.X) * vine.AngularVelocity;
+			Vector2 launch = pointVelocity.LimitLength(normalSpeed) * 0.4f;
+			launch.X = Mathf.Clamp(launch.X + direction * speed * 0.5f, -normalSpeed, normalSpeed);
+			float upwardCarry = Mathf.Min(launch.Y, 0f);
+			Jump(ref launch, GetGravity().Y);
+			launch.Y += upwardCarry;
+			launch *= vineJumpMultiplier;
 
 			vine = null;
-			grabCooldown = 0.3f;
-			vineFlightTime = 0.3f;
+			grabCooldown = 0.45f;
+			vineFlightTime = 0.2f;
 
 			Velocity = launch;
-			PlayAnimation("jump", true);
-
 			MoveAndSlide();
 			return true;
 		}
@@ -105,8 +139,16 @@ public partial class Player : CharacterBody2D
 		PlayAnimation("idle");
 
 		// 用玩家自身的位置跟随这一节，不需要手部节点。
-		Velocity = (vine.GlobalPosition - GlobalPosition) / dt;
+		Vector2 targetPosition = vine.ToGlobal(vineGrabPoint) - grabCenterOffset;
+		Velocity = ((targetPosition - GlobalPosition) / dt).LimitLength(normalSpeed * 1.5f * vineSwingMultiplier);
 		MoveAndSlide();
+		// 被墙或地面挡住时松开，避免被藤蔓隔着地形一直拽住。
+		if (GlobalPosition.DistanceTo(targetPosition) > normalSpeed * 0.25f)
+		{
+			vine = null;
+			grabCooldown = 0.45f;
+			Velocity = Vector2.Zero;
+		}
 
 		return true;
 	}
@@ -114,11 +156,13 @@ public partial class Player : CharacterBody2D
 	{
 		normalSpeed = speed;
 		normalJumpHeight = jumpHeight;
-		FloorSnapLength = 6f;
+		// 菌盖边缘约 46～48 度，也算作可以站立的地面。
+		FloorMaxAngle = Mathf.DegToRad(55f);
+		FloorSnapLength = 24f;
 		FloorConstantSpeed = true;
 
 		anim = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
-		anim = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
+	animNormalScale = anim.Scale;
 
 		// 给当前玩家一份独立材质。
 		anim.Material = (ShaderMaterial)anim.Material.Duplicate();
@@ -222,9 +266,15 @@ public partial class Player : CharacterBody2D
 		// 头顶仅擦到平台边角时，小幅挪开，让起跳顺利通过。
 		if (velocity.Y < 0f)
 			CorrectCeilingCorner(velocity.Y * dt, direction);
+bool wasOnFloor = IsOnFloor();
 
-		Velocity = velocity;
-		MoveAndSlide();
+Velocity = velocity;
+MoveAndSlide();
+
+if (!wasOnFloor && IsOnFloor())
+{
+    PlayLandingSquash();
+}
 
 		if (IsOnCeiling())
 		{
@@ -287,7 +337,41 @@ public partial class Player : CharacterBody2D
 
 		PlayAnimation("jump", true);
 	}
+private void PlayLandingSquash()
+{
+    // 防止短时间连续触发导致 Tween 互相打架
+    if (landingTween != null && landingTween.IsValid())
+        landingTween.Kill();
 
+    anim.Scale = animNormalScale;
+
+    Vector2 squashScale = new Vector2(
+        animNormalScale.X * (1f + landingSquash * 0.6f),
+        animNormalScale.Y * (1f - landingSquash)
+    );
+
+    landingTween = CreateTween();
+
+    // 落地：快速压扁
+    landingTween.TweenProperty(
+        anim,
+        "scale",
+        squashScale,
+        landingSquashTime
+    )
+    .SetTrans(Tween.TransitionType.Quad)
+    .SetEase(Tween.EaseType.Out);
+
+    // 回弹：恢复原大小
+    landingTween.TweenProperty(
+        anim,
+        "scale",
+        animNormalScale,
+        landingRecoverTime
+    )
+    .SetTrans(Tween.TransitionType.Back)
+    .SetEase(Tween.EaseType.Out);
+}
 	private void CorrectCeilingCorner(float upwardDistance, float direction)
 	{
 		var collision = new KinematicCollision2D();

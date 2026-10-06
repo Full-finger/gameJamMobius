@@ -1,0 +1,771 @@
+{
+  "source": "C:\\Users\\22839\\Downloads\\春.psd",
+  "source_sha256": "e1ecc823afafa5b54e57fd38f81669abebe48724190845c5e18c11b053bc26d8",
+  "canvas_size": [
+    16381,
+    3362
+  ],
+  "opacity_baked": true,
+  "assets": [
+    {
+      "file": "原画补充/白底.png",
+      "role": "solid_background",
+      "layer_index": 0,
+      "original_layer": "背景",
+      "original_layer_opacity": 255,
+      "size": [
+        1,
+        1
+      ],
+      "source_rect": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "top_left": [
+        0,
+        0
+      ],
+      "sprite_position_centered": [
+        0.5,
+        0.5
+      ],
+      "z_index": 0,
+      "sha256": "d5a51b6aed15684ec8c123e30fe5703155359d6543b6d7b47cb5766ef44939de",
+      "display_size": [
+        16381,
+        3362
+      ]
+    },
+    {
+      "file": "背景/森林背景_01.png",
+      "role": "layer",
+      "layer_index": 1,
+      "original_layer": "background",
+      "original_layer_opacity": 255,
+      "size": [
+        4096,
+        3362
+      ],
+      "source_rect": [
+        0,
+        0,
+        4096,
+        3362
+      ],
+      "top_left": [
+        0,
+        0
+      ],
+      "sprite_position_centered": [
+        2048.0,
+        1681.0
+      ],
+      "z_index": 1,
+      "sha256": "00433d0899c03e355d8932f9df5d6fa127d364cd5adc64d7503b863cd57afa7e"
+    },
+    {
+      "file": "背景/森林背景_02.png",
+      "role": "layer",
+      "layer_index": 1,
+      "original_layer": "background",
+      "original_layer_opacity": 255,
+      "size": [
+        4096,
+        3362
+      ],
+      "source_rect": [
+        4096,
+        0,
+        8192,
+        3362
+      ],
+      "top_left": [
+        4096,
+        0
+      ],
+      "sprite_position_centered": [
+        6144.0,
+        1681.0
+      ],
+      "z_index": 1,
+      "sha256": "861a0446a7c00cb4483210d7dac6e0a92bde50cd5081f28e03a2341f37d21391"
+    },
+    {
+      "file": "背景/森林背景_03.png",
+      "role": "layer",
+      "layer_index": 1,
+      "original_layer": "background",
+      "original_layer_opacity": 255,
+      "size": [
+        4096,
+        3362
+      ],
+      "source_rect": [
+        8192,
+        0,
+        12288,
+        3362
+      ],
+      "top_left": [
+        8192,
+        0
+      ],
+      "sprite_position_centered": [
+        10240.0,
+        1681.0
+      ],
+      "z_index": 1,
+      "sha256": "ce1f2e28d56959e4e7299469e3f8fdc880baa55a358ed3b1dc40c87a13630e2b"
+    },
+    {
+      "file": "背景/森林背景_04.png",
+      "role": "layer",
+      "layer_index": 1,
+      "original_layer": "background",
+      "original_layer_opacity": 255,
+      "size": [
+        4093,
+        3362
+      ],
+      "source_rect": [
+        12288,
+        0,
+        16381,
+        3362
+      ],
+      "top_left": [
+        12288,
+        0
+      ],
+      "sprite_position_centered": [
+        14334.5,
+        1681.0
+      ],
+      "z_index": 1,
+      "sha256": "89f41c6d95492d81e0df1621906111858d4a6a69ba22756492d1b76e8ec5211a"
+    },
+    {
+      "file": "地面/地面_01.png",
+      "role": "layer",
+      "layer_index": 2,
+      "original_layer": "flat",
+      "original_layer_opacity": 255,
+      "size": [
+        4096,
+        1980
+      ],
+      "source_rect": [
+        0,
+        1382,
+        4096,
+        3362
+      ],
+      "top_left": [
+        0,
+        1382
+      ],
+      "sprite_position_centered": [
+        2048.0,
+        2372.0
+      ],
+      "z_index": 2,
+      "sha256": "b214b4da6860081a84d2ee2e92fb69fad5554f164e056a75c49b2af17093bf26"
+    },
+    {
+      "file": "地面/地面_02.png",
+      "role": "layer",
+      "layer_index": 2,
+      "original_layer": "flat",
+      "original_layer_opacity": 255,
+      "size": [
+        4096,
+        664
+      ],
+      "source_rect": [
+        4096,
+        2698,
+        8192,
+        3362
+      ],
+      "top_left": [
+        4096,
+        2698
+      ],
+      "sprite_position_centered": [
+        6144.0,
+        3030.0
+      ],
+      "z_index": 2,
+      "sha256": "17aaf08af7c1f52a98e56cbe6d5a941eb0b88b3710c57e2de431bbacb5dae175"
+    },
+    {
+      "file": "地面/地面_03.png",
+      "role": "layer",
+      "layer_index": 2,
+      "original_layer": "flat",
+      "original_layer_opacity": 255,
+      "size": [
+        4096,
+        401
+      ],
+      "source_rect": [
+        8192,
+        2961,
+        12288,
+        3362
+      ],
+      "top_left": [
+        8192,
+        2961
+      ],
+      "sprite_position_centered": [
+        10240.0,
+        3161.5
+      ],
+      "z_index": 2,
+      "sha256": "99d13ef486882d5faa653ed343661a6ab97d34ba06a20de373f6655064354b25"
+    },
+    {
+      "file": "地面/地面_04.png",
+      "role": "layer",
+      "layer_index": 2,
+      "original_layer": "flat",
+      "original_layer_opacity": 255,
+      "size": [
+        4093,
+        749
+      ],
+      "source_rect": [
+        12288,
+        2613,
+        16381,
+        3362
+      ],
+      "top_left": [
+        12288,
+        2613
+      ],
+      "sprite_position_centered": [
+        14334.5,
+        2987.5
+      ],
+      "z_index": 2,
+      "sha256": "40e2d926ca31ae1fd1349485b164243b99f4d19260564cd9f4c82d606bc92048"
+    },
+    {
+      "file": "蘑菇/完整/蘑菇01_左.png",
+      "role": "layer",
+      "layer_index": 3,
+      "original_layer": "图层 8",
+      "original_layer_opacity": 255,
+      "size": [
+        648,
+        785
+      ],
+      "source_rect": [
+        1840,
+        1931,
+        2488,
+        2716
+      ],
+      "top_left": [
+        1840,
+        1931
+      ],
+      "sprite_position_centered": [
+        2164.0,
+        2323.5
+      ],
+      "z_index": 3,
+      "sha256": "1ba439c350d415197230cb3338bd0bbae0db28becdf80756cfbea65ad94d5319"
+    },
+    {
+      "file": "蘑菇/完整/蘑菇01_右.png",
+      "role": "layer",
+      "layer_index": 4,
+      "original_layer": "从选区",
+      "original_layer_opacity": 255,
+      "size": [
+        648,
+        785
+      ],
+      "source_rect": [
+        11167,
+        2319,
+        11815,
+        3104
+      ],
+      "top_left": [
+        11167,
+        2319
+      ],
+      "sprite_position_centered": [
+        11491.0,
+        2711.5
+      ],
+      "z_index": 4,
+      "sha256": "2fd77219af4a8e26fbc2299a5771084cbf75de054cfa6d3d694a64baf84e172a"
+    },
+    {
+      "file": "蘑菇/部件/蘑菇02_菌盖.png",
+      "role": "layer",
+      "layer_index": 5,
+      "original_layer": "mushroom3。2",
+      "original_layer_opacity": 255,
+      "size": [
+        700,
+        348
+      ],
+      "source_rect": [
+        1135,
+        1803,
+        1835,
+        2151
+      ],
+      "top_left": [
+        1135,
+        1803
+      ],
+      "sprite_position_centered": [
+        1485.0,
+        1977.0
+      ],
+      "z_index": 5,
+      "sha256": "a46f2e96b01e24ca1064210b6953819808f63020eab760ad4371c386611e4214"
+    },
+    {
+      "file": "蘑菇/部件/蘑菇02_菌柄.png",
+      "role": "layer",
+      "layer_index": 6,
+      "original_layer": "mushroom3。1",
+      "original_layer_opacity": 255,
+      "size": [
+        58,
+        528
+      ],
+      "source_rect": [
+        1414,
+        2138,
+        1472,
+        2666
+      ],
+      "top_left": [
+        1414,
+        2138
+      ],
+      "sprite_position_centered": [
+        1443.0,
+        2402.0
+      ],
+      "z_index": 6,
+      "sha256": "fdb149d16bb256c34713f7bb6a3fa7406a2188b9669999c115a0b4edd07cd0d1"
+    },
+    {
+      "file": "蘑菇/完整/蘑菇03_左.png",
+      "role": "layer",
+      "layer_index": 7,
+      "original_layer": "从选区",
+      "original_layer_opacity": 255,
+      "size": [
+        1045,
+        1318
+      ],
+      "source_rect": [
+        2806,
+        1464,
+        3851,
+        2782
+      ],
+      "top_left": [
+        2806,
+        1464
+      ],
+      "sprite_position_centered": [
+        3328.5,
+        2123.0
+      ],
+      "z_index": 7,
+      "sha256": "f252dc668848bfef9d9a84867a9a1a9f1cee24de29d506f3fbea08c3c1deb94c"
+    },
+    {
+      "file": "蘑菇/部件/蘑菇03_菌盖.png",
+      "role": "layer",
+      "layer_index": 8,
+      "original_layer": "muahroom2。2",
+      "original_layer_opacity": 255,
+      "size": [
+        1045,
+        247
+      ],
+      "source_rect": [
+        9488,
+        1832,
+        10533,
+        2079
+      ],
+      "top_left": [
+        9488,
+        1832
+      ],
+      "sprite_position_centered": [
+        10010.5,
+        1955.5
+      ],
+      "z_index": 8,
+      "sha256": "ab27308d0a74e0fbfdbbdbbe0f419896c118776536f8026d087e4ed27b550a06"
+    },
+    {
+      "file": "蘑菇/部件/蘑菇03_菌柄.png",
+      "role": "layer",
+      "layer_index": 9,
+      "original_layer": "mushroom2。1",
+      "original_layer_opacity": 255,
+      "size": [
+        185,
+        1149
+      ],
+      "source_rect": [
+        9929,
+        2035,
+        10114,
+        3184
+      ],
+      "top_left": [
+        9929,
+        2035
+      ],
+      "sprite_position_centered": [
+        10021.5,
+        2609.5
+      ],
+      "z_index": 9,
+      "sha256": "5b9c2005d2d3d9a21d5cc054b05ab4b419f897edb8c1cfb2ac2f22eb0eacca59"
+    },
+    {
+      "file": "蘑菇/部件/蘑菇04_菌盖.png",
+      "role": "layer",
+      "layer_index": 10,
+      "original_layer": "mushroom1。2",
+      "original_layer_opacity": 255,
+      "size": [
+        1135,
+        393
+      ],
+      "source_rect": [
+        4829,
+        2037,
+        5964,
+        2430
+      ],
+      "top_left": [
+        4829,
+        2037
+      ],
+      "sprite_position_centered": [
+        5396.5,
+        2233.5
+      ],
+      "z_index": 10,
+      "sha256": "0d21ff14104cc7ea0072dd973defd04270cb11efdff24eb7946bfa42950daa0c"
+    },
+    {
+      "file": "原画补充/蘑菇04图层_分离小片.png",
+      "role": "layer",
+      "layer_index": 10,
+      "original_layer": "mushroom1。2",
+      "original_layer_opacity": 255,
+      "size": [
+        119,
+        54
+      ],
+      "source_rect": [
+        1851,
+        2107,
+        1970,
+        2161
+      ],
+      "top_left": [
+        1851,
+        2107
+      ],
+      "sprite_position_centered": [
+        1910.5,
+        2134.0
+      ],
+      "z_index": 10,
+      "sha256": "c2131b15328bc2aafaf4e9da0e2106bb67bd07b66beb9d694e1a65803d09dcd6"
+    },
+    {
+      "file": "蘑菇/部件/蘑菇04_菌柄.png",
+      "role": "layer",
+      "layer_index": 11,
+      "original_layer": "mushroom1。1",
+      "original_layer_opacity": 255,
+      "size": [
+        258,
+        522
+      ],
+      "source_rect": [
+        5245,
+        2386,
+        5503,
+        2908
+      ],
+      "top_left": [
+        5245,
+        2386
+      ],
+      "sprite_position_centered": [
+        5374.0,
+        2647.0
+      ],
+      "z_index": 11,
+      "sha256": "091df91ddbdc003e79a7ca811789f36076c666fcc967a445f3730508156e718c"
+    },
+    {
+      "file": "前景/前景剪影_01.png",
+      "role": "layer",
+      "layer_index": 12,
+      "original_layer": "foreground",
+      "original_layer_opacity": 255,
+      "size": [
+        3526,
+        1793
+      ],
+      "source_rect": [
+        0,
+        1569,
+        3526,
+        3362
+      ],
+      "top_left": [
+        0,
+        1569
+      ],
+      "sprite_position_centered": [
+        1763.0,
+        2465.5
+      ],
+      "z_index": 12,
+      "sha256": "f4fd2dca549bb2ec965eed46dd2689349fec860a65f16dbac0649698290c9129"
+    },
+    {
+      "file": "前景/前景剪影_02.png",
+      "role": "layer",
+      "layer_index": 12,
+      "original_layer": "foreground",
+      "original_layer_opacity": 255,
+      "size": [
+        2513,
+        1218
+      ],
+      "source_rect": [
+        5679,
+        2144,
+        8192,
+        3362
+      ],
+      "top_left": [
+        5679,
+        2144
+      ],
+      "sprite_position_centered": [
+        6935.5,
+        2753.0
+      ],
+      "z_index": 12,
+      "sha256": "92642f4594c6a0b5cb942bf675fbc70ce3f71b82887f8c81710d843d53f52cef"
+    },
+    {
+      "file": "前景/前景剪影_03.png",
+      "role": "layer",
+      "layer_index": 12,
+      "original_layer": "foreground",
+      "original_layer_opacity": 255,
+      "size": [
+        4096,
+        1566
+      ],
+      "source_rect": [
+        8192,
+        1796,
+        12288,
+        3362
+      ],
+      "top_left": [
+        8192,
+        1796
+      ],
+      "sprite_position_centered": [
+        10240.0,
+        2579.0
+      ],
+      "z_index": 12,
+      "sha256": "1a9b9e14371312ccb3e513ce10ec37a31dcfbf6dd371131c1325d6f19b4b2057"
+    },
+    {
+      "file": "前景/前景剪影_04.png",
+      "role": "layer",
+      "layer_index": 12,
+      "original_layer": "foreground",
+      "original_layer_opacity": 255,
+      "size": [
+        1512,
+        1594
+      ],
+      "source_rect": [
+        12288,
+        1768,
+        13800,
+        3362
+      ],
+      "top_left": [
+        12288,
+        1768
+      ],
+      "sprite_position_centered": [
+        13044.0,
+        2565.0
+      ],
+      "z_index": 12,
+      "sha256": "ada8c4ce2931a9aed20b7ab41a4ce29aab116f6ec532bab349e2392969a098e7"
+    },
+    {
+      "file": "云/云01.png",
+      "role": "layer",
+      "layer_index": 13,
+      "original_layer": "cloud",
+      "original_layer_opacity": 141,
+      "size": [
+        1482,
+        779
+      ],
+      "source_rect": [
+        7594,
+        1333,
+        9076,
+        2112
+      ],
+      "top_left": [
+        7594,
+        1333
+      ],
+      "sprite_position_centered": [
+        8335.0,
+        1722.5
+      ],
+      "z_index": 13,
+      "sha256": "f523f1a86502dd78ecd0f475162b046209f79b9a03b55a12ae3b017f3f6962a3"
+    },
+    {
+      "file": "云/云02.png",
+      "role": "layer",
+      "layer_index": 14,
+      "original_layer": "cloud",
+      "original_layer_opacity": 151,
+      "size": [
+        1001,
+        671
+      ],
+      "source_rect": [
+        12235,
+        1892,
+        13236,
+        2563
+      ],
+      "top_left": [
+        12235,
+        1892
+      ],
+      "sprite_position_centered": [
+        12735.5,
+        2227.5
+      ],
+      "z_index": 14,
+      "sha256": "10bdc46f3b0c468355ec800dac3bfc34ab2af8cb21ef0c713409ffc8658468ee"
+    },
+    {
+      "file": "蘑菇/完整/蘑菇02.png",
+      "role": "combined_alternative",
+      "layer_index": 6,
+      "original_layer": "蘑菇02",
+      "original_layer_opacity": 255,
+      "size": [
+        700,
+        863
+      ],
+      "source_rect": [
+        1135,
+        1803,
+        1835,
+        2666
+      ],
+      "top_left": [
+        1135,
+        1803
+      ],
+      "sprite_position_centered": [
+        1485.0,
+        2234.5
+      ],
+      "z_index": 6,
+      "sha256": "b31fda94c42caf75ded9db8be13b4b60a2c5c44bcc06e39bb5977aac3ceed5a3"
+    },
+    {
+      "file": "蘑菇/完整/蘑菇03_右.png",
+      "role": "combined_alternative",
+      "layer_index": 9,
+      "original_layer": "蘑菇03_右",
+      "original_layer_opacity": 255,
+      "size": [
+        1045,
+        1352
+      ],
+      "source_rect": [
+        9488,
+        1832,
+        10533,
+        3184
+      ],
+      "top_left": [
+        9488,
+        1832
+      ],
+      "sprite_position_centered": [
+        10010.5,
+        2508.0
+      ],
+      "z_index": 9,
+      "sha256": "945577341a25d3101622f96c8e125f5a34c3bcbc51d6c04f5f26077d0fa7ac93"
+    },
+    {
+      "file": "蘑菇/完整/蘑菇04.png",
+      "role": "combined_alternative",
+      "layer_index": 11,
+      "original_layer": "蘑菇04",
+      "original_layer_opacity": 255,
+      "size": [
+        1135,
+        871
+      ],
+      "source_rect": [
+        4829,
+        2037,
+        5964,
+        2908
+      ],
+      "top_left": [
+        4829,
+        2037
+      ],
+      "sprite_position_centered": [
+        5396.5,
+        2472.5
+      ],
+      "z_index": 11,
+      "sha256": "b55d189ec244b5194da6c098c38860e5afd9f49b1a1c5a6f82bd8e7fc703c8fc"
+    }
+  ]
+}

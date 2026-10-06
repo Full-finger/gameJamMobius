@@ -1,22 +1,24 @@
 [gd_scene format=3 uid="uid://cyfmxehji1crp"]
 
 [ext_resource type="Script" uid="uid://fwqushon7mbe" path="res://scripts/Light.cs" id="1_83xrv"]
+[ext_resource type="Texture2D" uid="uid://b0gbn2f6vxm4f" path="res://assets/sprite/光源/光源.png" id="2_b1e3x"]
 
 [sub_resource type="Gradient" id="Gradient_2jnl3"]
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_2jnl3"]
 gradient = SubResource("Gradient_2jnl3")
-width = 512
-height = 512
+width = 740
+height = 714
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(1, 0.5)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0gvmv"]
-radius = 138.13037
+radius = 370.03378
 
 [node name="PointLight2D" type="PointLight2D" unique_id=1508022713]
+position = Vector2(0, 53)
 texture = SubResource("GradientTexture2D_2jnl3")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=928438648]
@@ -24,7 +26,13 @@ collision_mask = 64
 script = ExtResource("1_83xrv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=183958999]
+position = Vector2(19, -80)
 shape = SubResource("CircleShape2D_0gvmv")
 debug_color = Color(0, 0.6, 0.69803923, 0)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=498940489]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2091534562]
+modulate = Color(1, 1, 1, 0.16470589)
+position = Vector2(35, -15)
+texture = ExtResource("2_b1e3x")

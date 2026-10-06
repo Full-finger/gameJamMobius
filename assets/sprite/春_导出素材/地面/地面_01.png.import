@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://x3phok1a737w"
-path="res://.godot/imported/testingWine.png-59db050e6ca640344ca450d33def2d0d.ctex"
+uid="uid://b28xv8hj2p81c"
+path="res://.godot/imported/地面_01.png-b2f9759d47175a53f819507fd9993a4d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprite/JustTesting/testingWine.png"
-dest_files=["res://.godot/imported/testingWine.png-59db050e6ca640344ca450d33def2d0d.ctex"]
+source_file="res://assets/sprite/春_导出素材/地面/地面_01.png"
+dest_files=["res://.godot/imported/地面_01.png-b2f9759d47175a53f819507fd9993a4d.ctex"]
 
 [params]
 

@@ -625,8 +625,8 @@ animations = [{
 "speed": 24.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ohrg4"]
-size = Vector2(88.5, 171)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7agi7"]
+size = Vector2(73, 170)
 
 [sub_resource type="Animation" id="Animation_gusmc"]
 resource_name = "Dissolve"
@@ -701,6 +701,10 @@ color_ramp = SubResource("GradientTexture1D_i45ji")
 position = Vector2(1, 0)
 collision_layer = 64
 script = ExtResource("1_v6fml")
+jumpHeight = 200.0
+vineSwingMultiplier = 12.83
+vineGrabImpulse = 5.98
+vineJumpMultiplier = 1.545
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1710177432]
 texture_filter = 2
@@ -709,13 +713,18 @@ scale = Vector2(0.626, 0.626)
 sprite_frames = SubResource("SpriteFrames_0gvmv")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.24889329
+frame_progress = 0.5863417
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1107252805]
-position = Vector2(-5.25, 39.5)
-shape = SubResource("RectangleShape2D_ohrg4")
+position = Vector2(-2.5, 41)
+shape = SubResource("RectangleShape2D_7agi7")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1939810449]
+zoom = Vector2(0.5, 0.5)
+limit_left = -2066
+limit_top = -1689
+limit_right = 18381
+limit_bottom = 1677
 position_smoothing_enabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=648125655]

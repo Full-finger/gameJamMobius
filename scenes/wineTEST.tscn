@@ -1,94 +1,214 @@
 [gd_scene format=3 uid="uid://cohub3088q7to"]
 
-[ext_resource type="Texture2D" uid="uid://x3phok1a737w" path="res://assets/sprite/JustTesting/testingWine.png" id="1_y20ny"]
-[ext_resource type="Script" uid="uid://chqvqsxukwhni" path="res://scenes/GrabArea.cs" id="2_x4ajo"]
+[ext_resource type="Texture2D" path="res://assets/sprite/春_导出素材/vine/藤曼1_01.png" id="1_ivlol"]
+[ext_resource type="Script" path="res://scenes/GrabArea.cs" id="2_x4ajo"]
+[ext_resource type="Texture2D" path="res://assets/sprite/春_导出素材/vine/藤曼1_02.png" id="3_iyvj2"]
+[ext_resource type="Texture2D" path="res://assets/sprite/春_导出素材/vine/藤曼1_03.png" id="4_m1sso"]
+[ext_resource type="Texture2D" path="res://assets/sprite/春_导出素材/vine/藤曼1_04.png" id="5_p6glv"]
+[ext_resource type="Texture2D" path="res://assets/sprite/春_导出素材/vine/藤曼1_05.png" id="6_q1qpp"]
+[ext_resource type="Texture2D" path="res://assets/sprite/春_导出素材/vine/藤曼1_06.png" id="7_q1w18"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0gvmv"]
-size = Vector2(19, 280.5)
+[sub_resource type="RectangleShape2D" id="VineBody"]
+size = Vector2(24, 260.3601)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ohrg4"]
-size = Vector2(20, 231)
+[sub_resource type="RectangleShape2D" id="VineGrab"]
+size = Vector2(80, 260.3601)
 
-[node name="Wine" type="Node2D" unique_id=1148817497]
+[node name="Wine" type="Node2D"]
 
-[node name="Anker" type="RigidBody2D" parent="." unique_id=1850402919]
-freeze = true
+[node name="Anker" type="StaticBody2D" parent="."]
+position = Vector2(3.57, -140.89005)
+collision_layer = 0
+collision_mask = 0
 
-[node name="Rope1" type="RigidBody2D" parent="." unique_id=888764997]
+[node name="Rope1" type="RigidBody2D" parent="."]
+position = Vector2(3.57, -10.709999999999999)
 collision_layer = 128
+collision_mask = 0
+mass = 2.0
+linear_damp = 1.5
+angular_damp = 3.0
 
-[node name="Sprite2D" type="Sprite2D" parent="Rope1" unique_id=1446739190]
-scale = Vector2(0.205, 0.205)
-texture = ExtResource("1_y20ny")
+[node name="Sprite2D" type="Sprite2D" parent="Rope1"]
+scale = Vector2(1.2762749999999998, 1.2762749999999998)
+texture = ExtResource("1_ivlol")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Rope1" unique_id=50337899]
-position = Vector2(0.5, -0.75)
-shape = SubResource("RectangleShape2D_0gvmv")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rope1"]
+shape = SubResource("VineBody")
 
-[node name="PinJoint2D" type="PinJoint2D" parent="Rope1" unique_id=739949439]
-position = Vector2(0, -141.00002)
-scale = Vector2(4.945, 4.945)
+[node name="PinJoint2D" type="PinJoint2D" parent="Rope1"]
+position = Vector2(0, -130.18005)
 node_a = NodePath("..")
 node_b = NodePath("../../Anker")
+angular_limit_enabled = true
+angular_limit_lower = -1.0471975512
+angular_limit_upper = 1.0471975512
 
-[node name="GrabArea" type="Area2D" parent="Rope1" unique_id=154042609]
+[node name="GrabArea" type="Area2D" parent="Rope1"]
+collision_layer = 0
 collision_mask = 64
+monitorable = false
 script = ExtResource("2_x4ajo")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Rope1/GrabArea" unique_id=1102081342]
-position = Vector2(0, -24)
-shape = SubResource("RectangleShape2D_ohrg4")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rope1/GrabArea"]
+shape = SubResource("VineGrab")
 
-[node name="Rope2" type="RigidBody2D" parent="." unique_id=214977650]
-position = Vector2(0, 279)
+[node name="Rope2" type="RigidBody2D" parent="."]
+position = Vector2(3.57, 249.65009999999998)
 collision_layer = 128
+collision_mask = 0
+mass = 2.0
+linear_damp = 1.5
+angular_damp = 3.0
 
-[node name="Sprite2D" type="Sprite2D" parent="Rope2" unique_id=92566107]
-scale = Vector2(0.205, 0.205)
-texture = ExtResource("1_y20ny")
+[node name="Sprite2D" type="Sprite2D" parent="Rope2"]
+scale = Vector2(1.2762749999999998, 1.2762749999999998)
+texture = ExtResource("3_iyvj2")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Rope2" unique_id=515236333]
-position = Vector2(0.5, -0.75)
-shape = SubResource("RectangleShape2D_0gvmv")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rope2"]
+shape = SubResource("VineBody")
 
-[node name="PinJoint2D" type="PinJoint2D" parent="Rope2" unique_id=41547390]
-position = Vector2(0, -141.00002)
-scale = Vector2(4.945, 4.945)
+[node name="PinJoint2D" type="PinJoint2D" parent="Rope2"]
+position = Vector2(0, -130.18005)
 node_a = NodePath("..")
 node_b = NodePath("../../Rope1")
+angular_limit_enabled = true
+angular_limit_lower = -0.6981317008
+angular_limit_upper = 0.6981317008
 
-[node name="GrabArea2" type="Area2D" parent="Rope2" unique_id=1978995164]
-position = Vector2(0, 3)
+[node name="GrabArea" type="Area2D" parent="Rope2"]
+collision_layer = 0
 collision_mask = 64
+monitorable = false
 script = ExtResource("2_x4ajo")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Rope2/GrabArea2" unique_id=1618295822]
-position = Vector2(0, -24.5)
-shape = SubResource("RectangleShape2D_ohrg4")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rope2/GrabArea"]
+shape = SubResource("VineGrab")
 
-[node name="Rope3" type="RigidBody2D" parent="." unique_id=1689724729]
-position = Vector2(0, 559)
+[node name="Rope3" type="RigidBody2D" parent="."]
+position = Vector2(3.57, 510.0102)
 collision_layer = 128
+collision_mask = 0
+mass = 2.0
+linear_damp = 1.5
+angular_damp = 3.0
 
-[node name="Sprite2D" type="Sprite2D" parent="Rope3" unique_id=318424468]
-scale = Vector2(0.205, 0.205)
-texture = ExtResource("1_y20ny")
+[node name="Sprite2D" type="Sprite2D" parent="Rope3"]
+scale = Vector2(1.2762749999999998, 1.2762749999999998)
+texture = ExtResource("4_m1sso")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Rope3" unique_id=1233438852]
-position = Vector2(0.5, -0.75)
-shape = SubResource("RectangleShape2D_0gvmv")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rope3"]
+shape = SubResource("VineBody")
 
-[node name="PinJoint2D" type="PinJoint2D" parent="Rope3" unique_id=1666551105]
-position = Vector2(0, -141.00002)
-scale = Vector2(4.945, 4.945)
+[node name="PinJoint2D" type="PinJoint2D" parent="Rope3"]
+position = Vector2(0, -130.18005)
 node_a = NodePath("..")
 node_b = NodePath("../../Rope2")
+angular_limit_enabled = true
+angular_limit_lower = -0.6981317008
+angular_limit_upper = 0.6981317008
 
-[node name="GrabArea3" type="Area2D" parent="Rope3" unique_id=512082200]
-position = Vector2(1, 37)
+[node name="GrabArea" type="Area2D" parent="Rope3"]
+collision_layer = 0
 collision_mask = 64
+monitorable = false
 script = ExtResource("2_x4ajo")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Rope3/GrabArea3" unique_id=315858355]
-position = Vector2(0, -24.5)
-shape = SubResource("RectangleShape2D_ohrg4")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rope3/GrabArea"]
+shape = SubResource("VineGrab")
+
+[node name="Rope4" type="RigidBody2D" parent="."]
+position = Vector2(3.57, 770.3702999999999)
+collision_layer = 128
+collision_mask = 0
+mass = 2.0
+linear_damp = 1.5
+angular_damp = 3.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Rope4"]
+scale = Vector2(1.2762749999999998, 1.2762749999999998)
+texture = ExtResource("5_p6glv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rope4"]
+shape = SubResource("VineBody")
+
+[node name="PinJoint2D" type="PinJoint2D" parent="Rope4"]
+position = Vector2(0, -130.18005)
+node_a = NodePath("..")
+node_b = NodePath("../../Rope3")
+angular_limit_enabled = true
+angular_limit_lower = -0.6981317008
+angular_limit_upper = 0.6981317008
+
+[node name="GrabArea" type="Area2D" parent="Rope4"]
+collision_layer = 0
+collision_mask = 64
+monitorable = false
+script = ExtResource("2_x4ajo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rope4/GrabArea"]
+shape = SubResource("VineGrab")
+
+[node name="Rope5" type="RigidBody2D" parent="."]
+position = Vector2(3.57, 1030.7304)
+collision_layer = 128
+collision_mask = 0
+mass = 2.0
+linear_damp = 1.5
+angular_damp = 3.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Rope5"]
+scale = Vector2(1.2762749999999998, 1.2762749999999998)
+texture = ExtResource("6_q1qpp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rope5"]
+shape = SubResource("VineBody")
+
+[node name="PinJoint2D" type="PinJoint2D" parent="Rope5"]
+position = Vector2(0, -130.18005)
+node_a = NodePath("..")
+node_b = NodePath("../../Rope4")
+angular_limit_enabled = true
+angular_limit_lower = -0.6981317008
+angular_limit_upper = 0.6981317008
+
+[node name="GrabArea" type="Area2D" parent="Rope5"]
+collision_layer = 0
+collision_mask = 64
+monitorable = false
+script = ExtResource("2_x4ajo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rope5/GrabArea"]
+shape = SubResource("VineGrab")
+
+[node name="Rope6" type="RigidBody2D" parent="."]
+position = Vector2(3.57, 1291.0904999999998)
+collision_layer = 128
+collision_mask = 0
+mass = 2.0
+linear_damp = 1.5
+angular_damp = 3.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Rope6"]
+scale = Vector2(1.2762749999999998, 1.2762749999999998)
+texture = ExtResource("7_q1w18")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rope6"]
+shape = SubResource("VineBody")
+
+[node name="PinJoint2D" type="PinJoint2D" parent="Rope6"]
+position = Vector2(0, -130.18005)
+node_a = NodePath("..")
+node_b = NodePath("../../Rope5")
+angular_limit_enabled = true
+angular_limit_lower = -0.6981317008
+angular_limit_upper = 0.6981317008
+
+[node name="GrabArea" type="Area2D" parent="Rope6"]
+collision_layer = 0
+collision_mask = 64
+monitorable = false
+script = ExtResource("2_x4ajo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rope6/GrabArea"]
+shape = SubResource("VineGrab")
