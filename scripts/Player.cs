@@ -28,6 +28,9 @@ public partial class Player : CharacterBody2D
 	[ExportGroup("藤蔓手感")]
 	[Export] public float vineSwingMultiplier = 5f; // A/D 推力、摆荡速度上限和跟随速度倍率。
 	[Export] public float vineGrabImpulse = 1.25f; // 抓住时带入水平冲量；原先 0.25 的五倍。
+
+	[ExportGroup("边界")]
+	[Export] public float deathY = float.MaxValue; // 坠到该 Y 以下触发死亡；默认禁用，关卡里按需设置。
 	[Export] public float vineJumpMultiplier = 5f; // 跳离藤蔓的速度倍率。
 
 [ExportGroup("落地回弹")]
@@ -264,6 +267,13 @@ footstepAudio = GetNode<AudioStreamPlayer2D>("FootstepAudio");
 			velocity.Y = Mathf.Min(velocity.Y + gravity * gravityScale * dt, maxFallSpeed);
 		}
 
+		// 坠出地图底部直接死亡重开。
+		if (GlobalPosition.Y > deathY)
+		{
+			Die();
+			return;
+		}
+
 		// 头顶仅擦到平台边角时，小幅挪开，让起跳顺利通过。
 		if (velocity.Y < 0f)
 			CorrectCeilingCorner(velocity.Y * dt, direction);
@@ -301,20 +311,20 @@ if (!wasOnFloor && IsOnFloor())
 		else
 			nextAnimation = "idle";
 bool isWalking =
-    IsOnFloor() &&
-    !bufferedJump &&
-    Mathf.Abs(Velocity.X) > 1f;
+	IsOnFloor() &&
+	!bufferedJump &&
+	Mathf.Abs(Velocity.X) > 1f;
 
 if (isWalking)
 {
-    // 防止每个 PhysicsProcess 都从头播放
-    if (!footstepAudio.Playing)
-        footstepAudio.Play();
+	// 防止每个 PhysicsProcess 都从头播放
+	if (!footstepAudio.Playing)
+		footstepAudio.Play();
 }
 else
 {
-    if (footstepAudio.Playing)
-        footstepAudio.Stop();
+	if (footstepAudio.Playing)
+		footstepAudio.Stop();
 }
 		PlayAnimation(nextAnimation);
 	}
