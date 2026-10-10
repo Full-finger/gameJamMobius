@@ -20,7 +20,6 @@ config/icon="uid://7vuikm2c7aek"
 SettingsManager="*res://scripts/SettingsManager.gd"
 GameState="*res://scripts/GameState.gd"
 TransitionManager="*res://scripts/TransitionManager.gd"
-CompatTone="*res://scripts/CompatTone.gd"
 
 [display]
 
