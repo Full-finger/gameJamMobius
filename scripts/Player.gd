@@ -336,6 +336,12 @@ func _ready() -> void:
 
 	PlayAnimation("idle")
 
+	# Compatibility 渲染器（Web）没有 glow，2D 光照会把白色主角直接叠成纯白剪影。
+	# 光照机制靠 Area2D 检测（isInLight），与光照渲染无关，
+	# 因此 Web 下让主角精灵不受 2D 光照，保持原色清晰。
+	if RenderingServer.get_current_rendering_method() == "gl_compatibility":
+		anim.light_mask = 2
+
 
 func _unhandled_input(event: InputEvent) -> void:
 	if isDying or get_tree().paused or not event is InputEventKey:
