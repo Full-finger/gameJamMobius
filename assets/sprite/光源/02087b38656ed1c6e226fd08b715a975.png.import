@@ -11,7 +11,7 @@ source_file="res://assets/sprite/光源/02087b38656ed1c6e226fd08b715a975.png"
 
 [params]
 
-compress/mode=1
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.85
 compress/uastc_level=0
