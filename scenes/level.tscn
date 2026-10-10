@@ -34,6 +34,8 @@
 [ext_resource type="Script" uid="uid://nqdsdkvuvmq8" path="res://scripts/Collectible.cs" id="44_uhfbm"]
 [ext_resource type="Texture2D" uid="uid://dkemaiyk5e7yr" path="res://assets/sprite/items/79f0e3c0-6d0e-49c7-83b2-07922ad9327d.png" id="45_lqb7q"]
 [ext_resource type="AudioStream" uid="uid://c2xc24ox6kecm" path="res://assets/audios/bgm/bgm episode 01.mp3" id="46_lqb7q"]
+[ext_resource type="Texture2D" uid="uid://ciarqjtg626jg" path="res://assets/sprite/items/ba8a2152467c420b64fd1eac31311ec8.png" id="46_ok3ci"]
+[ext_resource type="Texture2D" uid="uid://duqgybxs18dbr" path="res://assets/sprite/particleTexture/c2fd40b9-c53d-4b69-b59a-75787c0dcca1.png" id="48_hv3ux"]
 [ext_resource type="Script" uid="uid://dypir2sutlvan" path="res://scripts/LevelBounds.cs" id="map_bounds_script"]
 [ext_resource type="Texture2D" uid="uid://cfjj32lp0fvx0" path="res://assets/sprite/春_导出素材/蘑菇/完整/蘑菇01_左.png" id="spring_tex_1"]
 [ext_resource type="Texture2D" uid="uid://djwuyfnee15gw" path="res://assets/sprite/春_导出素材/蘑菇/部件/蘑菇02_菌盖.png" id="spring_tex_2"]
@@ -176,10 +178,10 @@ tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 3.01, 5.86, 8.96, 12.02, 14.8, 17.916346, 20.816687),
+"times": PackedFloat32Array(0, 3.21, 6.0333333, 8.96, 12.02, 14.8, 17.916346, 22.933332),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(-1464, -497), Vector2(255, 60), Vector2(1539, -435), Vector2(3771, 177), Vector2(6615, -484), Vector2(9208, 378), Vector2(11116, 1075), Vector2(16393, 869)]
+"values": [Vector2(-1464, -497), Vector2(-332, -182), Vector2(1539, -435), Vector2(3771, 177), Vector2(6615, -484), Vector2(9208, 378), Vector2(11116, 1075), Vector2(16393, 869)]
 }
 
 [sub_resource type="Animation" id="Animation_ppgk2"]
@@ -229,6 +231,38 @@ normal = Vector2(-1, 0)
 [sub_resource type="CircleShape2D" id="CircleShape2D_ok3ci"]
 radius = 145.0
 
+[sub_resource type="Curve" id="Curve_tcyu4"]
+_data = [Vector2(0.003389828, 0.043715835), 0.0, 0.0, 0, 0, Vector2(0.3118644, 0.99453545), 0.0, 0.0, 0, 0, Vector2(0.6983051, 0.989071), 0.0, 0.0, 0, 0, Vector2(0.98983055, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_bhb1k"]
+curve = SubResource("Curve_tcyu4")
+
+[sub_resource type="Gradient" id="Gradient_hv3ux"]
+offsets = PackedFloat32Array(0, 0.53696495, 1)
+colors = PackedColorArray(1.6885673, 1.9239607, 0.8352656, 1, 12.858355, 14.601746, 6.5385604, 1, 0.8745098, 1, 0.41960785, 0.13333334)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_j4eoh"]
+gradient = SubResource("Gradient_hv3ux")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ok3ci"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(400, 400, 1)
+spread = 180.0
+initial_velocity_min = 1.0
+initial_velocity_max = 2.0
+orbit_velocity_min = -0.029999906
+orbit_velocity_max = 0.030000096
+gravity = Vector3(0, 0, 0)
+damping_min = 0.010000001
+damping_max = 0.020000001
+scale_min = 0.02
+scale_max = 0.04
+color = Color(0.9411765, 1, 0.47843137, 1)
+color_ramp = SubResource("GradientTexture1D_j4eoh")
+alpha_curve = SubResource("CurveTexture_bhb1k")
+
 [node name="Level" type="Node2D" unique_id=654422132]
 
 [node name="CharacterBody2D" parent="." unique_id=1710452791 instance=ExtResource("2_w7c3h")]
@@ -251,7 +285,6 @@ collision_mask = 64
 endUI = NodePath("../EndUI")
 
 [node name="PauseMenu" parent="." unique_id=1057490932 instance=ExtResource("5_ppgk2")]
-visible = false
 
 [node name="Wine" parent="." unique_id=1148817497 instance=ExtResource("6_2r41h")]
 position = Vector2(2548, -1560)
@@ -520,6 +553,8 @@ libraries/ = SubResource("AnimationLibrary_2r41h")
 autoplay = &"RESET"
 
 [node name="hud" type="CanvasLayer" parent="." unique_id=1760950058 node_paths=PackedStringArray("player", "lifeBar")]
+scale = Vector2(1.56, 1.56)
+transform = Transform2D(1.56, 0, 0, 1.56, 0, 0)
 script = ExtResource("29_w3o6u")
 player = NodePath("../CharacterBody2D")
 lifeBar = NodePath("Control/LifeBar")
@@ -539,10 +574,10 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -163.00012
-offset_top = 16.0
-offset_right = -123.00012
-offset_bottom = 56.0
+offset_left = -868.7179
+offset_top = 10.897434
+offset_right = -828.7179
+offset_bottom = 50.897434
 grow_horizontal = 0
 scale = Vector2(4.38, 4.38)
 max_value = 1.0
@@ -557,10 +592,10 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -184.0
-offset_top = 11.0
-offset_right = 1656.0
-offset_bottom = 1391.0
+offset_left = -889.2307
+offset_top = 6.410255
+offset_right = 950.7693
+offset_bottom = 1386.4103
 grow_horizontal = 0
 scale = Vector2(0.14, 0.14)
 texture = ExtResource("30_w3o6u")
@@ -652,7 +687,7 @@ text = "▼"
 [node name="TutorialTrigger1" type="Area2D" parent="." unique_id=934683876]
 collision_mask = 64
 script = ExtResource("36_q4oe8")
-messages = Array[String](["A/D移动，空格跳跃，ESC开启菜单以便重开和游戏设置。", "追上光！否则就会\"迟暮\"，右上角是你离开光后的\"余晖\",当其耗尽就会死亡！"])
+messages = Array[String](["A/D移动，空格跳跃，ESC开启菜单以便重开和游戏设置，R键快速重开", "追上光！否则就会\"迟暮\"，受到越来越强的减速和减跳跃，右上角是你离开光后的\"余晖\",当其耗尽就会死亡！", "一旦掉落或跟不上光几乎就是慢性死亡了~所以善用R键快速重开~"])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TutorialTrigger1" unique_id=990137661]
 position = Vector2(-1525, -545)
@@ -662,7 +697,7 @@ shape = SubResource("RectangleShape2D_2jdvr")
 position = Vector2(3388, 118)
 collision_mask = 64
 script = ExtResource("36_q4oe8")
-messages = Array[String](["看到前方的紫藤了吗？跳上去可以自动抓住，按住A/D向对应方向继续荡，最后按空格借力跳出！"])
+messages = Array[String](["看到前方的紫藤了吗？跳上去可以自动抓住，按空格借力跳出！"])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TutorialTrigger2" unique_id=610747883]
 position = Vector2(-1649, -570)
@@ -672,7 +707,7 @@ shape = SubResource("RectangleShape2D_2jdvr")
 position = Vector2(18336, 1374)
 collision_mask = 64
 script = ExtResource("36_q4oe8")
-messages = Array[String](["不知道你是否注意到沿途的隐藏道具，偶尔你需要离开光去冒险收集收藏品！也许都收集了会触发意想不到的结局~", "由于一开始需要摸索，也许需要多次尝试来决策路线~可以ESC后按R按钮来快速重启本关或是进入下一关前决定是否重启！"])
+messages = Array[String](["不知道你是否注意到沿途的隐藏道具，偶尔你需要离开光去冒险收集收藏品！也许都收集了会触发意想不到的结局~", "这些收集物的获取都需要离开光，因此需要大胆冒风险主动离开光去尝试！", "由于一开始需要摸索，也许需要多次尝试来决策路线~可以ESC后按R按钮来快速重启本关或是进入下一关前决定是否重启！"])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TutorialTrigger3" unique_id=1499880499]
 position = Vector2(-1649, -570)
@@ -734,6 +769,7 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.195, 0.195)
 icon = ExtResource("40_0fmhk")
+flat = true
 icon_alignment = 1
 script = ExtResource("41_cr74b")
 
@@ -752,6 +788,7 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.095, 0.095)
 icon = ExtResource("41_iafhg")
+flat = true
 script = ExtResource("43_uhfbm")
 
 [node name="Colletor" type="Area2D" parent="." unique_id=1303340327]
@@ -760,6 +797,7 @@ collision_mask = 64
 script = ExtResource("44_uhfbm")
 
 [node name="Sprite2D" type="Sprite2D" parent="Colletor" unique_id=894283245]
+self_modulate = Color(4.2189684, 4.2189684, 4.2189684, 1)
 scale = Vector2(0.305, 0.305)
 texture = ExtResource("45_lqb7q")
 
@@ -767,9 +805,135 @@ texture = ExtResource("45_lqb7q")
 position = Vector2(0, 18)
 shape = SubResource("CircleShape2D_ok3ci")
 
+[node name="Sprite2D2" type="Sprite2D" parent="Colletor" unique_id=1052788543]
+visible = false
+self_modulate = Color(1.3622323, 1.3622323, 1.3622323, 1)
+z_index = -1
+position = Vector2(-110, 25)
+texture = ExtResource("46_ok3ci")
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1275684163]
 process_mode = 3
 stream = ExtResource("46_lqb7q")
 autoplay = true
+
+[node name="Fireflies" type="GPUParticles2D" parent="." unique_id=1718194420]
+position = Vector2(-920, 266)
+amount = 5
+texture = ExtResource("48_hv3ux")
+lifetime = 8.0
+randomness = 0.6
+process_material = SubResource("ParticleProcessMaterial_ok3ci")
+
+[node name="Fireflies2" type="GPUParticles2D" parent="." unique_id=373962678]
+position = Vector2(590, 280)
+amount = 5
+texture = ExtResource("48_hv3ux")
+lifetime = 8.0
+randomness = 0.6
+process_material = SubResource("ParticleProcessMaterial_ok3ci")
+
+[node name="Fireflies3" type="GPUParticles2D" parent="." unique_id=1462847294]
+amount = 5
+texture = ExtResource("48_hv3ux")
+lifetime = 8.0
+randomness = 0.6
+process_material = SubResource("ParticleProcessMaterial_ok3ci")
+
+[node name="Fireflies4" type="GPUParticles2D" parent="." unique_id=1658875599]
+position = Vector2(2376, 398)
+amount = 5
+texture = ExtResource("48_hv3ux")
+lifetime = 8.0
+randomness = 0.6
+process_material = SubResource("ParticleProcessMaterial_ok3ci")
+
+[node name="Fireflies5" type="GPUParticles2D" parent="." unique_id=1797260373]
+position = Vector2(5285, -96)
+amount = 5
+texture = ExtResource("48_hv3ux")
+lifetime = 8.0
+randomness = 0.6
+process_material = SubResource("ParticleProcessMaterial_ok3ci")
+
+[node name="Fireflies6" type="GPUParticles2D" parent="." unique_id=1672385059]
+position = Vector2(9617, 835)
+amount = 5
+texture = ExtResource("48_hv3ux")
+lifetime = 8.0
+randomness = 0.6
+process_material = SubResource("ParticleProcessMaterial_ok3ci")
+
+[node name="Fireflies9" type="GPUParticles2D" parent="." unique_id=347727921]
+position = Vector2(11659, 867)
+amount = 5
+texture = ExtResource("48_hv3ux")
+lifetime = 8.0
+randomness = 0.6
+process_material = SubResource("ParticleProcessMaterial_ok3ci")
+
+[node name="Fireflies10" type="GPUParticles2D" parent="." unique_id=1501378270]
+position = Vector2(7217, 827)
+amount = 5
+texture = ExtResource("48_hv3ux")
+lifetime = 8.0
+randomness = 0.6
+process_material = SubResource("ParticleProcessMaterial_ok3ci")
+
+[node name="Fireflies11" type="GPUParticles2D" parent="." unique_id=877965804]
+position = Vector2(12540, 883)
+amount = 5
+texture = ExtResource("48_hv3ux")
+lifetime = 8.0
+randomness = 0.6
+process_material = SubResource("ParticleProcessMaterial_ok3ci")
+
+[node name="Fireflies13" type="GPUParticles2D" parent="." unique_id=854278053]
+position = Vector2(15648, 74)
+amount = 5
+texture = ExtResource("48_hv3ux")
+lifetime = 8.0
+randomness = 0.6
+process_material = SubResource("ParticleProcessMaterial_ok3ci")
+
+[node name="Fireflies15" type="GPUParticles2D" parent="." unique_id=1230758052]
+position = Vector2(12675, -278)
+amount = 5
+texture = ExtResource("48_hv3ux")
+lifetime = 8.0
+randomness = 0.6
+process_material = SubResource("ParticleProcessMaterial_ok3ci")
+
+[node name="Fireflies14" type="GPUParticles2D" parent="." unique_id=2004195307]
+position = Vector2(14351, 631)
+amount = 5
+texture = ExtResource("48_hv3ux")
+lifetime = 8.0
+randomness = 0.6
+process_material = SubResource("ParticleProcessMaterial_ok3ci")
+
+[node name="Fireflies12" type="GPUParticles2D" parent="." unique_id=319126319]
+position = Vector2(8600, 628)
+amount = 5
+texture = ExtResource("48_hv3ux")
+lifetime = 8.0
+randomness = 0.6
+process_material = SubResource("ParticleProcessMaterial_ok3ci")
+
+[node name="Fireflies7" type="GPUParticles2D" parent="." unique_id=1163056235]
+position = Vector2(2376, 398)
+amount = 5
+texture = ExtResource("48_hv3ux")
+lifetime = 8.0
+randomness = 0.6
+process_material = SubResource("ParticleProcessMaterial_ok3ci")
+
+[node name="Fireflies8" type="GPUParticles2D" parent="." unique_id=1450335105]
+position = Vector2(3852, -150)
+amount = 5
+texture = ExtResource("48_hv3ux")
+lifetime = 8.0
+randomness = 0.6
+process_material = SubResource("ParticleProcessMaterial_ok3ci")
 
 [editable path="CharacterBody2D"]

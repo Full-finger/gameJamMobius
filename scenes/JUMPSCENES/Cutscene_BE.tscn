@@ -10,19 +10,21 @@
 [sub_resource type="Resource" id="Resource_1cycw"]
 script = ExtResource("2_ccg3q")
 cg = ExtResource("3_vtrw5")
-text = "很不幸你来到了坏结局"
+text = "BADENDING"
 metadata/_custom_type_script = "uid://s30qc58fkcff"
 
 [sub_resource type="Resource" id="Resource_vsubv"]
 script = ExtResource("2_ccg3q")
 cg = ExtResource("3_vtrw5")
-text = "也许我该说点什么吗？现在要回主页面了"
+text = "或许，老人的照片中还夹着一些物品。  
+那些物品里，也藏着他的回忆。  
+也许，老人还能想起更多。"
 metadata/_custom_type_script = "uid://s30qc58fkcff"
 
 [sub_resource type="Theme" id="Theme_2mha5"]
 default_font = ExtResource("9_ylbj1")
-default_font_size = 44
-RichTextLabel/font_sizes/normal_font_size = 177
+default_font_size = 132
+RichTextLabel/font_sizes/normal_font_size = 249
 
 [sub_resource type="Theme" id="Theme_kuhf1"]
 default_font_size = 32
@@ -42,6 +44,7 @@ textLabel = NodePath("Control/Text")
 continueHint = NodePath("Control/Label")
 steps = Array[ExtResource("2_ccg3q")]([SubResource("Resource_1cycw"), SubResource("Resource_vsubv")])
 nextScene = "uid://cenrmkmh26udf"
+finalBlackoutText = "有些回忆，终究没能跟上今夜的梦。"
 
 [node name="CG" type="TextureRect" parent="." unique_id=1308119415]
 layout_mode = 1

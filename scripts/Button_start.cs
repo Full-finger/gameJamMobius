@@ -17,6 +17,7 @@ public partial class Button_start : Button
             GetTree().CreateTimer(0.7),
             SceneTreeTimer.SignalName.Timeout
         );
-        TransitionManager.Instance.TransitionTo("res://scenes/JUMPSCENES/CutScene_IN.tscn");
+        GameState.Instance.ResetAll();
+        TransitionManager.Instance.TransitionTo("res://scenes/JUMPSCENES/Cutscene_IN.tscn");
     }
 }

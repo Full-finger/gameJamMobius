@@ -2,10 +2,22 @@
 
 [ext_resource type="Texture2D" uid="uid://bl3fo87h87x0y" path="res://assets/sprite/settings/exec-eb4c85f5-9800-4145-87a6-e28ddc355c1f.png" id="1_5p8wc"]
 [ext_resource type="Script" uid="uid://bw2sybkkunphd" path="res://scripts/SettingPanel.cs" id="1_r6d6q"]
-[ext_resource type="Texture2D" uid="uid://cevnstpgmlwd4" path="res://assets/sprite/settings/返回.png" id="3_f4mfi"]
+[ext_resource type="Texture2D" path="res://assets/sprite/settings/623482e792f3ad6c3609061d4352c916.png" id="3_f4mfi"]
+[ext_resource type="Texture2D" path="res://assets/sprite/settings/33d06dd79bc7a67651821c61bf0a8f3f.png" id="return_hover_image"]
 [ext_resource type="Script" uid="uid://7pu2ypjj6hvh" path="res://scripts/Button_ReturnToMain.cs" id="4_f4mfi"]
 [ext_resource type="Script" uid="uid://bykoa12p7quc3" path="res://scripts/SettingsPage.cs" id="5_settings_page"]
+[ext_resource type="Texture2D" uid="uid://dhvh734p26qpa" path="res://assets/sprite/settings/452da59d751c13b74b360578d2178c63_720.png" id="6_83j8s"]
 [ext_resource type="AudioStream" uid="uid://fgrryxey16yd" path="res://assets/audios/bgm/bgm title.mp3" id="6_gis3k"]
+
+[sub_resource type="AtlasTexture" id="return_normal"]
+atlas = ExtResource("3_f4mfi")
+region = Rect2(576, 561, 2588, 1033)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="return_hover"]
+atlas = ExtResource("return_hover_image")
+region = Rect2(1004, 625, 2631, 1161)
+filter_clip = true
 
 [node name="CanvasLayer" type="CanvasLayer" unique_id=283441247]
 process_mode = 3
@@ -72,22 +84,38 @@ max_value = 1.0
 step = 0.01
 value = 1.0
 
-[node name="Return" type="Button" parent="Control" unique_id=1022944576]
+[node name="Return" type="TextureButton" parent="Control" unique_id=1022944576]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -183.0
-offset_top = -230.0
-offset_right = 1621.0
-offset_bottom = 290.0
+offset_left = -180.0
+offset_top = -280.0
+offset_right = 180.0
+offset_bottom = -120.0
 grow_horizontal = 2
 grow_vertical = 0
-scale = Vector2(0.2, 0.2)
-icon = ExtResource("3_f4mfi")
+mouse_default_cursor_shape = 2
+texture_normal = SubResource("return_normal")
+texture_pressed = SubResource("return_hover")
+texture_hover = SubResource("return_hover")
+texture_disabled = SubResource("return_hover")
+ignore_texture_size = true
+stretch_mode = 5
 script = ExtResource("4_f4mfi")
+
+[node name="TextureRect2" type="TextureRect" parent="Control" unique_id=1612280408]
+z_index = -1000
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("6_83j8s")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=800217706]
 process_mode = 3

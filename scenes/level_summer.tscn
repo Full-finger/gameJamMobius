@@ -22,6 +22,7 @@
 [ext_resource type="Script" uid="uid://rvf1ba2etfki" path="res://scenes/InLightCrown.cs" id="33_v3why"]
 [ext_resource type="Texture2D" uid="uid://dwk5hhk13jg6y" path="res://assets/sprite/items/b92c6124-890d-41de-8099-85cb5ac92f49.png" id="34_cigiq"]
 [ext_resource type="AudioStream" uid="uid://c33mg3fg3fbo0" path="res://assets/audios/bgm/bgm episode 02.mp3" id="35_cigiq"]
+[ext_resource type="Texture2D" uid="uid://ciarqjtg626jg" path="res://assets/sprite/items/ba8a2152467c420b64fd1eac31311ec8.png" id="35_iq0k2"]
 [ext_resource type="Script" uid="uid://dypir2sutlvan" path="res://scripts/LevelBounds.cs" id="map_bounds_script"]
 [ext_resource type="Texture2D" uid="uid://bkbr6m8ihopwd" path="res://assets/sprite/夏/_0011_background.png" id="summer_bg"]
 [ext_resource type="Texture2D" uid="uid://dgc6g31g4qet1" path="res://assets/sprite/夏/0003_花苞1.png" id="summer_bud1"]
@@ -231,6 +232,28 @@ script = ExtResource("5_tramp")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Plants/荷叶3/Trampoline" unique_id=179099637]
 shape = SubResource("tramp_area")
 
+[node name="荷叶4" type="StaticBody2D" parent="Plants" unique_id=417542397]
+position = Vector2(6082, 1833)
+collision_mask = 64
+
+[node name="Sprite2D" type="Sprite2D" parent="Plants/荷叶4" unique_id=2104870549]
+position = Vector2(0, 103)
+texture = ExtResource("summer_leaf1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plants/荷叶4" unique_id=1941138597]
+position = Vector2(12, 73)
+shape = SubResource("plat_0")
+one_way_collision_margin = 4.0
+
+[node name="Trampoline" type="Area2D" parent="Plants/荷叶4" unique_id=2117575937]
+position = Vector2(12, 73)
+collision_layer = 0
+collision_mask = 64
+script = ExtResource("5_tramp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plants/荷叶4/Trampoline" unique_id=815610948]
+shape = SubResource("tramp_area")
+
 [node name="荷花1" type="StaticBody2D" parent="Plants" unique_id=482616129]
 position = Vector2(2253, 869)
 collision_mask = 64
@@ -318,6 +341,12 @@ position = Vector2(9437, 2018)
 [node name="Sprite2D" type="Sprite2D" parent="Plants/荷叶杆5" unique_id=1203398691]
 texture = ExtResource("summer_leaf2")
 
+[node name="荷叶杆6" type="Node2D" parent="Plants" unique_id=2053970039]
+position = Vector2(5927, 2242)
+
+[node name="Sprite2D" type="Sprite2D" parent="Plants/荷叶杆6" unique_id=984286046]
+texture = ExtResource("summer_leaf2")
+
 [node name="荷叶杆4" type="Node2D" parent="Plants" unique_id=1079053286]
 position = Vector2(2950, 2403)
 
@@ -362,6 +391,8 @@ autoplay = &"fly"
 
 [node name="hud" type="CanvasLayer" parent="." unique_id=245339296 node_paths=PackedStringArray("player", "lifeBar")]
 layer = 0
+scale = Vector2(1.56, 1.56)
+transform = Transform2D(1.56, 0, 0, 1.56, 0, 0)
 script = ExtResource("29_w3o6u")
 player = NodePath("../CharacterBody2D")
 lifeBar = NodePath("Control/LifeBar")
@@ -381,10 +412,10 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -163.00012
-offset_top = 16.0
-offset_right = -123.00012
-offset_bottom = 56.0
+offset_left = -846.2821
+offset_top = 21.794872
+offset_right = -806.2821
+offset_bottom = 61.794872
 grow_horizontal = 0
 scale = Vector2(4.38, 4.38)
 mouse_filter = 2
@@ -400,10 +431,10 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -184.0
-offset_top = 11.0
-offset_right = 1656.0
-offset_bottom = 1391.0
+offset_left = -866.7949
+offset_top = 16.666666
+offset_right = 973.2051
+offset_bottom = 1396.6666
 grow_horizontal = 0
 scale = Vector2(0.14, 0.14)
 mouse_filter = 2
@@ -560,6 +591,7 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.195, 0.195)
 icon = ExtResource("29_hokrl")
+flat = true
 icon_alignment = 1
 script = ExtResource("30_c36s1")
 
@@ -578,6 +610,7 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.095, 0.095)
 icon = ExtResource("31_cigiq")
+flat = true
 script = ExtResource("32_iq0k2")
 
 [node name="Colletor" type="Area2D" parent="." unique_id=348046417]
@@ -587,12 +620,19 @@ script = ExtResource("33_c36s1")
 level = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="Colletor" unique_id=377042292]
+self_modulate = Color(1.5565991, 1.1073103, 1.5565991, 1)
 scale = Vector2(0.305, 0.305)
 texture = ExtResource("34_cigiq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Colletor" unique_id=1692697363]
 position = Vector2(0, 18)
 shape = SubResource("CircleShape2D_7m8e7")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Colletor" unique_id=56136596]
+visible = false
+z_index = -1
+position = Vector2(-117, 17)
+texture = ExtResource("35_iq0k2")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1823535416]
 process_mode = 3

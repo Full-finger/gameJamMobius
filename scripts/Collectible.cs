@@ -14,7 +14,7 @@ public partial class Collectible : Area2D
 
     private void OnBodyEntered(Node2D body)
     {
-        if (body is not Player)
+        if (body is not Player player || !player.IsPhysicsProcessing())
             return;
 
         GameState.Instance.Collect(level);

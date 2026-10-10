@@ -14,8 +14,11 @@ public partial class endPoint : Area2D
 
     private void OnBodyEntered(Node2D body)
     {
-        if (body is not Player)
+        if (body is not Player player || !player.IsPhysicsProcessing())
             return;
+
+        // 拿到道具并成功到达终点，这时才永久计入本局。
+        GameState.Instance.ConfirmLevelCollection();
 
     if (endUI != null)
 {

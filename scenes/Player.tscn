@@ -712,6 +712,7 @@ jumpHeight = 200.0
 vineSwingMultiplier = 12.83
 vineGrabImpulse = 5.98
 vineJumpMultiplier = 1.545
+landingSquash = 0.1
 footstepSound = ExtResource("2_swmfq")
 landingSound = ExtResource("3_qeklt")
 leaveLightSound = ExtResource("4_stxll")

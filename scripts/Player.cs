@@ -335,7 +335,7 @@ public partial class Player : CharacterBody2D
 
             vine = null;
 
-            grabCooldown = 0.45f;
+            grabCooldown = 0.85f;
             vineFlightTime = 0.2f;
 
 
@@ -464,6 +464,25 @@ public partial class Player : CharacterBody2D
 
 
         PlayAnimation("idle");
+    }
+
+
+    public override void _UnhandledInput(InputEvent @event)
+    {
+        if (
+            isDying ||
+            GetTree().Paused ||
+            @event is not InputEventKey keyEvent ||
+            !keyEvent.Pressed ||
+            keyEvent.Echo ||
+            (keyEvent.Keycode != Key.R && keyEvent.PhysicalKeycode != Key.R)
+        )
+        {
+            return;
+        }
+
+        GetViewport().SetInputAsHandled();
+        TransitionManager.Instance.ReloadCurrentScene();
     }
 
 

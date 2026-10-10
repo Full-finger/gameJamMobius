@@ -19,6 +19,10 @@ public partial class CutscenePlayer : Control
     [Export(PropertyHint.File, "*.tscn")]
     public string nextScene;
 
+    [ExportGroup("结尾黑屏文字")]
+    [Export(PropertyHint.MultilineText)]
+    public string finalBlackoutText;
+
 
     private int currentStep = 0;
 
@@ -27,6 +31,12 @@ public partial class CutscenePlayer : Control
     private bool textFinished = false;
 
     private bool finished = false;
+
+    private bool showingFinalBlackout = false;
+
+    private ColorRect blackScreen;
+
+    private Label finalTextLabel;
 
 
     public override void _Ready()
@@ -113,8 +123,7 @@ public partial class CutscenePlayer : Control
         characterCounter +=
             charactersPerSecond * (float)delta;
 
-        int total =
-            textLabel.GetTotalCharacterCount();
+        int total = GetActiveCharacterCount();
 
         int visible =
             Mathf.Min(
@@ -122,7 +131,7 @@ public partial class CutscenePlayer : Control
                 total
             );
 
-        textLabel.VisibleCharacters = visible;
+        SetActiveVisibleCharacters(visible);
 
         if (visible >= total)
         {
@@ -183,8 +192,9 @@ public partial class CutscenePlayer : Control
 
         if (!textFinished)
         {
-            textLabel.VisibleCharacters =
-                textLabel.GetTotalCharacterCount();
+            SetActiveVisibleCharacters(
+                GetActiveCharacterCount()
+            );
 
             textFinished = true;
 
@@ -213,11 +223,95 @@ public partial class CutscenePlayer : Control
 
         if (currentStep >= steps.Count)
         {
+            if (
+                !showingFinalBlackout &&
+                !string.IsNullOrEmpty(finalBlackoutText)
+            )
+            {
+                ShowFinalBlackout();
+                return;
+            }
+
             FinishCutscene();
             return;
         }
 
         ShowStep(currentStep);
+    }
+
+
+    // =========================================================
+    // 结尾黑屏
+    // =========================================================
+
+    private void ShowFinalBlackout()
+    {
+        showingFinalBlackout = true;
+
+        cgDisplay.Hide();
+        dialogueBox.Hide();
+
+        blackScreen = new ColorRect();
+        blackScreen.Color = Colors.Black;
+        blackScreen.MouseFilter = Control.MouseFilterEnum.Ignore;
+        blackScreen.ZIndex = 100;
+        AddChild(blackScreen);
+        blackScreen.SetAnchorsAndOffsetsPreset(
+            Control.LayoutPreset.FullRect
+        );
+
+        finalTextLabel = new Label();
+        finalTextLabel.Text = finalBlackoutText;
+        finalTextLabel.HorizontalAlignment =
+            HorizontalAlignment.Center;
+        finalTextLabel.VerticalAlignment =
+            VerticalAlignment.Center;
+        finalTextLabel.AddThemeColorOverride(
+            "font_color",
+            Colors.White
+        );
+        finalTextLabel.AddThemeFontSizeOverride(
+            "font_size",
+            56
+        );
+
+        Font font = textLabel.GetThemeDefaultFont();
+        if (font != null)
+            finalTextLabel.AddThemeFontOverride("font", font);
+
+        finalTextLabel.ZIndex = 101;
+        finalTextLabel.MouseFilter =
+            Control.MouseFilterEnum.Ignore;
+        AddChild(finalTextLabel);
+        finalTextLabel.SetAnchorsAndOffsetsPreset(
+            Control.LayoutPreset.FullRect
+        );
+
+        characterCounter = 0f;
+        finalTextLabel.VisibleCharacters = 0;
+        textFinished = false;
+        continueHint.Visible = false;
+    }
+
+
+    private int GetActiveCharacterCount()
+    {
+        if (showingFinalBlackout)
+            return finalTextLabel.GetTotalCharacterCount();
+
+        return textLabel.GetTotalCharacterCount();
+    }
+
+
+    private void SetActiveVisibleCharacters(int count)
+    {
+        if (showingFinalBlackout)
+        {
+            finalTextLabel.VisibleCharacters = count;
+            return;
+        }
+
+        textLabel.VisibleCharacters = count;
     }
 
 

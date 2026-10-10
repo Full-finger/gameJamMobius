@@ -39,6 +39,7 @@
 [ext_resource type="Script" uid="uid://rvf1ba2etfki" path="res://scenes/InLightCrown.cs" id="37_s05oq"]
 [ext_resource type="Script" uid="uid://nqdsdkvuvmq8" path="res://scripts/Collectible.cs" id="38_aio0i"]
 [ext_resource type="Texture2D" uid="uid://db2ojy5wgqoyk" path="res://assets/sprite/items/480bb6f0-8507-4f66-a9ab-affe3d544e90.png" id="39_10o3d"]
+[ext_resource type="Texture2D" uid="uid://ciarqjtg626jg" path="res://assets/sprite/items/ba8a2152467c420b64fd1eac31311ec8.png" id="41_5miad"]
 [ext_resource type="AudioStream" uid="uid://csv67dbltjct2" path="res://assets/audios/bgm/bgm episode 03.mp3" id="41_s05oq"]
 [ext_resource type="Script" uid="uid://dypir2sutlvan" path="res://scripts/LevelBounds.cs" id="map_bounds_script"]
 
@@ -369,6 +370,7 @@ polygon = PackedVector2Array(107, -91, -36, -110, -117, -92, -231, -40, -305.4, 
 position = Vector2(3822, 1358)
 
 [node name="Stem" type="Sprite2D" parent="Mushrooms/Mushroom02" unique_id=941331102]
+self_modulate = Color(1.6852883, 1.6852883, 1.6852883, 1)
 position = Vector2(-42, 425)
 texture = ExtResource("21_mush02stem")
 
@@ -376,6 +378,7 @@ texture = ExtResource("21_mush02stem")
 collision_mask = 64
 
 [node name="Sprite2D" type="Sprite2D" parent="Mushrooms/Mushroom02/Cap" unique_id=966041666]
+self_modulate = Color(1.7770933, 1.7770933, 1.7770933, 1)
 texture = ExtResource("20_mush02cap")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Mushrooms/Mushroom02/Cap" unique_id=700750598]
@@ -389,6 +392,7 @@ position = Vector2(13703.001, 1298.0001)
 scale = Vector2(2.03, 2.03)
 
 [node name="Stem" type="Sprite2D" parent="Mushrooms/Mushroom03" unique_id=1521894780]
+self_modulate = Color(1.598561, 1.598561, 1.598561, 1)
 position = Vector2(-42, 425)
 texture = ExtResource("21_mush02stem")
 
@@ -396,6 +400,7 @@ texture = ExtResource("21_mush02stem")
 collision_mask = 64
 
 [node name="Sprite2D" type="Sprite2D" parent="Mushrooms/Mushroom03/Cap" unique_id=1029932878]
+self_modulate = Color(1.5565991, 1.5565991, 1.5565991, 1)
 texture = ExtResource("20_mush02cap")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Mushrooms/Mushroom03/Cap" unique_id=330468705]
@@ -986,6 +991,7 @@ offset_bottom = 1825.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.195, 0.195)
+flat = true
 icon = ExtResource("29_nj8ix")
 icon_alignment = 1
 script = ExtResource("30_pekg7")
@@ -1004,11 +1010,14 @@ offset_bottom = 1684.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.095, 0.095)
+flat = true
 icon = ExtResource("31_vb7bf")
 script = ExtResource("32_dxnyu")
 
 [node name="hud" type="CanvasLayer" parent="." unique_id=1352687775 node_paths=PackedStringArray("player", "lifeBar")]
 layer = 0
+scale = Vector2(1.56, 1.56)
+transform = Transform2D(1.56, 0, 0, 1.56, 0, 0)
 script = ExtResource("33_a83gd")
 player = NodePath("../CharacterBody2D")
 lifeBar = NodePath("Control/LifeBar")
@@ -1028,10 +1037,10 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -163.00012
-offset_top = 16.0
-offset_right = -123.00012
-offset_bottom = 56.0
+offset_left = -837.30774
+offset_top = 4.4871793
+offset_right = -797.30774
+offset_bottom = 44.48718
 grow_horizontal = 0
 scale = Vector2(4.38, 4.38)
 mouse_filter = 2
@@ -1047,10 +1056,9 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -184.0
-offset_top = 11.0
-offset_right = 1656.0
-offset_bottom = 1391.0
+offset_left = -858.46155
+offset_right = 981.5386
+offset_bottom = 1380.0
 grow_horizontal = 0
 scale = Vector2(0.14, 0.14)
 mouse_filter = 2
@@ -1080,12 +1088,19 @@ script = ExtResource("38_aio0i")
 level = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="Colletor" unique_id=1687044318]
+self_modulate = Color(2.854107, 2.854107, 2.854107, 1)
 scale = Vector2(0.305, 0.305)
 texture = ExtResource("39_10o3d")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Colletor" unique_id=103407488]
 position = Vector2(0, 18)
 shape = SubResource("CircleShape2D_5miad")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Colletor" unique_id=1382306099]
+visible = false
+z_index = -1
+position = Vector2(-111, 6)
+texture = ExtResource("41_5miad")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1460131185]
 process_mode = 3

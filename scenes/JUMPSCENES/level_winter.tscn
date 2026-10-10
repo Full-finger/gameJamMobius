@@ -25,6 +25,7 @@
 [ext_resource type="Texture2D" uid="uid://w4dq7ixslp7r" path="res://assets/sprite/jumpscene/frame_41.png" id="25_q0g3d"]
 [ext_resource type="Script" uid="uid://bnu8qj3besll6" path="res://scripts/NormalEndingArea.cs" id="26_xrav2"]
 [ext_resource type="AudioStream" uid="uid://byuvgl8k5vglw" path="res://assets/audios/bgm/bgm episode 04.mp3" id="27_k1gok"]
+[ext_resource type="Texture2D" uid="uid://yedkys8rnevr" path="res://assets/sprite/particleTexture/06139c423b231791b588d08398b20b37.png" id="28_ppuei"]
 [ext_resource type="Script" uid="uid://dypir2sutlvan" path="res://scripts/LevelBounds.cs" id="winter_bounds"]
 [ext_resource type="PackedScene" uid="uid://dw13jweir71ce" path="res://scenes/pause_menu.tscn" id="winter_pause"]
 
@@ -125,6 +126,39 @@ size = Vector2(256, 249)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ohrg4"]
 size = Vector2(387, 405)
 
+[sub_resource type="Gradient" id="Gradient_ppuei"]
+offsets = PackedFloat32Array(0, 0.19066148, 0.45136186, 1)
+colors = PackedColorArray(0, 0, 0, 0, 0.16078432, 0.16078432, 0.16078432, 0.69803923, 0.5894493, 0.5894493, 0.5894493, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_jtmti"]
+gradient = SubResource("Gradient_ppuei")
+
+[sub_resource type="Curve" id="Curve_ua5wt"]
+_data = [Vector2(0.003389828, 0.5027322), 0.0, 0.0, 0, 0, Vector2(0.24406779, 1), 0.0, 0.0, 0, 0, Vector2(0.6135593, 0.989071), 0.0, 0.0, 0, 0, Vector2(0.9932204, 0.043715835), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_ppuei"]
+curve = SubResource("Curve_ua5wt")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_k1gok"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(2100, 1, 1)
+angle_min = -179.99998
+angle_max = 180.00002
+direction = Vector3(0.5, 1, 0)
+initial_velocity_min = 60.0
+initial_velocity_max = 120.0
+angular_velocity_min = -30.000015
+angular_velocity_max = 29.999983
+orbit_velocity_min = 9.49949e-08
+orbit_velocity_max = 0.020000096
+gravity = Vector3(0, 30, 0)
+scale_min = 0.02
+scale_max = 0.04
+scale_curve = SubResource("CurveTexture_ppuei")
+color_ramp = SubResource("GradientTexture1D_jtmti")
+
 [node name="level_winter" type="Node2D" unique_id=1737424698]
 
 [node name="bg" type="Sprite2D" parent="." unique_id=1835706223 groups=["LevelBackground"]]
@@ -155,7 +189,7 @@ polygon = PackedVector2Array(-2500, 60.5, -2436, 60.5, -2340, 69.5, -2284, 79.5,
 polygon = PackedVector2Array(-2500, -1190.5, 2500, -1190.5, 2500, -238.5, 2404, -248.5, 2316, -266.5, 2228, -288.5, 2068, -343.5, 1940, -405.5, 1724, -546.5, 1612, -597.5, 1508, -631.5, 1308, -677.5, 1156, -704.5, 780, -791.5, 300, -867.5, -236, -899.5, -508, -890.5, -676, -874.5, -1308, -728.5, -1556, -682.5, -1732, -658.5, -1852, -651.5, -2004, -651.5, -2500, -679.5)
 
 [node name="ground" type="Sprite2D" parent="StaticBody2D" unique_id=1269041780]
-z_index = -10
+z_index = 10
 texture = ExtResource("2_t6eoh")
 
 [node name="PointLight2D" parent="." unique_id=1508022713 instance=ExtResource("5_guhbr")]
@@ -168,6 +202,8 @@ autoplay = &"new_animation"
 
 [node name="hud" type="CanvasLayer" parent="." unique_id=1955840404 node_paths=PackedStringArray("player", "lifeBar")]
 layer = 0
+scale = Vector2(1.56, 1.56)
+transform = Transform2D(1.56, 0, 0, 1.56, 0, 0)
 script = ExtResource("6_k761j")
 player = NodePath("../CharacterBody2D")
 lifeBar = NodePath("Control/LifeBar")
@@ -187,10 +223,10 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -163.00012
-offset_top = 16.0
-offset_right = -123.00012
-offset_bottom = 56.0
+offset_left = -846.282
+offset_top = 16.025642
+offset_right = -806.282
+offset_bottom = 56.025642
 grow_horizontal = 0
 scale = Vector2(4.38, 4.38)
 mouse_filter = 2
@@ -206,10 +242,10 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -184.0
-offset_top = 11.0
-offset_right = 1656.0
-offset_bottom = 1391.0
+offset_left = -868.0769
+offset_top = 8.974358
+offset_right = 971.92334
+offset_bottom = 1388.9744
 grow_horizontal = 0
 scale = Vector2(0.14, 0.14)
 mouse_filter = 2
@@ -280,5 +316,16 @@ shape = SubResource("RectangleShape2D_ohrg4")
 process_mode = 3
 stream = ExtResource("27_k1gok")
 autoplay = true
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=429246486]
+z_index = -1
+position = Vector2(6, -844)
+amount = 400
+texture = ExtResource("28_ppuei")
+lifetime = 8.0
+preprocess = 8.0
+randomness = 1.0
+visibility_rect = Rect2(-3500, -250, 7000, 3200)
+process_material = SubResource("ParticleProcessMaterial_k1gok")
 
 [editable path="CharacterBody2D"]

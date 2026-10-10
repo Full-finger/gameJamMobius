@@ -14,31 +14,31 @@
 [sub_resource type="Resource" id="Resource_1cycw"]
 script = ExtResource("2_fiq31")
 cg = ExtResource("3_3lce0")
-text = "开场"
+text = "老人伴着暮落的暖晕睡着了"
 metadata/_custom_type_script = "uid://s30qc58fkcff"
 
 [sub_resource type="Resource" id="Resource_vsubv"]
 script = ExtResource("2_fiq31")
 cg = ExtResource("4_4flxi")
-text = "睡着了"
+text = "小黑猫在他的怀里打呼噜"
 metadata/_custom_type_script = "uid://s30qc58fkcff"
 
 [sub_resource type="Resource" id="Resource_8jejx"]
 script = ExtResource("2_fiq31")
 cg = ExtResource("5_11rj5")
-text = "和年轻的自己散步"
+text = "梦见与年轻的自己一起散步"
 metadata/_custom_type_script = "uid://s30qc58fkcff"
 
 [sub_resource type="Resource" id="Resource_fiq31"]
 script = ExtResource("2_fiq31")
 cg = ExtResource("6_gwcb8")
-text = "也许在拍照"
+text = "看到了年轻时在森林游玩的照片，想到了很多往事..."
 metadata/_custom_type_script = "uid://s30qc58fkcff"
 
 [sub_resource type="Resource" id="Resource_3lce0"]
 script = ExtResource("2_fiq31")
 cg = ExtResource("7_e2a6q")
-text = "拍好了 接下来进入游戏"
+text = "欸？怎么回事，重返年轻了！"
 metadata/_custom_type_script = "uid://s30qc58fkcff"
 
 [sub_resource type="Theme" id="Theme_2mha5"]

@@ -2,12 +2,15 @@
 
 [ext_resource type="Script" uid="uid://dtf5mhuu2tx67" path="res://scripts/PauseMenu.cs" id="1_n87rw"]
 [ext_resource type="Texture2D" uid="uid://pdm0kj8qmaip" path="res://assets/sprite/PauseMenu/8474DF0A924F78DDAE0F1745281636F2.png" id="2_5d2l8"]
+[ext_resource type="Texture2D" uid="uid://c3tqjpryan63g" path="res://assets/sprite/items/fbe96d979783a9698e721a6d3fc52da5.png" id="2_7l7mv"]
 [ext_resource type="Texture2D" uid="uid://ccfhemcahpop4" path="res://assets/sprite/PauseMenu/settingbuttonpause.png" id="4_v4r4p"]
 
 [node name="PauseMenu" type="CanvasLayer" unique_id=1057490932 node_paths=PackedStringArray("restartButton", "settingsButton")]
+scale = Vector2(0.53, 0.53)
+transform = Transform2D(0.53, 0, 0, 0.53, 0, 0)
 script = ExtResource("1_n87rw")
-restartButton = NodePath("Control/ColorRect/Button")
-settingsButton = NodePath("Control/ColorRect/Button2")
+restartButton = NodePath("Control/Button")
+settingsButton = NodePath("Control/Button2")
 
 [node name="Control" type="Control" parent="." unique_id=1870549707]
 layout_mode = 3
@@ -17,41 +20,37 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ColorRect" type="ColorRect" parent="Control" unique_id=82572329]
+[node name="textureRect" type="TextureRect" parent="Control" unique_id=951242825]
 layout_mode = 1
-offset_right = 400.0
-offset_bottom = 1080.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -976.98114
+offset_top = -309.434
+offset_right = 844.55396
+offset_bottom = 2181.132
+grow_horizontal = 2
+scale = Vector2(0.635, 1.065)
 mouse_filter = 2
-color = Color(1, 1, 1, 0.14117648)
+texture = ExtResource("2_7l7mv")
+stretch_mode = 6
 
-[node name="Button" type="Button" parent="Control/ColorRect" unique_id=771406154]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -105.99994
-offset_top = -285.0
-offset_right = 1950.0
-offset_bottom = 1771.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.095, 0.095)
+[node name="Button" type="Button" parent="Control" unique_id=771406154]
+layout_mode = 0
+offset_left = 152.83018
+offset_top = 160.37733
+offset_right = 2208.83
+offset_bottom = 2216.3774
+scale = Vector2(0.405, 0.405)
 icon = ExtResource("2_5d2l8")
+flat = true
 
-[node name="Button2" type="Button" parent="Control/ColorRect" unique_id=1736271866]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -112.0
-offset_top = 87.0
-offset_right = 3636.0
-offset_bottom = 3643.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.055, 0.055)
+[node name="Button2" type="Button" parent="Control" unique_id=1736271866]
+layout_mode = 0
+offset_left = 188.67926
+offset_top = 1073.585
+offset_right = 3936.6797
+offset_bottom = 4629.585
+scale = Vector2(0.205, 0.205)
 icon = ExtResource("4_v4r4p")
+flat = true
