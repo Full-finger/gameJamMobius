@@ -6,18 +6,21 @@ extends CanvasLayer
 # 暂停页打开时填入；主菜单直接切场景时保持为空。
 var ReturnToPauseMenu: PauseMenu
 
+var returnButton: Button_ReturnToMain
+
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	layer = 10
 
-	(get_node("Control/Return") as Button_ReturnToMain).BackRequested.connect(GoBack)
+	returnButton = get_node("Control/Return") as Button_ReturnToMain
+	returnButton.BackRequested.connect(GoBack)
 
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
 		get_viewport().set_input_as_handled()
-		GoBack()
+		returnButton.PlayReturnAnimation()
 
 
 func GoBack() -> void:

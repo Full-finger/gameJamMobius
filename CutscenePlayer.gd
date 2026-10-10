@@ -19,6 +19,10 @@ extends Control
 @export_file("*.tscn")
 var nextScene := ""
 
+@export_group("结尾黑屏文字")
+@export_multiline
+var finalBlackoutText := ""
+
 
 var currentStep := 0
 
@@ -27,6 +31,12 @@ var characterCounter := 0.0
 var textFinished := false
 
 var finished := false
+
+var showingFinalBlackout := false
+
+var blackScreen: ColorRect
+
+var finalTextLabel: Label
 
 
 func _ready() -> void:
@@ -92,11 +102,11 @@ func _process(delta: float) -> void:
 
 	characterCounter += charactersPerSecond * delta
 
-	var total := textLabel.get_total_character_count()
+	var total := GetActiveCharacterCount()
 
 	var visible := mini(int(characterCounter), total)
 
-	textLabel.visible_characters = visible
+	SetActiveVisibleCharacters(visible)
 
 	if visible >= total:
 		textFinished = true
@@ -140,7 +150,7 @@ func _input(event: InputEvent) -> void:
 	# =====================================================
 
 	if not textFinished:
-		textLabel.visible_characters = textLabel.get_total_character_count()
+		SetActiveVisibleCharacters(GetActiveCharacterCount())
 
 		textFinished = true
 
@@ -163,10 +173,69 @@ func NextStep() -> void:
 	currentStep += 1
 
 	if currentStep >= steps.size():
+		if not showingFinalBlackout and not finalBlackoutText.is_empty():
+			ShowFinalBlackout()
+			return
+
 		FinishCutscene()
 		return
 
 	ShowStep(currentStep)
+
+
+# =========================================================
+# 结尾黑屏
+# =========================================================
+
+func ShowFinalBlackout() -> void:
+	showingFinalBlackout = true
+
+	cgDisplay.hide()
+	dialogueBox.hide()
+
+	blackScreen = ColorRect.new()
+	blackScreen.color = Color.BLACK
+	blackScreen.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	blackScreen.z_index = 100
+	add_child(blackScreen)
+	blackScreen.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+
+	finalTextLabel = Label.new()
+	finalTextLabel.text = finalBlackoutText
+	finalTextLabel.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	finalTextLabel.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	finalTextLabel.add_theme_color_override("font_color", Color.WHITE)
+	finalTextLabel.add_theme_font_size_override("font_size", 56)
+
+	var font := textLabel.get_theme_default_font()
+
+	if font != null:
+		finalTextLabel.add_theme_font_override("font", font)
+
+	finalTextLabel.z_index = 101
+	finalTextLabel.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	add_child(finalTextLabel)
+	finalTextLabel.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+
+	characterCounter = 0.0
+	finalTextLabel.visible_characters = 0
+	textFinished = false
+	continueHint.visible = false
+
+
+func GetActiveCharacterCount() -> int:
+	if showingFinalBlackout:
+		return finalTextLabel.get_total_character_count()
+
+	return textLabel.get_total_character_count()
+
+
+func SetActiveVisibleCharacters(count: int) -> void:
+	if showingFinalBlackout:
+		finalTextLabel.visible_characters = count
+		return
+
+	textLabel.visible_characters = count
 
 
 # =========================================================

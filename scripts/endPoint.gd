@@ -17,6 +17,14 @@ func OnBodyEntered(body: Node2D) -> void:
 	if not body is Player:
 		return
 
+	var player := body as Player
+
+	if not player.is_physics_processing():
+		return
+
+	# 拿到道具并成功到达终点，这时才永久计入本局。
+	GameState.ConfirmLevelCollection()
+
 	if endUI != null:
 		endUI.process_mode = Node.PROCESS_MODE_ALWAYS
 		endUI.show()

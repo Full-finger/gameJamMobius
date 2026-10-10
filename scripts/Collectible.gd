@@ -14,6 +14,11 @@ func OnBodyEntered(body: Node2D) -> void:
 	if not body is Player:
 		return
 
+	var player := body as Player
+
+	if not player.is_physics_processing():
+		return
+
 	GameState.Collect(level)
 
 	queue_free()
