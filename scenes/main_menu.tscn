@@ -17,7 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://xr3pubi0drvx" path="res://assets/sprite/MainMenu/按钮ui/字/btn-exit-normal.png" id="14_j7ex8"]
 [ext_resource type="Texture2D" uid="uid://d31b2gjk7r62h" path="res://assets/sprite/MainMenu/按钮ui/字/btn-exit-hover.png" id="15_a8gd2"]
 [ext_resource type="Texture2D" uid="uid://dspq8yll34t4y" path="res://assets/sprite/MainMenu/e5828b698d9932f8498ec4c4ccc2e90c.png" id="16_5pajh"]
-[ext_resource type="Script" uid="uid://dyaedt5cyjhe3" path="res://scenes/Button_exit.cs" id="17_hstxw"]
+[ext_resource type="Script" uid="uid://dyaedt5cyjhe3" path="res://scenes/Button_exit.gd" id="17_hstxw"]
 [ext_resource type="AudioStream" uid="uid://fgrryxey16yd" path="res://assets/audios/bgm/bgm title.mp3" id="18_a8gd2"]
 
 [sub_resource type="Animation" id="Animation_Boy_Reset"]
