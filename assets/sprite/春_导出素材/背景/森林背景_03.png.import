@@ -15,9 +15,9 @@ dest_files=["res://.godot/imported/森林背景_03.png-33698a3d3615b611f3f1913d7
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
-compress/lossy_quality=0.7
+compress/lossy_quality=0.85
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0
 compress/hdr_compression=1

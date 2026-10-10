@@ -15,9 +15,9 @@ dest_files=["res://.godot/imported/0003_花苞1.png-3ac2d37de966b9b9408e50729e82
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
-compress/lossy_quality=0.7
+compress/lossy_quality=0.85
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
