@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dy3lrw6rvyjq7"]
 
-[ext_resource type="Script" uid="uid://bflheicgtodj0" path="res://CutscenePlayer.cs" id="1_kljym"]
-[ext_resource type="Script" uid="uid://s30qc58fkcff" path="res://scripts/SO/CutsceneStep.cs" id="2_ccg3q"]
+[ext_resource type="Script" path="res://CutscenePlayer.gd" id="1_kljym"]
+[ext_resource type="Script" path="res://scripts/SO/CutsceneStep.gd" id="2_ccg3q"]
 [ext_resource type="Texture2D" uid="uid://mjr6605uxod6" path="res://assets/sprite/CG/ENDCG/Image_1791312501944_276.png" id="3_vtrw5"]
 [ext_resource type="AudioStream" uid="uid://begnmf16iaw30" path="res://assets/audios/bgm/bgm BE.mp3" id="6_bvcjp"]
 [ext_resource type="Texture2D" uid="uid://b4nxtr1kb5w21" path="res://assets/sprite/TutorialFrame/文本框2.png" id="8_j0wvg"]
@@ -10,21 +10,17 @@
 [sub_resource type="Resource" id="Resource_1cycw"]
 script = ExtResource("2_ccg3q")
 cg = ExtResource("3_vtrw5")
-text = "BADENDING"
-metadata/_custom_type_script = "uid://s30qc58fkcff"
+text = "很不幸你来到了坏结局"
 
 [sub_resource type="Resource" id="Resource_vsubv"]
 script = ExtResource("2_ccg3q")
 cg = ExtResource("3_vtrw5")
-text = "或许，老人的照片中还夹着一些物品。  
-那些物品里，也藏着他的回忆。  
-也许，老人还能想起更多。"
-metadata/_custom_type_script = "uid://s30qc58fkcff"
+text = "也许我该说点什么吗？现在要回主页面了"
 
 [sub_resource type="Theme" id="Theme_2mha5"]
 default_font = ExtResource("9_ylbj1")
-default_font_size = 132
-RichTextLabel/font_sizes/normal_font_size = 249
+default_font_size = 44
+RichTextLabel/font_sizes/normal_font_size = 177
 
 [sub_resource type="Theme" id="Theme_kuhf1"]
 default_font_size = 32
@@ -44,7 +40,6 @@ textLabel = NodePath("Control/Text")
 continueHint = NodePath("Control/Label")
 steps = Array[ExtResource("2_ccg3q")]([SubResource("Resource_1cycw"), SubResource("Resource_vsubv")])
 nextScene = "uid://cenrmkmh26udf"
-finalBlackoutText = "有些回忆，终究没能跟上今夜的梦。"
 
 [node name="CG" type="TextureRect" parent="." unique_id=1308119415]
 layout_mode = 1

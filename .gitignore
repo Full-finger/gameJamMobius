@@ -14,3 +14,9 @@ assets/test/
 
 docs/other/
 /tools/
+
+# 构建产物
+build/
+
+# 本地工具工作区
+.zcode/

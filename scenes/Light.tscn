@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cyfmxehji1crp"]
 
-[ext_resource type="Script" uid="uid://fwqushon7mbe" path="res://scripts/Light.cs" id="1_83xrv"]
+[ext_resource type="Script" path="res://scripts/Light.gd" id="1_83xrv"]
 [ext_resource type="Texture2D" uid="uid://b0gbn2f6vxm4f" path="res://assets/sprite/光源/光源.png" id="2_b1e3x"]
 
 [sub_resource type="Gradient" id="Gradient_2jnl3"]

@@ -1,33 +1,26 @@
 [gd_scene format=3 uid="uid://c5q2suesv1nee"]
 
-[ext_resource type="Script" uid="uid://bflheicgtodj0" path="res://CutscenePlayer.cs" id="1_77fo1"]
-[ext_resource type="Script" uid="uid://s30qc58fkcff" path="res://scripts/SO/CutsceneStep.cs" id="2_7ox1r"]
+[ext_resource type="Script" path="res://CutscenePlayer.gd" id="1_77fo1"]
+[ext_resource type="Script" path="res://scripts/SO/CutsceneStep.gd" id="2_7ox1r"]
 [ext_resource type="Texture2D" uid="uid://1u1suqya8d2l" path="res://assets/sprite/CG/ENDCG/Image_1791312486875_313.png" id="3_1igoi"]
 [ext_resource type="AudioStream" uid="uid://n4soo3vskd6n" path="res://assets/audios/bgm/bgm TE.mp3" id="6_nw11l"]
 [ext_resource type="Texture2D" uid="uid://b4nxtr1kb5w21" path="res://assets/sprite/TutorialFrame/文本框2.png" id="7_2d4j3"]
 [ext_resource type="FontFile" uid="uid://siupji2vbknh" path="res://assets/Font/ZCOOLKuaiLe-Regular.ttf" id="8_kopp8"]
 
-[sub_resource type="Theme" id="Theme_nw11l"]
-default_font_size = 15
-RichTextLabel/font_sizes/normal_font_size = 35
-
 [sub_resource type="Resource" id="Resource_1cycw"]
 script = ExtResource("2_7ox1r")
 cg = ExtResource("3_1igoi")
-text = "温暖的暮色早已不见，时钟拨到了深夜。小猫在老人怀中睡得很沉，呼吸轻得像一簇终于落回怀里的光。  
-"
-metadata/_custom_type_script = "uid://s30qc58fkcff"
+text = "恭喜你来到了真结局 好结局"
 
 [sub_resource type="Resource" id="Resource_vsubv"]
 script = ExtResource("2_7ox1r")
 cg = ExtResource("3_1igoi")
-text = "老人低头看着它，轻轻地笑了。"
-metadata/_custom_type_script = "uid://s30qc58fkcff"
+text = "也许我该说点什么吗？但是要回主页面了"
 
 [sub_resource type="Theme" id="Theme_2mha5"]
 default_font = ExtResource("8_kopp8")
-default_font_size = 58
-RichTextLabel/font_sizes/normal_font_size = 249
+default_font_size = 44
+RichTextLabel/font_sizes/normal_font_size = 177
 
 [sub_resource type="Theme" id="Theme_kuhf1"]
 default_font_size = 32
@@ -40,7 +33,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = SubResource("Theme_nw11l")
 script = ExtResource("1_77fo1")
 cgDisplay = NodePath("CG")
 dialogueBox = NodePath("Control/TutorialBox")
@@ -48,7 +40,6 @@ textLabel = NodePath("Control/Text")
 continueHint = NodePath("Control/Label")
 steps = Array[ExtResource("2_7ox1r")]([SubResource("Resource_1cycw"), SubResource("Resource_vsubv")])
 nextScene = "uid://cenrmkmh26udf"
-finalBlackoutText = "夜很深了。他不再追光，因为光已经睡在他的怀里。"
 
 [node name="CG" type="TextureRect" parent="." unique_id=1308119415]
 layout_mode = 1

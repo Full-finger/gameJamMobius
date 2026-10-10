@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://022fi7cav8ro"]
 
-[ext_resource type="Script" uid="uid://dd0e6tgl84g0" path="res://scripts/Player.cs" id="1_v6fml"]
+[ext_resource type="Script" path="res://scripts/Player.gd" id="1_v6fml"]
 [ext_resource type="Texture2D" uid="uid://plmdnywvr2e6" path="res://assets/sprite/PlayerSprite/young/idle/the old man-idel_00.png" id="2_agngo"]
 [ext_resource type="Shader" uid="uid://61m6i8kb54kt" path="res://assets/shaderAndMatrial/Dissolve.gdshader" id="2_gusmc"]
 [ext_resource type="AudioStream" uid="uid://du3eay4ogvwhf" path="res://assets/audios/SFX/SFX 01 step.mp3" id="2_swmfq"]
@@ -152,7 +152,7 @@
 [ext_resource type="Texture2D" uid="uid://c6wjqe7j6t1c0" path="res://assets/sprite/PlayerSprite/old/walk/the old man-walk_18.png" id="144_n5pma"]
 [ext_resource type="Texture2D" uid="uid://dg76e77r2k8eq" path="res://assets/sprite/PlayerSprite/old/walk/the old man-walk_19.png" id="145_kvby3"]
 [ext_resource type="AudioStream" uid="uid://ct34a3mdg8w86" path="res://assets/audios/脚步声 走路 跑步 急促 慢跑 跑 走.mp3" id="148_lpjdr"]
-[ext_resource type="Script" uid="uid://x30o7q21opbp" path="res://scripts/LevelCamera.cs" id="camera_bounds"]
+[ext_resource type="Script" path="res://scripts/LevelCamera.gd" id="camera_bounds"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_g6jhj"]
 frequency = 0.009

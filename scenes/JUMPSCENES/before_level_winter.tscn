@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ctk428de6jhl0"]
 
-[ext_resource type="Script" uid="uid://cp8rykcyxf3fv" path="res://scripts/BeforeLevelWinter.cs" id="1_uf4yj"]
+[ext_resource type="Script" path="res://scripts/BeforeLevelWinter.gd" id="1_uf4yj"]
 [ext_resource type="Texture2D" uid="uid://cklwwryh20tlp" path="res://assets/sprite/items/Image_1791312551153_466.png" id="2_0mt1t"]
 [ext_resource type="Texture2D" uid="uid://dkemaiyk5e7yr" path="res://assets/sprite/items/79f0e3c0-6d0e-49c7-83b2-07922ad9327d.png" id="3_0pq8l"]
 [ext_resource type="Texture2D" uid="uid://db2ojy5wgqoyk" path="res://assets/sprite/items/480bb6f0-8507-4f66-a9ab-affe3d544e90.png" id="4_50v6i"]

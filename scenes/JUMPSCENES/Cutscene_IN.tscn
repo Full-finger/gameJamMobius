@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://bamyseyas5r7f"]
 
-[ext_resource type="Script" uid="uid://bflheicgtodj0" path="res://CutscenePlayer.cs" id="1_tda0w"]
+[ext_resource type="Script" path="res://CutscenePlayer.gd" id="1_tda0w"]
 [ext_resource type="Texture2D" uid="uid://b4nxtr1kb5w21" path="res://assets/sprite/TutorialFrame/文本框2.png" id="2_b6u4r"]
-[ext_resource type="Script" uid="uid://s30qc58fkcff" path="res://scripts/SO/CutsceneStep.cs" id="2_fiq31"]
+[ext_resource type="Script" path="res://scripts/SO/CutsceneStep.gd" id="2_fiq31"]
 [ext_resource type="Texture2D" uid="uid://d2x7kkaxv540w" path="res://assets/sprite/CG/INCG/Image_1791312795132_362.png" id="3_3lce0"]
 [ext_resource type="FontFile" uid="uid://siupji2vbknh" path="res://assets/Font/ZCOOLKuaiLe-Regular.ttf" id="3_4evwg"]
 [ext_resource type="Texture2D" uid="uid://dtnwpbjttatcc" path="res://assets/sprite/CG/INCG/Image_1791312777553_88.png" id="4_4flxi"]
@@ -14,32 +14,27 @@
 [sub_resource type="Resource" id="Resource_1cycw"]
 script = ExtResource("2_fiq31")
 cg = ExtResource("3_3lce0")
-text = "老人伴着暮落的暖晕睡着了"
-metadata/_custom_type_script = "uid://s30qc58fkcff"
+text = "开场"
 
 [sub_resource type="Resource" id="Resource_vsubv"]
 script = ExtResource("2_fiq31")
 cg = ExtResource("4_4flxi")
-text = "小黑猫在他的怀里打呼噜"
-metadata/_custom_type_script = "uid://s30qc58fkcff"
+text = "睡着了"
 
 [sub_resource type="Resource" id="Resource_8jejx"]
 script = ExtResource("2_fiq31")
 cg = ExtResource("5_11rj5")
-text = "梦见与年轻的自己一起散步"
-metadata/_custom_type_script = "uid://s30qc58fkcff"
+text = "和年轻的自己散步"
 
 [sub_resource type="Resource" id="Resource_fiq31"]
 script = ExtResource("2_fiq31")
 cg = ExtResource("6_gwcb8")
-text = "看到了年轻时在森林游玩的照片，想到了很多往事..."
-metadata/_custom_type_script = "uid://s30qc58fkcff"
+text = "也许在拍照"
 
 [sub_resource type="Resource" id="Resource_3lce0"]
 script = ExtResource("2_fiq31")
 cg = ExtResource("7_e2a6q")
-text = "欸？怎么回事，重返年轻了！"
-metadata/_custom_type_script = "uid://s30qc58fkcff"
+text = "拍好了 接下来进入游戏"
 
 [sub_resource type="Theme" id="Theme_2mha5"]
 default_font = ExtResource("3_4evwg")

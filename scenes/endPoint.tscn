@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://mxt78cvn5w35"]
 
-[ext_resource type="Script" uid="uid://qlmarmji4bqd" path="res://scripts/endPoint.cs" id="1_1ckhb"]
+[ext_resource type="Script" path="res://scripts/endPoint.gd" id="1_1ckhb"]
 [ext_resource type="Texture2D" uid="uid://5d8tf34xxck1" path="res://assets/sprite/jumpscene/frame_01.png" id="2_033d5"]
 [ext_resource type="Texture2D" uid="uid://b4sp2ha1mksx3" path="res://assets/sprite/jumpscene/frame_05.png" id="3_3omjq"]
 [ext_resource type="Texture2D" uid="uid://cexnvxdu2k2mb" path="res://assets/sprite/jumpscene/frame_09.png" id="4_7tjgb"]

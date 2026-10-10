@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cenrmkmh26udf"]
 
-[ext_resource type="Script" uid="uid://coob448o8itmp" path="res://scenes/MenuButton.cs" id="1_jk1qb"]
-[ext_resource type="Script" uid="uid://87e808ux7art" path="res://scripts/Button_start.cs" id="1_l6cm7"]
+[ext_resource type="Script" path="res://scenes/MenuButton.gd" id="1_jk1qb"]
+[ext_resource type="Script" path="res://scripts/Button_start.gd" id="1_l6cm7"]
 [ext_resource type="Texture2D" uid="uid://diuqu2eyuvoft" path="res://assets/sprite/MainMenu/按钮ui/Cache_-3dc8b9bed0eef2ae.png" id="2_5dd4i"]
 [ext_resource type="Texture2D" uid="uid://cfmbs4j34w5jc" path="res://assets/sprite/MainMenu/85c21079cad0f05e786a985f60701a36.png" id="2_8ln24"]
 [ext_resource type="Texture2D" uid="uid://4wec6cn5eh8j" path="res://assets/sprite/MainMenu/按钮ui/Cache_50ed07607f59c84b.png" id="3_lgwnu"]
@@ -13,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://dnv1uh40adqh5" path="res://assets/sprite/MainMenu/按钮ui/字/btn-start-hover.png" id="9_flqon"]
 [ext_resource type="Texture2D" uid="uid://db5koqqalggmv" path="res://assets/sprite/MainMenu/按钮ui/字/btn-set-normal.png" id="12_7b55j"]
 [ext_resource type="Texture2D" uid="uid://c4kpjh5r28hga" path="res://assets/sprite/MainMenu/按钮ui/字/btn-set-hover.png" id="13_5pajh"]
-[ext_resource type="Script" uid="uid://bdliwah5e1q1d" path="res://scenes/Button_settings.cs" id="14_a8gd2"]
+[ext_resource type="Script" path="res://scenes/Button_settings.gd" id="14_a8gd2"]
 [ext_resource type="Texture2D" uid="uid://xr3pubi0drvx" path="res://assets/sprite/MainMenu/按钮ui/字/btn-exit-normal.png" id="14_j7ex8"]
 [ext_resource type="Texture2D" uid="uid://d31b2gjk7r62h" path="res://assets/sprite/MainMenu/按钮ui/字/btn-exit-hover.png" id="15_a8gd2"]
 [ext_resource type="Texture2D" uid="uid://dspq8yll34t4y" path="res://assets/sprite/MainMenu/e5828b698d9932f8498ec4c4ccc2e90c.png" id="16_5pajh"]
