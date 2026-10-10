@@ -14,4 +14,4 @@ func StartGame() -> void:
 	# 等待 0.7 秒，让动画播完
 	await get_tree().create_timer(0.7).timeout
 
-	TransitionManager.TransitionTo("res://scenes/JUMPSCENES/CutScene_IN.tscn")
+	TransitionManager.TransitionTo("res://scenes/JUMPSCENES/Cutscene_IN.tscn")
